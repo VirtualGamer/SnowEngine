@@ -114,6 +114,11 @@ public final class Vector2
     {
         return new Vector2(-this.x, -this.y);
     }
+    
+    public Vector2 lerp(Vector2 destination, float lerpFactor)
+    {
+        return destination.subtract(this).multiply(lerpFactor).add(this);
+    }
 
     public float lengthSquared()
     {

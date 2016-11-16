@@ -134,6 +134,11 @@ public final class Vector4
     {
         return new Vector4(-this.x, -this.y, -this.z, -this.w);
     }
+    
+    public Vector4 lerp(Vector4 destination, float lerpFactor)
+    {
+        return destination.subtract(this).multiply(lerpFactor).add(this);
+    }
 
     public float lengthSquared()
     {

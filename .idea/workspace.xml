@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/Camera2D.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/Camera2D.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/GameObject.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/GameObject.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" afterPath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Camera2D.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Camera2D.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Transform.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Transform.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector2.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector3.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector3.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector4.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector4.java" />
     </list>
     <ignored path="SnowEngine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,8 +30,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-132">
-              <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+            <state relative-caret-position="330">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -98,28 +92,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AudioSource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioSource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1694">
-              <caret line="187" column="5" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
-              <folding>
-                <element signature="method#AudioSource#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#setVolume#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#setRollOffFactor#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#setReferenceDistance#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#setMaxDistance#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#setPosition#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#setVelocity#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#play#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#loop#0;class#AudioSource#0" expanded="false" />
-                <element signature="method#stop#0;class#AudioSource#0" expanded="false" />
-                <element signature="e#4837#4838#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AnimatedSprite.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AnimatedSprite.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -171,16 +143,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic.frag" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -206,9 +168,6 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/buffers/IndexBuffer.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/buffers/Buffer.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/buffers/VertexArray.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector2.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector3.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector4.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/FileData.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/AudioData.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/data/audio/WaveData.java" />
@@ -254,6 +213,9 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Camera2D.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector2.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector3.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector4.java" />
       </list>
     </option>
   </component>
@@ -1007,12 +969,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.50625" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1071,51 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="134" column="63" selection-start-line="134" selection-start-column="63" selection-end-line="134" selection-end-column="63" />
-          <folding>
-            <element signature="method#Vector4#0;class#Vector4#0" expanded="false" />
-            <element signature="method#Vector4#1;class#Vector4#0" expanded="false" />
-            <element signature="method#add#0;class#Vector4#0" expanded="false" />
-            <element signature="method#subtract#0;class#Vector4#0" expanded="false" />
-            <element signature="method#multiply#0;class#Vector4#0" expanded="false" />
-            <element signature="method#divide#0;class#Vector4#0" expanded="false" />
-            <element signature="method#add#1;class#Vector4#0" expanded="false" />
-            <element signature="method#subtract#1;class#Vector4#0" expanded="false" />
-            <element signature="method#multiply#1;class#Vector4#0" expanded="false" />
-            <element signature="method#divide#1;class#Vector4#0" expanded="false" />
-            <element signature="e#2711#2712#0" expanded="false" />
-            <element signature="e#2781#2782#0" expanded="false" />
-            <element signature="method#lengthSquared#0;class#Vector4#0" expanded="false" />
-            <element signature="method#equals#0;class#Vector4#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
-          <folding>
-            <element signature="method#Vector2#0;class#Vector2#0" expanded="false" />
-            <element signature="method#Vector2#1;class#Vector2#0" expanded="false" />
-            <element signature="method#add#0;class#Vector2#0" expanded="false" />
-            <element signature="method#subtract#0;class#Vector2#0" expanded="false" />
-            <element signature="method#multiply#0;class#Vector2#0" expanded="false" />
-            <element signature="method#divide#0;class#Vector2#0" expanded="false" />
-            <element signature="method#add#1;class#Vector2#0" expanded="false" />
-            <element signature="method#subtract#1;class#Vector2#0" expanded="false" />
-            <element signature="method#multiply#1;class#Vector2#0" expanded="false" />
-            <element signature="method#divide#1;class#Vector2#0" expanded="false" />
-            <element signature="e#2088#2089#0" expanded="false" />
-            <element signature="e#2134#2135#0" expanded="false" />
-            <element signature="method#equals#0;class#Vector2#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1528,28 +1445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="19" />
-          <folding>
-            <element signature="method#Vector3#0;class#Vector3#0" expanded="false" />
-            <element signature="method#Vector3#1;class#Vector3#0" expanded="false" />
-            <element signature="method#add#0;class#Vector3#0" expanded="false" />
-            <element signature="method#subtract#0;class#Vector3#0" expanded="false" />
-            <element signature="method#multiply#0;class#Vector3#0" expanded="false" />
-            <element signature="method#divide#0;class#Vector3#0" expanded="false" />
-            <element signature="method#add#1;class#Vector3#0" expanded="false" />
-            <element signature="method#subtract#1;class#Vector3#0" expanded="false" />
-            <element signature="method#multiply#1;class#Vector3#0" expanded="false" />
-            <element signature="method#divide#1;class#Vector3#0" expanded="false" />
-            <element signature="e#2440#2441#0" expanded="true" />
-            <element signature="e#2501#2502#0" expanded="true" />
-            <element signature="method#equals#0;class#Vector3#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Camera2D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -1605,10 +1500,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="125" column="5" selection-start-line="125" selection-start-column="5" selection-end-line="130" selection-end-column="5" />
+          <folding>
+            <element signature="method#Vector3#0;class#Vector3#0" expanded="false" />
+            <element signature="method#Vector3#1;class#Vector3#0" expanded="false" />
+            <element signature="method#add#0;class#Vector3#0" expanded="false" />
+            <element signature="method#subtract#0;class#Vector3#0" expanded="false" />
+            <element signature="method#multiply#0;class#Vector3#0" expanded="false" />
+            <element signature="method#divide#0;class#Vector3#0" expanded="false" />
+            <element signature="method#add#1;class#Vector3#0" expanded="false" />
+            <element signature="method#subtract#1;class#Vector3#0" expanded="false" />
+            <element signature="method#multiply#1;class#Vector3#0" expanded="false" />
+            <element signature="method#divide#1;class#Vector3#0" expanded="false" />
+            <element signature="method#equals#0;class#Vector3#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="137" column="31" selection-start-line="137" selection-start-column="31" selection-end-line="137" selection-end-column="31" />
+          <folding>
+            <element signature="method#Vector4#0;class#Vector4#0" expanded="false" />
+            <element signature="method#Vector4#1;class#Vector4#0" expanded="false" />
+            <element signature="method#add#0;class#Vector4#0" expanded="false" />
+            <element signature="method#subtract#0;class#Vector4#0" expanded="false" />
+            <element signature="method#multiply#0;class#Vector4#0" expanded="false" />
+            <element signature="method#divide#0;class#Vector4#0" expanded="false" />
+            <element signature="method#add#1;class#Vector4#0" expanded="false" />
+            <element signature="method#subtract#1;class#Vector4#0" expanded="false" />
+            <element signature="method#multiply#1;class#Vector4#0" expanded="false" />
+            <element signature="method#divide#1;class#Vector4#0" expanded="false" />
+            <element signature="e#2711#2712#0" expanded="true" />
+            <element signature="e#2781#2782#0" expanded="true" />
+            <element signature="method#lengthSquared#0;class#Vector4#0" expanded="false" />
+            <element signature="method#equals#0;class#Vector4#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
+        <state relative-caret-position="330">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
