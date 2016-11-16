@@ -32,7 +32,8 @@ public final class Main
         window.setSizeCallback(Main::windowResize);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
-        AnimatedSprite sprite1 = new AnimatedSprite("textures/slime.png", 1, 3);
+        AnimatedSprite sprite1 = new AnimatedSprite("textures/player.png", 1, 7);
+        sprite1.transform.scale.x = 1;
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -59,7 +60,7 @@ public final class Main
         window.showCursor(false);
         window.setVisible(true);
         
-        int timer = 0, maxTime = 100;
+        int timer = 0, maxTime = 10, frameIndex = 0;
         float x = 0, y = 0, speed = 20f;
         Vector3 rotSpeed = new Vector3(0, 0, 0);
         while (!window.isCloseRequested())
@@ -79,7 +80,7 @@ public final class Main
             if (timer >= maxTime)
             {
                 timer = 0;
-                sprite1.update();
+                sprite1.setFrame((frameIndex < 6) ? frameIndex++ : (frameIndex = 0));
             }
 
             window.clear();

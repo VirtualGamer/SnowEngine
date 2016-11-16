@@ -70,6 +70,11 @@ public class AnimatedSprite extends GameObject
         m_Mesh.setMeshData(vertices, uvs, indices, true);
     }
     
+    public void setFrame(int index)
+    {
+        m_FrameIndex = index;
+    }
+    
     @Override
     public void update()
     {
