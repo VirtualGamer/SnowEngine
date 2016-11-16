@@ -32,8 +32,7 @@ public final class Main
         window.setSizeCallback(Main::windowResize);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
-        Sprite sprite1 = new Sprite("textures/test_texture.png");
-        sprite1.transform.scale.divide(2);
+        AnimatedSprite sprite1 = new AnimatedSprite("textures/wall.png", 2, 2);
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -61,7 +60,7 @@ public final class Main
         window.setVisible(true);
         
         float x = 0, y = 0, speed = 20f;
-        Vector3 rotSpeed = new Vector3(0, 0, 0.8f);
+        Vector3 rotSpeed = new Vector3(0, 0, 0);
         while (!window.isCloseRequested())
         {
             shader.setUniformMatrix4f("projection", projection);
@@ -75,6 +74,9 @@ public final class Main
             Matrix4 mvp = projection.copy();
             mvp.multiply(view.multiply(sprite1.transform.getTransformMatrix()));
             shader.setUniformMatrix4f("mvp", mvp);
+            
+            
+            sprite1.update();
 
             window.clear();
             

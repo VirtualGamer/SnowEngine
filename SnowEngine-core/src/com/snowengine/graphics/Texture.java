@@ -28,16 +28,27 @@ public final class Texture
 
     public Texture(String filepath)
     {
-        m_TextureID = glGenTextures();
-
         ImageFile file = FileUtils.openImageFile(filepath);
         m_Width = file.getWidth();
         m_Height = file.getHeight();
+        this.create(file.getPixels());
+    }
+    
+    private Texture(int width, int height, int pixels[])
+    {
+        m_Width = width;
+        m_Height = height;
+        this.create(pixels);
+    }
+    
+    private void create(int pixels[])
+    {
+        m_TextureID = glGenTextures();
         
         glBindTexture(GL_TEXTURE_2D, m_TextureID);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, file.getPixels());
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
         glBindTexture(GL_TEXTURE_2D, 0);
     }
     
@@ -72,5 +83,45 @@ public final class Texture
     public static Texture getActiveTexture()
     {
         return m_ActiveTexture;
+    }
+    
+    public static Texture[] splitTextures(String filepath, int columns, int rows)
+    {
+        ImageFile file = FileUtils.openImageFile(filepath);
+        
+        int gridWidth = file.getWidth() / columns;
+        int gridHeight = file.getHeight() / rows;
+        int pixels[] = file.getPixels();
+        
+        Texture result[] = new Texture[columns * rows];
+    
+        for (int column = 0; column < columns; column++)
+        {
+            int xOffset = column * gridWidth;
+            for (int row = 0; row < rows; row++)
+            {
+                int yOffset = row * gridHeight;
+                result[column + row * columns] = loadTextureSplitted(gridWidth, gridHeight, pixels, xOffset, yOffset, file.getWidth());
+            }
+        }
+        
+        return result;
+    }
+    
+    private static Texture loadTextureSplitted(int width, int height, int pixels[], int xOffset, int yOffset, int imgWidth)
+    {
+        int result[] = new int[width * height];
+        
+        for (int x = 0; x < width; x++)
+        {
+            int xx = x + xOffset;
+            for (int y = 0; y < height; y++)
+            {
+                int yy = y + yOffset;
+                result[x + y * width] = pixels[xx + yy * imgWidth];
+            }
+        }
+        
+        return new Texture(width, height, result);
     }
 }
