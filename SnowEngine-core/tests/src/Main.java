@@ -18,7 +18,7 @@ import com.snowengine.audio.*;
 import com.snowengine.graphics.*;
 import com.snowengine.input.*;
 import com.snowengine.maths.*;
-import com.snowengine.objects.Sprite;
+import com.snowengine.objects.*;
 import com.snowengine.utils.*;
 
 public final class Main
@@ -28,7 +28,7 @@ public final class Main
     public static void main(String args[])
     {
         FileUtils.setPathPrefix("./SnowEngine-core/assets/");
-        Window window = new Window("SnowEngine!", 960, 540);
+        Window window = new Window("SnowEngine!", 800, 600);
         window.setSizeCallback(Main::windowResize);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
@@ -53,8 +53,8 @@ public final class Main
         AudioMaster.setDistanceModel(DistanceModel.LinearDistanceClamped);
         AudioListener listener = new AudioListener();
         AudioSource source = new AudioSource();
-        source.setReferenceDistance(6);
-        source.setMaxDistance(10);
+        source.setReferenceDistance(200);
+        source.setMaxDistance(400);
         source.play(clip);
     
         window.setVisible(true);

@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/textures/test_texture.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/textures/test_texture.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
     </list>
     <ignored path="SnowEngine.iws" />
@@ -32,8 +30,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="75" column="51" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
+            <state relative-caret-position="352">
+              <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,7 +157,6 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioAttenuation.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioListener.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioMaster.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioSource.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Mouse.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/ImageData.java" />
@@ -175,6 +172,7 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioSource.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
       </list>
     </option>
@@ -1290,33 +1288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="158" column="29" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="method#AudioSource#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#setVolume#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#setRollOffFactor#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#setReferenceDistance#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#setMaxDistance#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#setPosition#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#setVelocity#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#play#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#loop#0;class#AudioSource#0" expanded="false" />
-            <element signature="method#stop#0;class#AudioSource#0" expanded="false" />
-            <element signature="e#4071#4072#0" expanded="false" />
-            <element signature="e#4109#4110#0" expanded="false" />
-            <element signature="e#4156#4157#0" expanded="false" />
-            <element signature="e#4198#4199#0" expanded="false" />
-            <element signature="e#4239#4240#0" expanded="false" />
-            <element signature="e#4275#4276#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1528,10 +1499,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="187" column="5" selection-start-line="187" selection-start-column="5" selection-end-line="187" selection-end-column="5" />
+          <folding>
+            <element signature="method#AudioSource#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#setVolume#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#setRollOffFactor#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#setReferenceDistance#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#setMaxDistance#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#setPosition#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#setVelocity#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#play#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#loop#0;class#AudioSource#0" expanded="false" />
+            <element signature="method#stop#0;class#AudioSource#0" expanded="false" />
+            <element signature="e#4837#4838#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="75" column="51" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
+        <state relative-caret-position="352">
+          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
