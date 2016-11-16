@@ -18,10 +18,12 @@ package com.snowengine.graphics;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.ImageFile;
 
-import static org.lwjgl.opengl.GL11.glGenTextures;
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL13.*;
 
 public final class Texture
 {
+    private static Texture m_ActiveTexture = null;
     private int m_TextureID, m_Width, m_Height;
 
     public Texture(String filepath)
@@ -29,5 +31,46 @@ public final class Texture
         m_TextureID = glGenTextures();
 
         ImageFile file = FileUtils.openImageFile(filepath);
+        m_Width = file.getWidth();
+        m_Height = file.getHeight();
+        
+        glBindTexture(GL_TEXTURE_2D, m_TextureID);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, file.getPixels());
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
+    
+    public void bind()
+    {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, m_TextureID);
+        m_ActiveTexture = this;
+    }
+    
+    public void unbind()
+    {
+        glBindTexture(GL_TEXTURE_2D, 0);
+        m_ActiveTexture = null;
+    }
+    
+    public int getWidth()
+    {
+        return m_Width;
+    }
+    
+    public int getHeight()
+    {
+        return m_Height;
+    }
+    
+    public boolean isActive()
+    {
+        return (m_ActiveTexture == this);
+    }
+    
+    public static Texture getActiveTexture()
+    {
+        return m_ActiveTexture;
     }
 }

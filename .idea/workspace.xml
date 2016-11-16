@@ -5,13 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Object.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Transform.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/input/Keyboard.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/input/Keyboard.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Keyboard.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Keyboard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag" afterPath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" afterPath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
     </list>
     <ignored path="SnowEngine.iws" />
@@ -35,28 +37,22 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+            <state relative-caret-position="63">
+              <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Object.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Object.java">
+      <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="154">
+              <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
               <folding>
-                <element signature="e#1108#1109#0" expanded="true" />
-                <element signature="e#1165#1166#0" expanded="true" />
-                <element signature="e#1427#1428#0" expanded="true" />
-                <element signature="e#1462#1463#0" expanded="true" />
-                <element signature="e#1516#1517#0" expanded="true" />
-                <element signature="e#1543#1544#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,60 +61,10 @@
       <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="67" column="69" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
+            <state relative-caret-position="579">
+              <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1763#1764#0" expanded="true" />
-                <element signature="e#1839#1840#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mesh.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#951#952#0" expanded="true" />
-                <element signature="e#992#993#0" expanded="true" />
-                <element signature="e#1649#1650#0" expanded="true" />
-                <element signature="e#1733#1734#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mouse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Mouse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#1374#1375#0" expanded="false" />
-                <element signature="e#1434#1435#0" expanded="false" />
-                <element signature="e#1769#1770#0" expanded="false" />
-                <element signature="e#1838#1839#0" expanded="false" />
-                <element signature="e#2294#2295#0" expanded="false" />
-                <element signature="e#2361#2362#0" expanded="false" />
-                <element signature="e#2696#2697#0" expanded="false" />
-                <element signature="e#2743#2744#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cursor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Cursor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-              <folding>
-                <element signature="n#!!doc" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -184,8 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/KeyCode.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/Main.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Mathf.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Gamepad.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/buffers/IndexBuffer.java" />
@@ -194,8 +138,6 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector2.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector3.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Vector4.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/FileData.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/AudioData.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/data/audio/WaveData.java" />
@@ -213,7 +155,6 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/TextFile.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/AudioFile.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/FileUtils.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/Main.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/scripts/helloworld.cs" />
         <option value="$PROJECT_DIR$/SnowEngine-core/scripts/HelloWorld.cs" />
@@ -232,8 +173,13 @@
         <option value="$PROJECT_DIR$/LICENSE.md" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Keyboard.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Object.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Transform.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
       </list>
     </option>
@@ -556,6 +502,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnowEngine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SnowEngine-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shaders" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -922,29 +886,29 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.50208336" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -968,34 +932,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Dependencies/openal/src/org/lwjgl/openal/ALC10.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dependencies/openal/src/org/lwjgl/openal/AL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="152" column="72" selection-start-line="152" selection-start-column="72" selection-end-line="152" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/awt/image/BufferedImage.java" />
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="initializer##0;class#FileUtils#0" expanded="false" />
-            <element signature="method#FileUtils#0;class#FileUtils#0" expanded="false" />
-            <element signature="method#closeFiles#0;class#FileUtils#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/package-info.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1218,16 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Shader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1396,24 +1322,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Mouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#1374#1375#0" expanded="false" />
-            <element signature="e#1434#1435#0" expanded="false" />
-            <element signature="e#1769#1770#0" expanded="false" />
-            <element signature="e#1838#1839#0" expanded="false" />
-            <element signature="e#2294#2295#0" expanded="false" />
-            <element signature="e#2361#2362#0" expanded="false" />
-            <element signature="e#2696#2697#0" expanded="false" />
-            <element signature="e#2743#2744#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1443,7 +1351,7 @@
         <state relative-caret-position="0">
           <caret line="42" column="46" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
           <folding>
-            <element signature="method#getPixels#0;class#ImageData#0" expanded="true" />
+            <element signature="method#getPixels#0;class#ImageData#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1491,16 +1399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Cursor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ReadMe.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1530,6 +1428,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/input/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Cursor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="49" column="26" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1547,36 +1465,79 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="67" column="69" selection-start-line="67" selection-start-column="69" selection-end-line="67" selection-end-column="69" />
+        <state relative-caret-position="579">
+          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1763#1764#0" expanded="true" />
-            <element signature="e#1839#1840#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Transform.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1714#1715#0" expanded="true" />
+            <element signature="e#1762#1763#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2079#2080#0" expanded="true" />
+            <element signature="e#2117#2118#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        <state relative-caret-position="390">
+          <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="42" column="42" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#992#993#0" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
-            <element signature="e#1733#1734#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        <state relative-caret-position="63">
+          <caret line="39" column="55" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>

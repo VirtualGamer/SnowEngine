@@ -15,6 +15,8 @@
  */
 package com.snowengine.objects;
 
+import com.snowengine.graphics.Shader;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +33,14 @@ import java.util.List;
  */
 public class GameObject extends Object
 {
+    public Transform transform;
+    
     private List<GameObject> m_Children;
     
     public GameObject(String name, int instanceID)
     {
         super (name, instanceID);
+        this.transform = new Transform();
         m_Children = new ArrayList<>();
     }
     
@@ -61,6 +66,18 @@ public class GameObject extends Object
         {
             m_Children.remove(gameObject);
         }
+    }
+    
+    public void update()
+    {
+        m_Children.forEach(GameObject::update);
+    }
+    
+    public void render()
+    {
+        Shader shader = Shader.getActiveShader();
+        shader.setUniformMatrix4f("model", transform.getTransformMatrix());
+        m_Children.forEach(GameObject::render);
     }
     
     public GameObject[] getChildren()

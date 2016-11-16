@@ -37,10 +37,17 @@ public final class Mesh
         m_IBO = new IndexBuffer(indices, indices.length);
     }
     
-    public void setMeshData(float vertices[], float colors[], short indices[])
+    public void setMeshData(float vertices[], float colors[], short indices[], boolean useUVMap)
     {
         m_VAO.addBuffer(new Buffer(vertices, 3), 0);
-        m_VAO.addBuffer(new Buffer(colors, 4), 1);
+        if (!useUVMap)
+        {
+            m_VAO.addBuffer(new Buffer(colors, 4), 1);
+        }
+        else
+        {
+            m_VAO.addBuffer(new Buffer(colors, 2), 1);
+        }
         m_IBO = new IndexBuffer(indices, indices.length);
     }
     
