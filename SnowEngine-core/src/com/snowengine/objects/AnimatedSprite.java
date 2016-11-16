@@ -79,7 +79,6 @@ public class AnimatedSprite extends GameObject
     public void update()
     {
         super.update();
-        m_FrameIndex++;
     }
     
     @Override

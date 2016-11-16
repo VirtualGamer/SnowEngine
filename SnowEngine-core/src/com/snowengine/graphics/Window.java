@@ -31,6 +31,7 @@ import static org.lwjgl.system.MemoryUtil.NULL;
 
 public final class Window
 {
+    private static Window m_ActiveWindow = null;
     private final String m_Title;
     private int m_Width, m_Height;
     private boolean m_FullScreen, m_VSync, m_Visible;
@@ -82,6 +83,7 @@ public final class Window
 
     private boolean init()
     {
+        m_ActiveWindow = this;
         glfwSetErrorCallback(this::errorCallback);
         AudioMaster.setErrorCallback(this::errorCallback);
         if (!glfwInit())
@@ -235,6 +237,11 @@ public final class Window
         return m_Visible;
     }
 
+    public static Window getActiveWindow()
+    {
+        return m_ActiveWindow;
+    }
+    
     private void windowResize(long window, int newWidth, int newHeight)
     {
         m_Width = newWidth;

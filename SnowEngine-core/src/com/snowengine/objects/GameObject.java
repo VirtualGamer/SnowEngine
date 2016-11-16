@@ -76,7 +76,7 @@ public class GameObject extends Object
     public void render()
     {
         Shader shader = Shader.getActiveShader();
-        shader.setUniformMatrix4f("model", transform.getTransformMatrix());
+        shader.setUniformMatrix4f("model", this.transform.getTransformMatrix());
         m_Children.forEach(GameObject::render);
     }
     

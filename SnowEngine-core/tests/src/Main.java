@@ -23,17 +23,16 @@ import com.snowengine.utils.*;
 
 public final class Main
 {
-    private static Matrix4 projection;
-    
     public static void main(String args[])
     {
         FileUtils.setPathPrefix("./SnowEngine-core/assets/");
         Window window = new Window("SnowEngine!", 800, 600);
-        window.setSizeCallback(Main::windowResize);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
+        Camera2D camera = new Camera2D();
+        
         AnimatedSprite sprite1 = new AnimatedSprite("textures/player.png", 1, 7);
-        sprite1.transform.scale.x = 1;
+        camera.addChild(sprite1);
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -41,17 +40,12 @@ public final class Main
         shader.compile();
         shader.enable();
 
-        float halfWidth = window.getWidth() / 2.0f;
-        float halfHeight = window.getHeight() / 2.0f;
-        projection = Matrix4.orthographic(-halfWidth, halfWidth, halfHeight, -halfHeight, -1.0f, 1.0f);
-
         AudioClip clip = AudioMaster.loadAudioClip("audio/bounce.wav");
         AudioClip clip1 = AudioMaster.loadAudioClip("audio/music.wav");
         AudioClip clip2 = AudioMaster.loadAudioClip("audio/music2.wav");
         AudioClip clip3 = AudioMaster.loadAudioClip("audio/music3.wav");
 
         AudioMaster.setDistanceModel(DistanceModel.LinearDistanceClamped);
-        AudioListener listener = new AudioListener();
         AudioSource source = new AudioSource();
         source.setReferenceDistance(5000);
         source.setMaxDistance(7500);
@@ -61,20 +55,13 @@ public final class Main
         window.setVisible(true);
         
         int timer = 0, maxTime = 10, frameIndex = 0;
-        float x = 0, y = 0, speed = 20f;
+        float speed = 20f;
         Vector3 rotSpeed = new Vector3(0, 0, 0);
+        Vector3 horSpeed = new Vector3(speed, 0, 0), verSpeed = new Vector3(0, speed, 0);
         while (!window.isCloseRequested())
         {
-            shader.setUniformMatrix4f("projection", projection);
-            
-            Vector3 position = new Vector3(x, y, 0);
-            listener.setPosition(position);
-
-            Matrix4 view = Matrix4.translate(position.negate());
-            shader.setUniformMatrix4f("view", view);
-            
-            Matrix4 mvp = projection.copy();
-            mvp.multiply(view.multiply(sprite1.transform.getTransformMatrix()));
+            Matrix4 mvp = camera.getProjection().copy();
+            mvp.multiply(camera.getViewMatrix().multiply(sprite1.transform.getTransformMatrix()));
             shader.setUniformMatrix4f("mvp", mvp);
             
             if (timer >= maxTime)
@@ -84,29 +71,31 @@ public final class Main
             }
 
             window.clear();
+    
+            camera.update();
             
+            camera.render();
             sprite1.transform.rotation.add(rotSpeed);
-            sprite1.render();
 
             window.update();
             timer++;
-
+            
             if (Keyboard.getKey(KeyCode.Up))
             {
-                y -= speed;
+                camera.transform.position.subtract(verSpeed);
             }
             if (Keyboard.getKey(KeyCode.Down))
             {
-                y += speed;
+                camera.transform.position.add(verSpeed);
             }
 
             if (Keyboard.getKey(KeyCode.Left))
             {
-                x -= speed;
+                camera.transform.position.subtract(horSpeed);
             }
             if (Keyboard.getKey(KeyCode.Right))
             {
-                x += speed;
+                camera.transform.position.add(horSpeed);
             }
 
             if (Keyboard.getKeyPressed(KeyCode.F) && source.isStopped())
@@ -139,12 +128,5 @@ public final class Main
         source.delete();
         shader.destroy();
         window.destroy();
-    }
-    
-    private static void windowResize(int newWidth, int newHeight)
-    {
-        float halfWidth = newWidth / 2.0f;
-        float halfHeight = newHeight / 2.0f;
-        projection = Matrix4.orthographic(-halfWidth, halfWidth, halfHeight, -halfHeight, -1.0f, 1.0f);
     }
 }
