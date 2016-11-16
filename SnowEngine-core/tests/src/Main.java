@@ -70,6 +70,10 @@ public final class Main
 
             Matrix4 view = Matrix4.translate(position.negate());
             shader.setUniformMatrix4f("view", view);
+            
+            Matrix4 mvp = projection.copy();
+            mvp.multiply(view.multiply(sprite1.transform.getTransformMatrix()));
+            shader.setUniformMatrix4f("mvp", mvp);
 
             window.clear();
             

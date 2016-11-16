@@ -7,6 +7,8 @@
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" afterPath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/shaders/basic.vert" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/shaders/basic.vert" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
     </list>
     <ignored path="SnowEngine.iws" />
@@ -30,8 +32,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+            <state relative-caret-position="1342">
+              <caret line="75" column="48" selection-start-line="75" selection-start-column="48" selection-end-line="75" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,10 +41,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="basic.frag" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basic.vert" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
+            <state relative-caret-position="-510">
               <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -66,36 +88,12 @@
       <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2464">
+            <state relative-caret-position="22">
               <caret line="149" column="15" selection-start-line="149" selection-start-column="15" selection-end-line="149" selection-end-column="15" />
               <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="e#1471#1472#0" expanded="false" />
-                <element signature="e#1521#1522#0" expanded="false" />
-                <element signature="e#4275#4276#0" expanded="false" />
-                <element signature="e#4319#4320#0" expanded="false" />
-                <element signature="e#4371#4372#0" expanded="false" />
-                <element signature="e#4447#4448#0" expanded="false" />
-                <element signature="e#4970#4971#0" expanded="false" />
-                <element signature="e#5026#5027#0" expanded="false" />
-                <element signature="e#5057#5058#0" expanded="false" />
-                <element signature="e#5123#5124#0" expanded="false" />
-                <element signature="e#5495#5496#0" expanded="false" />
-                <element signature="e#5525#5526#0" expanded="false" />
-                <element signature="e#5558#5559#0" expanded="false" />
-                <element signature="e#5588#5589#0" expanded="false" />
-                <element signature="e#5622#5623#0" expanded="false" />
-                <element signature="e#5653#5654#0" expanded="false" />
-                <element signature="e#5698#5699#0" expanded="false" />
-                <element signature="e#5752#5753#0" expanded="false" />
-                <element signature="e#5793#5794#0" expanded="false" />
-                <element signature="e#5828#5829#0" expanded="false" />
-                <element signature="e#5864#5865#0" expanded="false" />
-                <element signature="e#5894#5895#0" expanded="false" />
-                <element signature="e#5932#5933#0" expanded="false" />
-                <element signature="e#5964#5965#0" expanded="false" />
-                <element signature="e#6960#6961#0" expanded="false" />
-                <element signature="e#7026#7027#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#4495#4496#0" expanded="true" />
+                <element signature="e#4556#4557#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,11 +166,11 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Transform.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/GameObject.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Mesh.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/audio/AudioSource.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
       </list>
     </option>
@@ -1329,42 +1327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2464">
-          <caret line="149" column="15" selection-start-line="149" selection-start-column="15" selection-end-line="149" selection-end-column="15" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#1471#1472#0" expanded="false" />
-            <element signature="e#1521#1522#0" expanded="false" />
-            <element signature="e#4275#4276#0" expanded="false" />
-            <element signature="e#4319#4320#0" expanded="false" />
-            <element signature="e#4371#4372#0" expanded="false" />
-            <element signature="e#4447#4448#0" expanded="false" />
-            <element signature="e#4970#4971#0" expanded="false" />
-            <element signature="e#5026#5027#0" expanded="false" />
-            <element signature="e#5057#5058#0" expanded="false" />
-            <element signature="e#5123#5124#0" expanded="false" />
-            <element signature="e#5495#5496#0" expanded="false" />
-            <element signature="e#5525#5526#0" expanded="false" />
-            <element signature="e#5558#5559#0" expanded="false" />
-            <element signature="e#5588#5589#0" expanded="false" />
-            <element signature="e#5622#5623#0" expanded="false" />
-            <element signature="e#5653#5654#0" expanded="false" />
-            <element signature="e#5698#5699#0" expanded="false" />
-            <element signature="e#5752#5753#0" expanded="false" />
-            <element signature="e#5793#5794#0" expanded="false" />
-            <element signature="e#5828#5829#0" expanded="false" />
-            <element signature="e#5864#5865#0" expanded="false" />
-            <element signature="e#5894#5895#0" expanded="false" />
-            <element signature="e#5932#5933#0" expanded="false" />
-            <element signature="e#5964#5965#0" expanded="false" />
-            <element signature="e#6960#6961#0" expanded="false" />
-            <element signature="e#7026#7027#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ReadMe.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1451,14 +1413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Texture.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -1477,24 +1431,6 @@
           <caret line="48" column="52" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1519,10 +1455,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="149" column="15" selection-start-line="149" selection-start-column="15" selection-end-line="149" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4495#4496#0" expanded="true" />
+            <element signature="e#4556#4557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Sprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+        <state relative-caret-position="1342">
+          <caret line="75" column="48" selection-start-line="75" selection-start-column="48" selection-end-line="75" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

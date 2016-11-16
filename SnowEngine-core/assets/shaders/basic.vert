@@ -6,9 +6,10 @@ layout (location = 1) in vec2 uvs;
 uniform mat4 mvp, projection, view, model;
 
 out vec2 uv;
+out vec3 pos;
 
 void main()
 {
-    gl_Position = projection * view * model * position;
+    gl_Position = mvp * position;
     uv = uvs;
 }
