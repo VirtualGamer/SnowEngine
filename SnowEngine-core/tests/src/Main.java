@@ -16,20 +16,14 @@
 
 import com.snowengine.audio.*;
 import com.snowengine.graphics.*;
-import com.snowengine.graphics.Window;
-import com.snowengine.graphics.buffers.*;
 import com.snowengine.input.*;
 import com.snowengine.maths.*;
 import com.snowengine.utils.*;
-
-import static org.lwjgl.opengl.GL11.*;
 
 public final class Main
 {
     public static void main(String args[])
     {
-
-
         FileUtils.setPathPrefix("./SnowEngine-core/assets/");
         Window window = new Window("SnowEngine!", 960, 540);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
@@ -65,12 +59,9 @@ public final class Main
             2, 3, 0
         };
 
-        VertexArray sprite1 = new VertexArray(), sprite2 = new VertexArray();
-        sprite1.addBuffer(new Buffer(vertices, 3), 0);
-        sprite1.addBuffer(new Buffer(colorsA, 4), 1);
-        sprite2.addBuffer(new Buffer(vertices, 3), 0);
-        sprite2.addBuffer(new Buffer(colorsB, 4), 1);
-        IndexBuffer ibo = new IndexBuffer(indices, 6);
+        Mesh sprite1 = new Mesh(), sprite2 = new Mesh();
+        sprite1.setMeshData(vertices, colorsA, indices);
+        sprite2.setMeshData(vertices, colorsB, indices);
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -114,9 +105,7 @@ public final class Main
             shader.setUniformMatrix4f("mvp", mvp);
             shader.setUniformMatrix4f("model", model);
             sprite1.bind();
-            ibo.bind();
-            glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
-            ibo.unbind();
+            sprite1.draw();
             sprite1.unbind();
 
             // Draw sprite 2
@@ -127,9 +116,7 @@ public final class Main
             mvp.multiply(view).multiply(model);
             shader.setUniformMatrix4f("mvp", mvp);
             sprite2.bind();
-            ibo.bind();
-            glDrawElements(GL_TRIANGLES, ibo.getCount(), GL_UNSIGNED_SHORT, 0);
-            ibo.unbind();
+            sprite2.draw();
             sprite2.unbind();
 
             window.update();
@@ -157,7 +144,7 @@ public final class Main
 
             if (Keyboard.getKeyPressed(KeyCode.F) && source.isStopped())
             {
-                source.loop(clip);
+                source.play(clip1);
             }
             if (Keyboard.getKeyPressed(KeyCode.G) && source.isStopped())
             {
@@ -166,6 +153,10 @@ public final class Main
             if (Keyboard.getKeyPressed(KeyCode.H) && source.isStopped())
             {
                 source.play(clip3);
+            }
+            if (Keyboard.getKeyPressed(KeyCode.J) && source.isStopped())
+            {
+                source.loop(clip);
             }
             if (Keyboard.getKeyPressed(KeyCode.D) && source.isPlaying())
             {

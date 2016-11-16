@@ -36,6 +36,10 @@ public final class Keyboard
 
     public void postKeyAction(int key, int action)
     {
+        if (key < 0)
+        {
+            return;
+        }
         m_Keys[key] = (action != GLFW_RELEASE);
     }
 
