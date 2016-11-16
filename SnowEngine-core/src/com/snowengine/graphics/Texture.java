@@ -19,6 +19,7 @@ import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.ImageFile;
 
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL12.*;
 import static org.lwjgl.opengl.GL13.*;
 
 public final class Texture
