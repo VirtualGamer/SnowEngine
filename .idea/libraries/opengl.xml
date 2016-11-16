@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="opengl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Dependencies/opengl/jar/opengl.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/Dependencies/opengl/docs/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Dependencies/opengl/src" />
+    </SOURCES>
+  </library>
+</component>

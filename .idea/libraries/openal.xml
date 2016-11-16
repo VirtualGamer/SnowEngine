@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="openal">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Dependencies/openal/jar/openal.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/Dependencies/openal/docs/javadoc" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/Dependencies/openal/native" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Dependencies/openal/src" />
+    </SOURCES>
+  </library>
+</component>

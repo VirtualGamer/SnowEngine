@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="jni4net">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Dependencies/jni4net/jar/jni4net.j-0.8.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/Dependencies/jni4net/native" />
+    </NATIVE>
+    <SOURCES />
+  </library>
+</component>
