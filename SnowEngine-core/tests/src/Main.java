@@ -33,7 +33,7 @@ public final class Main
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
         Sprite sprite1 = new Sprite("textures/test_texture.png");
-        sprite1.transform.scale.subtract(0.5f);
+        sprite1.transform.scale.subtract(0.9f);
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -60,6 +60,7 @@ public final class Main
         window.setVisible(true);
         
         float x = 0, y = 0, speed = 20f;
+        Vector3 rotSpeed = new Vector3(0, 0, 0.2f);
         while (!window.isCloseRequested())
         {
             shader.setUniformMatrix4f("projection", projection);
@@ -72,7 +73,7 @@ public final class Main
 
             window.clear();
             
-            sprite1.transform.rotation.add(new Vector3(0, 0, 0.6f));
+            sprite1.transform.rotation.add(rotSpeed);
             sprite1.render();
 
             window.update();

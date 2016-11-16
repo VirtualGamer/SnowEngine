@@ -40,8 +40,8 @@ public class Sprite extends GameObject
         m_Texture = new Texture(filepath);
         m_Mesh = new Mesh();
         
-        float x = m_Texture.getWidth() / 6;
-        float y = m_Texture.getHeight() / 6;
+        float x = m_Texture.getWidth() / 2;
+        float y = m_Texture.getHeight() / 2;
         
         float vertices[] =
         {
