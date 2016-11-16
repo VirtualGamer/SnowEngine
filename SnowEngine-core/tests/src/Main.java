@@ -33,6 +33,8 @@ public final class Main
         
         AnimatedSprite sprite1 = new AnimatedSprite("textures/player.png", 1, 7);
         camera.addChild(sprite1);
+    
+        Sprite sprite2 = new Sprite("textures/test_texture.png");
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -55,15 +57,9 @@ public final class Main
         window.setVisible(true);
         
         int timer = 0, maxTime = 10, frameIndex = 0;
-        float speed = 20f;
-        Vector3 rotSpeed = new Vector3(0, 0, 0);
-        Vector3 horSpeed = new Vector3(speed, 0, 0), verSpeed = new Vector3(0, speed, 0);
+        Vector3 horSpeed = new Vector3(20, 0, 0), verSpeed = new Vector3(0, 20, 0);
         while (!window.isCloseRequested())
         {
-            Matrix4 mvp = camera.getProjection().copy();
-            mvp.multiply(camera.getViewMatrix().multiply(sprite1.transform.getTransformMatrix()));
-            shader.setUniformMatrix4f("mvp", mvp);
-            
             if (timer >= maxTime)
             {
                 timer = 0;
@@ -73,29 +69,29 @@ public final class Main
             window.clear();
     
             camera.update();
-            
+    
+            sprite2.render();
             camera.render();
-            sprite1.transform.rotation.add(rotSpeed);
 
             window.update();
             timer++;
             
             if (Keyboard.getKey(KeyCode.Up))
             {
-                camera.transform.position.subtract(verSpeed);
+                camera.transform.move(verSpeed.negate());
             }
             if (Keyboard.getKey(KeyCode.Down))
             {
-                camera.transform.position.add(verSpeed);
+                camera.transform.move(verSpeed);
             }
 
             if (Keyboard.getKey(KeyCode.Left))
             {
-                camera.transform.position.subtract(horSpeed);
+                camera.transform.move(horSpeed.negate());
             }
             if (Keyboard.getKey(KeyCode.Right))
             {
-                camera.transform.position.add(horSpeed);
+                camera.transform.move(horSpeed);
             }
 
             if (Keyboard.getKeyPressed(KeyCode.F) && source.isStopped())

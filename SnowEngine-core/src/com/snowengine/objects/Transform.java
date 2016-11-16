@@ -31,32 +31,68 @@ import com.snowengine.maths.Vector3;
  */
 public final class Transform extends Object
 {
-    public Vector3 position, rotation, scale;
+    public GameObject gameObject;
+    private Vector3 m_Position, m_Rotation, m_Scale;
     
     public Transform()
     {
         super ("Transform", 1);
-        position = new Vector3();
-        rotation = new Vector3();
-        scale = new Vector3(1, 1, 1);
+        m_Position = new Vector3();
+        m_Rotation = new Vector3();
+        m_Scale = new Vector3(1, 1, 1);
+    }
+    
+    public void move(float x, float y, float z)
+    {
+        m_Position.add(new Vector3(x, y, z));
+    }
+    
+    public void move(Vector3 vector)
+    {
+        m_Position.add(vector);
+    }
+    
+    public Vector3 getPosition()
+    {
+        Vector3 result = m_Position.copy();
+        if (this.gameObject.parent != null)
+        {
+            result.add(this.gameObject.parent.transform.getPosition());
+        }
+        return result;
+    }
+    
+    public Vector3 getRotation()
+    {
+        Vector3 result = m_Rotation.copy();
+        if (this.gameObject.parent != null)
+        {
+            result.add(this.gameObject.parent.transform.getRotation());
+        }
+        return result;
+    }
+    
+    public Vector3 getScale()
+    {
+        return m_Scale;
     }
     
     public Matrix4 getPositionMatrix()
     {
-        return Matrix4.translate(this.position);
+        return Matrix4.translate(this.getPosition());
     }
     
     public Matrix4 getRotationMatrix()
     {
-        Matrix4 rotationX = Matrix4.rotate(this.rotation.x, new Vector3(1, 0, 0));
-        Matrix4 rotationY = Matrix4.rotate(this.rotation.y, new Vector3(0, 1, 0));
-        Matrix4 rotationZ = Matrix4.rotate(this.rotation.z, new Vector3(0, 0, 1));
+        Matrix4 rotationX = Matrix4.rotate(this.getRotation().x, new Vector3(1, 0, 0));
+        Matrix4 rotationY = Matrix4.rotate(this.getRotation().y, new Vector3(0, 1, 0));
+        Matrix4 rotationZ = Matrix4.rotate(this.getRotation().z, new Vector3(0, 0, 1));
         return rotationZ.multiply(rotationY.multiply(rotationX));
     }
     
     public Matrix4 getScaleMatrix()
     {
-        return Matrix4.scale(this.scale);
+        return Matrix4.scale(this.getScale());
     }
     
     public Matrix4 getTransformMatrix()

@@ -10,6 +10,6 @@ out vec3 pos;
 
 void main()
 {
-    gl_Position = mvp * position;
+    gl_Position = projection * view * model * position;
     uv = uvs;
 }

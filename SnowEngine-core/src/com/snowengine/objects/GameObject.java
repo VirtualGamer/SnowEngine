@@ -33,6 +33,7 @@ import java.util.List;
  */
 public class GameObject extends Object
 {
+    public GameObject parent;
     public Transform transform;
     
     private List<GameObject> m_Children;
@@ -41,6 +42,7 @@ public class GameObject extends Object
     {
         super (name, instanceID);
         this.transform = new Transform();
+        this.transform.gameObject = this;
         m_Children = new ArrayList<>();
     }
     
@@ -53,6 +55,7 @@ public class GameObject extends Object
         else
         {
             m_Children.add(gameObject);
+            gameObject.parent = this;
         }
     }
     
@@ -65,6 +68,7 @@ public class GameObject extends Object
         else
         {
             m_Children.remove(gameObject);
+            gameObject.parent = null;
         }
     }
     

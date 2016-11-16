@@ -53,22 +53,23 @@ public final class Camera2D extends GameObject
     @Override
     public void update()
     {
-        super.update();
-        m_Listener.setPosition(this.transform.position);
+        m_Listener.setPosition(this.transform.getPosition());
     
-        m_ViewMatrix = Matrix4.translate(this.transform.position.negate())
+        m_ViewMatrix = Matrix4.translate(this.transform.getPosition().negate())
                               .multiply(this.transform.getRotationMatrix()
-                              .multiply(this.transform.getScaleMatrix()));
+                                                      .multiply(this.transform.getScaleMatrix()));
+        
+        super.update();
     }
     
     @Override
     public void render()
     {
-        super.render();
-        
         Shader shader = Shader.getActiveShader();
         shader.setUniformMatrix4f("projection", m_Projection);
         shader.setUniformMatrix4f("view", m_ViewMatrix);
+        
+        super.render();
     }
     
     public Matrix4 getProjection()
