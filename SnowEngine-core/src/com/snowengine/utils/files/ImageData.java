@@ -37,17 +37,18 @@ public final class ImageData extends FileData
             BufferedImage image = ImageIO.read(new FileInputStream(m_FilePath));
             m_Width = image.getWidth();
             m_Height = image.getHeight();
-            int pixels[] = image.getRGB(0, 0, m_Width, m_Height, null, 0, m_Width);
+            int pixels[] = new int[m_Width * m_Height];
+            image.getRGB(0, 0, m_Width, m_Height, pixels, 0, m_Width);
             image.flush();
 
             m_Pixels = new int[pixels.length];
             for (int i = 0; i < pixels.length; i++)
             {
-                int alpha = (0xFF000000 & pixels[i]) >> 24;
-                int red = (0xFF0000 & pixels[i]) >> 16;
-                int green = (0xFF00 & pixels[i]) >> 8;
-                int blue = (0xFF & pixels[i]);
-                m_Pixels[i] = alpha << 24 | blue << 16 | green << 8 | red;
+                int a = (pixels[i] & 0xff000000) >> 24;
+                int r = (pixels[i] & 0xff0000) >> 16;
+                int g = (pixels[i] & 0xff00) >> 8;
+                int b = (pixels[i] & 0xff);
+                m_Pixels[i] = a << 24 | b << 16 | g << 8 | r;
             }
         }
         catch (IOException ex)

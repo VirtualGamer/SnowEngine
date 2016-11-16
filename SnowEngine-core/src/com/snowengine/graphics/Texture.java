@@ -49,7 +49,7 @@ public final class Texture
         glBindTexture(GL_TEXTURE_2D, m_TextureID);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_BGRA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
         glBindTexture(GL_TEXTURE_2D, 0);
     }
     
@@ -102,14 +102,14 @@ public final class Texture
             for (int row = 0; row < rows; row++)
             {
                 int yOffset = row * gridHeight;
-                result[column + row * columns] = loadTextureSplitted(gridWidth, gridHeight, pixels, xOffset, yOffset, file.getWidth());
+                result[column + row * columns] = splitImage(gridWidth, gridHeight, pixels, xOffset, yOffset, file.getWidth());
             }
         }
         
         return result;
     }
     
-    private static Texture loadTextureSplitted(int width, int height, int pixels[], int xOffset, int yOffset, int imgWidth)
+    private static Texture splitImage(int width, int height, int pixels[], int xOffset, int yOffset, int imgWidth)
     {
         int result[] = new int[width * height];
         

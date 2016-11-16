@@ -9,4 +9,8 @@ in vec2 uv;
 void main()
 {
     color = texture(tex, uv);
+    if (color.w < 1.0)
+    {
+        discard;
+    }
 }

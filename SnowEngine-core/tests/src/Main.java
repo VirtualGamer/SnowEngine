@@ -57,7 +57,7 @@ public final class Main
         window.setVisible(true);
         
         int timer = 0, maxTime = 10, frameIndex = 0;
-        Vector3 horSpeed = new Vector3(20, 0, 0), verSpeed = new Vector3(0, 20, 0);
+        Vector3 horSpeed = new Vector3(5, 0, 0), verSpeed = new Vector3(0, 5, 0);
         while (!window.isCloseRequested())
         {
             if (timer >= maxTime)
@@ -65,6 +65,17 @@ public final class Main
                 timer = 0;
                 sprite1.setFrame((frameIndex < 6) ? frameIndex++ : (frameIndex = 0));
             }
+
+//            if (timer >= maxTime)
+//            {
+//                timer = 0;
+//                int newFrame = frameIndex + framePointer;
+//                if (newFrame < 0 || newFrame >= 4)
+//                {
+//                    framePointer = -framePointer;
+//                }
+//                sprite1.setFrame(frameIndex += framePointer);
+//            }
 
             window.clear();
     
