@@ -149,7 +149,12 @@ public final class Window
     {
         glfwSetCursor(m_Window, cursor.getCursorID());
     }
-
+    
+    public void showCursor(boolean visible)
+    {
+        glfwSetInputMode(m_Window, GLFW_CURSOR, visible ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_HIDDEN);
+    }
+    
     public void setVSync(boolean vSync)
     {
         m_VSync = vSync;

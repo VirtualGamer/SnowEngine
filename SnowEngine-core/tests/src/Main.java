@@ -33,7 +33,7 @@ public final class Main
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
         Sprite sprite1 = new Sprite("textures/test_texture.png");
-        sprite1.transform.scale.subtract(0.9f);
+        sprite1.transform.scale.divide(2);
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -53,14 +53,15 @@ public final class Main
         AudioMaster.setDistanceModel(DistanceModel.LinearDistanceClamped);
         AudioListener listener = new AudioListener();
         AudioSource source = new AudioSource();
-        source.setReferenceDistance(200);
-        source.setMaxDistance(400);
+        source.setReferenceDistance(5000);
+        source.setMaxDistance(7500);
         source.play(clip);
     
+        window.showCursor(false);
         window.setVisible(true);
         
         float x = 0, y = 0, speed = 20f;
-        Vector3 rotSpeed = new Vector3(0, 0, 0.2f);
+        Vector3 rotSpeed = new Vector3(0, 0, 0.8f);
         while (!window.isCloseRequested())
         {
             shader.setUniformMatrix4f("projection", projection);
