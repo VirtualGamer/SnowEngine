@@ -13,23 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.objects;
+package com.snowengine.objects.sprites;
 
 import com.snowengine.graphics.Mesh;
 import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
+import com.snowengine.objects.colliders.BoxCollider;
+import com.snowengine.objects.GameObject;
 
-/**
- * <summary>
- * <project>SnowEngine</project>
- * <package>com.snowengine.objects</package>
- * <class>Sprite</class>
- * <since>1.0</since>
- * </summary>
- *
- * @author Mark Rienstra
- * @since 1.0
- */
 public class Sprite extends GameObject
 {
     private Mesh m_Mesh;
@@ -37,8 +28,13 @@ public class Sprite extends GameObject
     
     public Sprite(String filepath)
     {
+        this (new Texture(filepath));
+    }
+    
+    public Sprite(Texture texture)
+    {
         super ("Sprite", 0);
-        m_Texture = new Texture(filepath);
+        m_Texture = texture;
         m_Mesh = new Mesh();
         
         float x = m_Texture.getWidth() / 2;

@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.objects;
+package com.snowengine.objects.colliders;
 
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
+import com.snowengine.objects.sprites.AnimatedSprite;
+import com.snowengine.objects.sprites.Sprite;
 
 public final class BoxCollider extends Collider
 {

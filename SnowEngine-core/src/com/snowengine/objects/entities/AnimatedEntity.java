@@ -13,13 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.utils.files;
+package com.snowengine.objects.entities;
 
-public enum DataType
+import com.snowengine.graphics.Texture;
+import com.snowengine.objects.sprites.AnimatedSprite;
+
+public class AnimatedEntity extends AnimatedSprite implements EntityBase
 {
-    Text,
-    Audio,
-    Image,
-    XML,
-    TMX
+    public AnimatedEntity(String filepath, int columns, int rows)
+    {
+        super (filepath, columns, rows);
+    }
+    
+    public AnimatedEntity(Texture[] textures)
+    {
+        super (textures);
+    }
 }

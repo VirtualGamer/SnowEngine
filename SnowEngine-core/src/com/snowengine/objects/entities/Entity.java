@@ -13,13 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.utils.files;
+package com.snowengine.objects.entities;
 
-public enum DataType
+import com.snowengine.graphics.Texture;
+import com.snowengine.objects.sprites.Sprite;
+
+public class Entity extends Sprite implements EntityBase
 {
-    Text,
-    Audio,
-    Image,
-    XML,
-    TMX
+    public Entity(String filepath)
+    {
+        super (filepath);
+    }
+    
+    public Entity(Texture texture)
+    {
+        super (texture);
+    }
 }

@@ -13,13 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.utils.files;
+package com.snowengine.objects.entities;
 
-public enum DataType
+public interface EntityBase
 {
-    Text,
-    Audio,
-    Image,
-    XML,
-    TMX
 }

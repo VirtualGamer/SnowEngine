@@ -13,13 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.utils.files;
+package com.snowengine.objects.tiles;
 
-public enum DataType
+import com.snowengine.graphics.Texture;
+import com.snowengine.objects.sprites.AnimatedSprite;
+
+public class AnimatedTile extends AnimatedSprite implements TileBase
 {
-    Text,
-    Audio,
-    Image,
-    XML,
-    TMX
+    public AnimatedTile(String filepath, int columns, int rows)
+    {
+        super (filepath, columns, rows);
+    }
+    
+    public AnimatedTile(Texture[] textures)
+    {
+        super (textures);
+    }
 }

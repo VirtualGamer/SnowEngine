@@ -18,6 +18,7 @@ package com.snowengine.objects;
 import com.snowengine.graphics.Shader;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
+import com.snowengine.objects.colliders.Collider;
 
 import java.util.ArrayList;
 import java.util.List;

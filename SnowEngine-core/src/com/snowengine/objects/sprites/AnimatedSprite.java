@@ -13,24 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.objects;
+package com.snowengine.objects.sprites;
 
 import com.snowengine.graphics.Mesh;
 import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
-import com.snowengine.maths.Vector3;
+import com.snowengine.objects.colliders.BoxCollider;
+import com.snowengine.objects.GameObject;
 
-/**
- * <summary>
- * <project>SnowEngine</project>
- * <package>com.snowengine.objects</package>
- * <class>Sprite</class>
- * <since>1.0</since>
- * </summary>
- *
- * @author Mark Rienstra
- * @since 1.0
- */
 public class AnimatedSprite extends GameObject
 {
     private Mesh m_Mesh;
@@ -39,36 +29,41 @@ public class AnimatedSprite extends GameObject
     
     public AnimatedSprite(String filepath, int columns, int rows)
     {
-        super ("Sprite", 0);
+        this (Texture.splitTextures(filepath, columns, rows));
+    }
+    
+    public AnimatedSprite(Texture[] textures)
+    {
+        super ("AnimatedSprite", 0);
         m_Mesh = new Mesh();
-        m_Texture = Texture.splitTextures(filepath, columns, rows);
+        m_Texture = textures;
         m_FrameIndex = 0;
-        
+    
         float x = m_Texture[0].getWidth() / 2;
         float y = m_Texture[0].getHeight() / 2;
-        
+    
         float vertices[] =
-        {
-           -x,-y, 0,
-           -x, y, 0,
-            x, y, 0,
-            x,-y, 0
-        };
-        
+                {
+                        -x,-y, 0,
+                        -x, y, 0,
+                        x, y, 0,
+                        x,-y, 0
+                };
+    
         float uvs[] =
-        {
-            0, 0,
-            0, 1,
-            1, 1,
-            1, 0
-        };
-        
+                {
+                        0, 0,
+                        0, 1,
+                        1, 1,
+                        1, 0
+                };
+    
         short indices[] =
-        {
-            0, 1, 2,
-            2, 3, 0
-        };
-        
+                {
+                        0, 1, 2,
+                        2, 3, 0
+                };
+    
         m_Mesh.setMeshData(vertices, uvs, indices, true);
     }
     

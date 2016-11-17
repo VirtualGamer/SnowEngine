@@ -19,6 +19,8 @@ import com.snowengine.graphics.*;
 import com.snowengine.input.*;
 import com.snowengine.maths.*;
 import com.snowengine.objects.*;
+import com.snowengine.objects.sprites.AnimatedSprite;
+import com.snowengine.objects.sprites.Sprite;
 import com.snowengine.utils.*;
 
 public final class Main
@@ -26,6 +28,7 @@ public final class Main
     public static void main(String args[])
     {
         FileUtils.setPathPrefix(args[0]);
+        
         Window window = new Window("SnowEngine!", 0, 0, true);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         

@@ -66,6 +66,10 @@ public final class FileUtils
                 case Image:
                     file = new ImageFile(filepath);
                     break;
+                case XML:
+                    file = new XMLFile(filepath);
+                    break;
+                case TMX:
                 default:
                     return null;
             }
@@ -87,6 +91,11 @@ public final class FileUtils
     public static ImageFile openImageFile(String filepath)
     {
         return (ImageFile) openFile(filepath, DataType.Image);
+    }
+
+    public static XMLFile openXMLFile(String filepath)
+    {
+        return (XMLFile) openFile(filepath, DataType.XML);
     }
 
     public static void closeFiles()

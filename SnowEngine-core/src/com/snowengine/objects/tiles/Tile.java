@@ -13,13 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.utils.files;
+package com.snowengine.objects.tiles;
 
-public enum DataType
+import com.snowengine.graphics.Texture;
+import com.snowengine.objects.sprites.Sprite;
+
+public class Tile extends Sprite implements TileBase
 {
-    Text,
-    Audio,
-    Image,
-    XML,
-    TMX
+    public Tile(String filepath)
+    {
+        super (filepath);
+    }
+    
+    public Tile(Texture texture)
+    {
+        super (texture);
+    }
 }
