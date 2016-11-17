@@ -16,6 +16,8 @@
 package com.snowengine.objects;
 
 import com.snowengine.graphics.Shader;
+import com.snowengine.maths.Vector2;
+import com.snowengine.maths.Vector3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,6 +72,16 @@ public class GameObject extends Object
             m_Children.remove(gameObject);
             gameObject.parent = null;
         }
+    }
+    
+    public void move(Vector2 vector)
+    {
+        this.move(new Vector3(vector.getX(), vector.getY(), 0));
+    }
+    
+    public void move(Vector3 vector)
+    {
+        this.transform.move(vector);
     }
     
     public void update()

@@ -99,6 +99,9 @@ public final class Window
         if (m_FullScreen)
         {
             monitor = glfwGetPrimaryMonitor();
+            GLFWVidMode vidMode = glfwGetVideoMode(monitor);
+            m_Width = vidMode.width();
+            m_Height = vidMode.height();
         }
 
         m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, monitor, NULL);

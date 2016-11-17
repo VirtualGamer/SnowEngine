@@ -26,7 +26,7 @@ public final class Main
     public static void main(String args[])
     {
         FileUtils.setPathPrefix("./SnowEngine-core/assets/");
-        Window window = new Window("SnowEngine!", 800, 600);
+        Window window = new Window("SnowEngine!", 0, 0, true);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
         Camera2D camera = new Camera2D();
@@ -35,6 +35,8 @@ public final class Main
         camera.addChild(sprite1);
     
         Sprite sprite2 = new Sprite("textures/test_texture.png");
+        AnimatedSprite sprite3 = new AnimatedSprite("textures/slime.png", 1, 3);
+        sprite3.move(new Vector2(-128, -128));
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -57,6 +59,7 @@ public final class Main
         window.setVisible(true);
         
         int timer = 0, maxTime = 10, frameIndex = 0;
+        int timer2 = 0, maxTime2 = 10, frameIndex2 = 0;
         Vector3 horSpeed = new Vector3(5, 0, 0), verSpeed = new Vector3(0, 5, 0);
         while (!window.isCloseRequested())
         {
@@ -64,6 +67,11 @@ public final class Main
             {
                 timer = 0;
                 sprite1.setFrame((frameIndex < 6) ? frameIndex++ : (frameIndex = 0));
+            }
+            if (timer2 >= maxTime2)
+            {
+                timer2 = 0;
+                sprite3.setFrame((frameIndex2 < 3) ? frameIndex2++ : (frameIndex2 = 0));
             }
 
 //            if (timer >= maxTime)
@@ -82,27 +90,32 @@ public final class Main
             camera.update();
     
             sprite2.render();
+            sprite3.render();
             camera.render();
 
             window.update();
             timer++;
+            timer2++;
             
-            if (Keyboard.getKey(KeyCode.Up))
+            if (!sprite1.isColliding(sprite3))
             {
-                camera.transform.move(verSpeed.negate());
-            }
-            if (Keyboard.getKey(KeyCode.Down))
-            {
-                camera.transform.move(verSpeed);
-            }
-
-            if (Keyboard.getKey(KeyCode.Left))
-            {
-                camera.transform.move(horSpeed.negate());
-            }
-            if (Keyboard.getKey(KeyCode.Right))
-            {
-                camera.transform.move(horSpeed);
+                if (Keyboard.getKey(KeyCode.Up))
+                {
+                    camera.move(verSpeed.negate());
+                }
+                if (Keyboard.getKey(KeyCode.Down))
+                {
+                    camera.move(verSpeed);
+                }
+    
+                if (Keyboard.getKey(KeyCode.Left))
+                {
+                    camera.move(horSpeed.negate());
+                }
+                if (Keyboard.getKey(KeyCode.Right))
+                {
+                    camera.move(horSpeed);
+                }
             }
 
             if (Keyboard.getKeyPressed(KeyCode.F) && source.isStopped())
