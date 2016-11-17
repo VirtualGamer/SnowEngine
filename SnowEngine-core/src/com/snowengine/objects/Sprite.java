@@ -18,7 +18,6 @@ package com.snowengine.objects;
 import com.snowengine.graphics.Mesh;
 import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
-import com.snowengine.maths.Vector3;
 
 /**
  * <summary>
@@ -35,14 +34,12 @@ public class Sprite extends GameObject
 {
     private Mesh m_Mesh;
     private Texture m_Texture;
-    private Rectangle m_Rectangle;
     
     public Sprite(String filepath)
     {
         super ("Sprite", 0);
         m_Texture = new Texture(filepath);
         m_Mesh = new Mesh();
-        m_Rectangle = new Rectangle();
         
         float x = m_Texture.getWidth() / 2;
         float y = m_Texture.getHeight() / 2;
@@ -70,14 +67,18 @@ public class Sprite extends GameObject
         };
         
         m_Mesh.setMeshData(vertices, uvs, indices, true);
-        m_Rectangle.setBounds(-x, -y, x, y);
+    }
+    
+    @Override
+    protected BoxCollider createCollider()
+    {
+        return new BoxCollider();
     }
     
     @Override
     public void move(Vector2 vector)
     {
         super.move(vector);
-        m_Rectangle.move(vector);
     }
     
     @Override
@@ -98,24 +99,19 @@ public class Sprite extends GameObject
         m_Texture.unbind();
     }
     
-    public Rectangle getRectangle()
+    public Vector2[] getExtents()
     {
-        return m_Rectangle;
-    }
-    
-    public boolean isColliding(GameObject other)
-    {
-        Vector3 otherPos = other.transform.getPosition();
-        return m_Rectangle.isColliding(new Vector2(otherPos.getX(), otherPos.getY()));
-    }
-    
-    public boolean isColliding(Sprite other)
-    {
-        return m_Rectangle.isColliding(other.m_Rectangle);
-    }
-    
-    public boolean isColliding(AnimatedSprite other)
-    {
-        return m_Rectangle.isColliding(other.getRectangle());
+        float x = m_Texture.getWidth() / 2;
+        float y = m_Texture.getHeight() / 2;
+        x += this.transform.getPosition().getX();
+        y += this.transform.getPosition().getY();
+        Vector2[] extents =
+        {
+            new Vector2(-x,-y),
+            new Vector2(-x, y),
+            new Vector2( x, y),
+            new Vector2( x,-y)
+        };
+        return extents;
     }
 }

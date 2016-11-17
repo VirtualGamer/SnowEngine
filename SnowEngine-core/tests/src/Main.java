@@ -37,10 +37,10 @@ public final class Main
         Sprite sprite2 = new Sprite("textures/test_texture.png");
         
         AnimatedSprite sprite3 = new AnimatedSprite("textures/crate_sheet.png", 1, 3);
-        sprite3.move(new Vector2(-32, -64));
+        sprite3.move(new Vector2(-128, -128));
         
         AnimatedSprite sprite4 = new AnimatedSprite("textures/coins_crate.png", 1, 4);
-        sprite4.move(new Vector2(-64, -64));
+        sprite4.move(new Vector2(-256, -256));
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -103,6 +103,20 @@ public final class Main
             timer++;
             timer2++;
             timer3++;
+            
+            if (sprite1.isColliding(sprite3))
+            {
+                System.out.println("Sprite 1 extents >> ");
+                for (Vector2 extent : sprite1.getExtents())
+                {
+                    System.out.println(extent);
+                }
+                System.out.println("Sprite 4 extents >> ");
+                for (Vector2 extent : sprite4.getExtents())
+                {
+                    System.out.println(extent);
+                }
+            }
             
             if (Keyboard.getKey(KeyCode.Up))
             {

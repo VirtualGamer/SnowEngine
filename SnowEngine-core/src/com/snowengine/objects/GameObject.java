@@ -37,6 +37,7 @@ public class GameObject extends Object
 {
     public GameObject parent;
     public Transform transform;
+    public Collider collider;
     
     private List<GameObject> m_Children;
     
@@ -46,6 +47,16 @@ public class GameObject extends Object
         this.transform = new Transform();
         this.transform.gameObject = this;
         m_Children = new ArrayList<>();
+        collider = this.createCollider();
+        if (collider != null)
+        {
+            collider.parent = this;
+        }
+    }
+    
+    protected Collider createCollider()
+    {
+        return null;
     }
     
     public void addChild(GameObject gameObject)
@@ -99,5 +110,25 @@ public class GameObject extends Object
     public GameObject[] getChildren()
     {
         return m_Children.toArray(new GameObject[m_Children.size()]);
+    }
+    
+    public boolean isColliding(GameObject other)
+    {
+        if (collider != null)
+        {
+            if (other.collider != null)
+            {
+                return collider.isColliding(other.collider);
+            }
+            return collider.isColliding(other.transform.getPosition());
+        }
+        else
+        {
+            if (other.collider != null)
+            {
+                return other.collider.isColliding(this.transform.getPosition());
+            }
+            return false;
+        }
     }
 }

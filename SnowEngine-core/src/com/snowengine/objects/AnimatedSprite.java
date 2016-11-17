@@ -35,7 +35,6 @@ public class AnimatedSprite extends GameObject
 {
     private Mesh m_Mesh;
     private Texture m_Texture[];
-    private Rectangle m_Rectangle;
     private int m_FrameIndex;
     
     public AnimatedSprite(String filepath, int columns, int rows)
@@ -43,7 +42,6 @@ public class AnimatedSprite extends GameObject
         super ("Sprite", 0);
         m_Mesh = new Mesh();
         m_Texture = Texture.splitTextures(filepath, columns, rows);
-        m_Rectangle = new Rectangle();
         m_FrameIndex = 0;
         
         float x = m_Texture[0].getWidth() / 2;
@@ -72,7 +70,12 @@ public class AnimatedSprite extends GameObject
         };
         
         m_Mesh.setMeshData(vertices, uvs, indices, true);
-        m_Rectangle.setBounds(-x, -y, x, y);
+    }
+    
+    @Override
+    protected BoxCollider createCollider()
+    {
+        return new BoxCollider();
     }
     
     public void setFrame(int index)
@@ -85,7 +88,6 @@ public class AnimatedSprite extends GameObject
     public void move(Vector2 vector)
     {
         super.move(vector);
-        m_Rectangle.move(vector);
     }
     
     @Override
@@ -111,24 +113,19 @@ public class AnimatedSprite extends GameObject
         m_Texture[m_FrameIndex].unbind();
     }
     
-    public Rectangle getRectangle()
+    public Vector2[] getExtents()
     {
-        return m_Rectangle;
-    }
-    
-    public boolean isColliding(GameObject other)
-    {
-        Vector3 otherPos = other.transform.getPosition();
-        return m_Rectangle.isColliding(new Vector2(otherPos.getX(), otherPos.getY()));
-    }
-    
-    public boolean isColliding(Sprite other)
-    {
-        return m_Rectangle.isColliding(other.getRectangle());
-    }
-    
-    public boolean isColliding(AnimatedSprite other)
-    {
-        return m_Rectangle.isColliding(other.m_Rectangle);
+        float x = m_Texture[0].getWidth() / 2;
+        float y = m_Texture[0].getHeight() / 2;
+        x += this.transform.getPosition().getX();
+        y += this.transform.getPosition().getY();
+        Vector2[] extents =
+                {
+                        new Vector2(-x,-y),
+                        new Vector2(-x, y),
+                        new Vector2( x, y),
+                        new Vector2( x,-y)
+                };
+        return extents;
     }
 }
