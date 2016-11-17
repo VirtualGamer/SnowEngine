@@ -96,6 +96,26 @@ public class GameObject extends Object
         this.transform.move(vector);
     }
     
+    public void rotate(Vector2 vector)
+    {
+        this.rotate(new Vector3(vector.x, 0, vector.y));
+    }
+    
+    public void rotate(Vector3 vector)
+    {
+        this.transform.rotate(vector);
+    }
+    
+    public void scale(Vector2 vector)
+    {
+        this.scale(new Vector3(vector.x, vector.y, 0.0f));
+    }
+    
+    public void scale(Vector3 vector)
+    {
+        this.transform.scale(vector);
+    }
+    
     public void update()
     {
         m_Children.forEach(GameObject::update);

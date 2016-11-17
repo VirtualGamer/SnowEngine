@@ -52,6 +52,26 @@ public final class Transform extends Object
         m_Position.add(vector);
     }
     
+    public void rotate(float x, float y, float z)
+    {
+        m_Rotation.add(new Vector3(x, y, z));
+    }
+    
+    public void rotate(Vector3 vector)
+    {
+        m_Rotation.add(vector);
+    }
+    
+    public void scale(float x, float y, float z)
+    {
+        m_Scale.add(new Vector3(x, y, z));
+    }
+    
+    public void scale(Vector3 vector)
+    {
+        m_Scale.add(vector);
+    }
+    
     public Vector3 getPosition()
     {
         Vector3 result = m_Position.copy();

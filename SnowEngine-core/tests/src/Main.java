@@ -19,9 +19,8 @@ import com.snowengine.graphics.*;
 import com.snowengine.input.*;
 import com.snowengine.maths.*;
 import com.snowengine.objects.*;
-import com.snowengine.objects.lighting.AmbientLight;
-import com.snowengine.objects.sprites.AnimatedSprite;
-import com.snowengine.objects.sprites.Sprite;
+import com.snowengine.objects.lighting.*;
+import com.snowengine.objects.sprites.*;
 import com.snowengine.utils.*;
 
 public final class Main
@@ -31,16 +30,19 @@ public final class Main
         FileUtils.setPathPrefix(args[0]);
         
         Window window = new Window("SnowEngine!", 0, 0, true);
-        window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
     
-        AmbientLight ambient = AmbientLight.create(new Vector4(0.2f, 0.1f, 0.1f, 0.4f));
+        AmbientLight ambient = AmbientLight.create(new Vector3(0.2f, 0.1f, 0.1f));
         
         Camera2D camera = new Camera2D();
-        
+    
+        Light light = new Light(new Vector2(), new Vector3(0.1f, 0.5f, 0.3f), 128.0f);
+        camera.addChild(light);
+    
         AnimatedSprite sprite1 = new AnimatedSprite("textures/player.png", 1, 7);
         camera.addChild(sprite1);
     
-        Sprite sprite2 = new Sprite("textures/test_texture.png");
+        Sprite sprite2 = new Sprite("textures/ground_tile.png");
+        sprite2.scale(new Vector2(50, 50));
         
         AnimatedSprite sprite3 = new AnimatedSprite("textures/crate_sheet.png", 1, 3);
         sprite3.move(new Vector2(-128, -128));
@@ -130,6 +132,10 @@ public final class Main
                 {
                     camera.move(horSpeed);
                 }
+            }
+            else
+            {
+                camera.move(new Vector2(-1, -1));
             }
 
             if (Keyboard.getKeyPressed(KeyCode.F) && source.isStopped())

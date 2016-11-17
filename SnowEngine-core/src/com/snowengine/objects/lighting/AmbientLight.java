@@ -16,22 +16,22 @@
 package com.snowengine.objects.lighting;
 
 import com.snowengine.graphics.Shader;
-import com.snowengine.maths.Vector4;
+import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
 
 public final class AmbientLight extends GameObject
 {
     private static AmbientLight m_AmbientLight;
-    private Vector4 m_Color;
+    private Vector3 m_Color;
     
-    private AmbientLight(Vector4 color)
+    private AmbientLight(Vector3 color)
     {
         super ("AmbientLight", 10);
         m_AmbientLight = this;
         m_Color = color;
     }
     
-    public void setColor(Vector4 color)
+    public void setColor(Vector3 color)
     {
         m_Color = color;
     }
@@ -40,10 +40,15 @@ public final class AmbientLight extends GameObject
     public void render()
     {
         Shader shader = Shader.getActiveShader();
-        shader.setUniform4f("ambientLight", m_Color);
+        shader.setUniform3f("ambientLight", m_Color);
     }
     
-    public static AmbientLight create(Vector4 color)
+    public Vector3 getColor()
+    {
+        return m_Color;
+    }
+    
+    public static AmbientLight create(Vector3 color)
     {
         if (m_AmbientLight != null)
         {
