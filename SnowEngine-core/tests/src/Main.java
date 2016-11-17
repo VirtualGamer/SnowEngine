@@ -104,36 +104,25 @@ public final class Main
             timer2++;
             timer3++;
             
-            if (sprite1.isColliding(sprite3))
+            if (!sprite1.isColliding(sprite3))
             {
-                System.out.println("Sprite 1 extents >> ");
-                for (Vector2 extent : sprite1.getExtents())
+                if (Keyboard.getKey(KeyCode.Up))
                 {
-                    System.out.println(extent);
+                    camera.move(verSpeed.negate());
                 }
-                System.out.println("Sprite 4 extents >> ");
-                for (Vector2 extent : sprite4.getExtents())
+                if (Keyboard.getKey(KeyCode.Down))
                 {
-                    System.out.println(extent);
+                    camera.move(verSpeed);
                 }
-            }
-            
-            if (Keyboard.getKey(KeyCode.Up))
-            {
-                camera.move(verSpeed.negate());
-            }
-            if (Keyboard.getKey(KeyCode.Down))
-            {
-                camera.move(verSpeed);
-            }
-
-            if (Keyboard.getKey(KeyCode.Left))
-            {
-                camera.move(horSpeed.negate());
-            }
-            if (Keyboard.getKey(KeyCode.Right))
-            {
-                camera.move(horSpeed);
+    
+                if (Keyboard.getKey(KeyCode.Left))
+                {
+                    camera.move(horSpeed.negate());
+                }
+                if (Keyboard.getKey(KeyCode.Right))
+                {
+                    camera.move(horSpeed);
+                }
             }
 
             if (Keyboard.getKeyPressed(KeyCode.F) && source.isStopped())

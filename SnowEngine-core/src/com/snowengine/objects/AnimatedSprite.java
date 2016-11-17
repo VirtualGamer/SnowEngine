@@ -113,19 +113,18 @@ public class AnimatedSprite extends GameObject
         m_Texture[m_FrameIndex].unbind();
     }
     
+    
     public Vector2[] getExtents()
     {
-        float x = m_Texture[0].getWidth() / 2;
-        float y = m_Texture[0].getHeight() / 2;
-        x += this.transform.getPosition().getX();
-        y += this.transform.getPosition().getY();
-        Vector2[] extents =
-                {
-                        new Vector2(-x,-y),
-                        new Vector2(-x, y),
-                        new Vector2( x, y),
-                        new Vector2( x,-y)
-                };
-        return extents;
+        float x = this.transform.getPosition().getX();
+        float y = this.transform.getPosition().getY();
+        float w = m_Texture[0].getWidth() / 2;
+        float h = m_Texture[0].getHeight() / 2;
+        return new Vector2[] {
+                new Vector2(x - w, y - h),
+                new Vector2(x - w, y + h),
+                new Vector2(x + w, y + h),
+                new Vector2(x + w, y - h)
+        };
     }
 }

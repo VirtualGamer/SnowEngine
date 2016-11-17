@@ -101,17 +101,15 @@ public class Sprite extends GameObject
     
     public Vector2[] getExtents()
     {
-        float x = m_Texture.getWidth() / 2;
-        float y = m_Texture.getHeight() / 2;
-        x += this.transform.getPosition().getX();
-        y += this.transform.getPosition().getY();
-        Vector2[] extents =
-        {
-            new Vector2(-x,-y),
-            new Vector2(-x, y),
-            new Vector2( x, y),
-            new Vector2( x,-y)
+        float x = this.transform.getPosition().getX();
+        float y = this.transform.getPosition().getY();
+        float w = m_Texture.getWidth() / 2;
+        float h = m_Texture.getHeight() / 2;
+        return new Vector2[] {
+            new Vector2(x - w, y - h),
+            new Vector2(x - w, y + h),
+            new Vector2(x + w, y + h),
+            new Vector2(x + w, y - h)
         };
-        return extents;
     }
 }
