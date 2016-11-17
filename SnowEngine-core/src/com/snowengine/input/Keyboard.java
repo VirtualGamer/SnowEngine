@@ -53,17 +53,17 @@ public final class Keyboard
 
     public boolean GetKey(int key)
     {
-        return key < m_Keys.length && m_Keys[key];
+        return (!(key < 0) && key < m_Keys.length && m_Keys[key]);
     }
 
     public boolean GetKeyPressed(int key)
     {
-        return GetKey(key) && key < m_KeysPressed.length && !m_KeysPressed[key];
+        return (!(key < 0) && GetKey(key) && key < m_KeysPressed.length && !m_KeysPressed[key]);
     }
 
     public boolean GetKeyReleased(int key)
     {
-        return !GetKey(key) && key < m_KeysPressed.length && m_KeysPressed[key];
+        return (!(key < 0) && !GetKey(key) && key < m_KeysPressed.length && m_KeysPressed[key]);
     }
 
     public static boolean getKey(KeyCode key)

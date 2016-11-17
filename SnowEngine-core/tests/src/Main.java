@@ -25,7 +25,7 @@ public final class Main
 {
     public static void main(String args[])
     {
-        FileUtils.setPathPrefix("./SnowEngine-core/assets/");
+        FileUtils.setPathPrefix(args[0]);
         Window window = new Window("SnowEngine!", 0, 0, true);
         window.setClearColor(new Vector3(0.25f, 0.5f, 0.75f));
         
@@ -35,8 +35,12 @@ public final class Main
         camera.addChild(sprite1);
     
         Sprite sprite2 = new Sprite("textures/test_texture.png");
-        AnimatedSprite sprite3 = new AnimatedSprite("textures/slime.png", 1, 3);
-        sprite3.move(new Vector2(-128, -128));
+        
+        AnimatedSprite sprite3 = new AnimatedSprite("textures/crate_sheet.png", 1, 3);
+        sprite3.move(new Vector2(-32, -64));
+        
+        AnimatedSprite sprite4 = new AnimatedSprite("textures/coins_crate.png", 1, 4);
+        sprite4.move(new Vector2(-64, -64));
 
         Shader shader = new Shader();
         shader.addVertexShader("shaders/basic.vert");
@@ -51,8 +55,8 @@ public final class Main
 
         AudioMaster.setDistanceModel(DistanceModel.LinearDistanceClamped);
         AudioSource source = new AudioSource();
-        source.setReferenceDistance(5000);
-        source.setMaxDistance(7500);
+        source.setReferenceDistance(256);
+        source.setMaxDistance(512);
         source.play(clip);
     
         window.showCursor(false);
@@ -60,6 +64,7 @@ public final class Main
         
         int timer = 0, maxTime = 10, frameIndex = 0;
         int timer2 = 0, maxTime2 = 10, frameIndex2 = 0;
+        int timer3 = 0, maxTime3 = 3, frameIndex3 = 0, framePointer = 1;
         Vector3 horSpeed = new Vector3(5, 0, 0), verSpeed = new Vector3(0, 5, 0);
         while (!window.isCloseRequested())
         {
@@ -74,16 +79,16 @@ public final class Main
                 sprite3.setFrame((frameIndex2 < 3) ? frameIndex2++ : (frameIndex2 = 0));
             }
 
-//            if (timer >= maxTime)
-//            {
-//                timer = 0;
-//                int newFrame = frameIndex + framePointer;
-//                if (newFrame < 0 || newFrame >= 4)
-//                {
-//                    framePointer = -framePointer;
-//                }
-//                sprite1.setFrame(frameIndex += framePointer);
-//            }
+            if (timer3 >= maxTime3)
+            {
+                timer3 = 0;
+                int newFrame = frameIndex3 + framePointer;
+                if (newFrame < 0 || newFrame >= 4)
+                {
+                    framePointer = -framePointer;
+                }
+                sprite4.setFrame(frameIndex3 += framePointer);
+            }
 
             window.clear();
     
@@ -91,31 +96,30 @@ public final class Main
     
             sprite2.render();
             sprite3.render();
+            sprite4.render();
             camera.render();
 
             window.update();
             timer++;
             timer2++;
+            timer3++;
             
-            if (!sprite1.isColliding(sprite3))
+            if (Keyboard.getKey(KeyCode.Up))
             {
-                if (Keyboard.getKey(KeyCode.Up))
-                {
-                    camera.move(verSpeed.negate());
-                }
-                if (Keyboard.getKey(KeyCode.Down))
-                {
-                    camera.move(verSpeed);
-                }
-    
-                if (Keyboard.getKey(KeyCode.Left))
-                {
-                    camera.move(horSpeed.negate());
-                }
-                if (Keyboard.getKey(KeyCode.Right))
-                {
-                    camera.move(horSpeed);
-                }
+                camera.move(verSpeed.negate());
+            }
+            if (Keyboard.getKey(KeyCode.Down))
+            {
+                camera.move(verSpeed);
+            }
+
+            if (Keyboard.getKey(KeyCode.Left))
+            {
+                camera.move(horSpeed.negate());
+            }
+            if (Keyboard.getKey(KeyCode.Right))
+            {
+                camera.move(horSpeed);
             }
 
             if (Keyboard.getKeyPressed(KeyCode.F) && source.isStopped())
