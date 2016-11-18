@@ -32,7 +32,6 @@ import java.util.Random;
 public final class Game extends AbstractGame
 {
     private Player player;
-    private int timer = 0, maxTime = 10, frameIndex = 0;
     private AudioSource m_MusicSource;
     private AudioClip m_MusicClip;
     
@@ -109,14 +108,6 @@ public final class Game extends AbstractGame
     @Override
     public void update()
     {
-        if (timer >= maxTime)
-        {
-            timer = 0;
-            player.setFrame((frameIndex < 6) ? frameIndex++ : (frameIndex = 0));
-        }
-        
-        timer++;
-        
         super.update();
         
         if (Keyboard.getKeyReleased(KeyCode.Escape))

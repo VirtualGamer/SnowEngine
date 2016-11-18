@@ -26,13 +26,17 @@ public class Player extends AnimatedEntity
 {
     private AudioListener m_Listener;
     public float speed;
-    private int m_Coins;
+    private int m_Coins, m_Timer, m_MaxTime, m_FrameIndex;
     
     public Player()
     {
         super ("textures/player.png", 1, 7);
         m_Listener = new AudioListener();
         this.speed = 5;
+        m_Coins = 0;
+        m_Timer = 0;
+        m_MaxTime = 10;
+        m_FrameIndex = 0;
     }
     
     @Override
@@ -124,7 +128,21 @@ public class Player extends AnimatedEntity
         {
             this.move(horSpeed);
         }
-        
+    
         super.update();
+    }
+    
+    @Override
+    public void render()
+    {
+        if (m_Timer >= m_MaxTime)
+        {
+            m_Timer = 0;
+            this.setFrame((m_FrameIndex < 6) ? m_FrameIndex++ : (m_FrameIndex = 0));
+        }
+    
+        m_Timer++;
+        
+        super.render();
     }
 }
