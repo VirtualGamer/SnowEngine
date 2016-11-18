@@ -19,6 +19,7 @@ import com.snowengine.maths.Vector2;
 
 public interface EntityBase
 {
+    void destroy();
     void update();
     void render();
     

@@ -86,6 +86,15 @@ public class GameObject extends Object
         }
     }
     
+    public void destroy()
+    {
+        this.onDestroy();
+    }
+    
+    public void onDestroy()
+    {
+    }
+    
     public void move(Vector2 vector)
     {
         this.move(new Vector3(vector.getX(), vector.getY(), 0));

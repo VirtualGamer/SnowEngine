@@ -19,6 +19,7 @@ import com.snowengine.audio.AudioMaster;
 import com.snowengine.input.Keyboard;
 import com.snowengine.input.Mouse;
 import com.snowengine.maths.Vector3;
+import com.snowengine.objects.Level;
 import com.snowengine.utils.FileUtils;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;

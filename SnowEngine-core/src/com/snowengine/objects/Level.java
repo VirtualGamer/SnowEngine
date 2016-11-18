@@ -16,7 +16,6 @@
 package com.snowengine.objects;
 
 import com.snowengine.graphics.Shader;
-import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.entities.EntityBase;
 import com.snowengine.objects.lighting.AmbientLight;
@@ -29,6 +28,7 @@ import java.util.List;
 
 public final class Level extends GameObject
 {
+    private static Level m_ActiveLevel = null;
     private List<TileBase> m_Tiles;
     private List<Light> m_Lights;
     private List<EntityBase> m_Entities;
@@ -39,6 +39,11 @@ public final class Level extends GameObject
     public Level()
     {
         super ("Level", 9);
+        
+        if (m_ActiveLevel == null)
+        {
+            m_ActiveLevel = this;
+        }
         
         m_Tiles = new ArrayList<>();
         m_Lights = new ArrayList<>();
@@ -72,6 +77,32 @@ public final class Level extends GameObject
         m_AmbientLight.setColor(color);
     }
     
+    public void makeCurrent()
+    {
+        m_ActiveLevel = this;
+    }
+    
+    @Override
+    public void onDestroy()
+    {
+        m_Tiles.forEach(TileBase::destroy);
+        m_Lights.forEach(Light::destroy);
+        m_Entities.forEach(EntityBase::destroy);
+        m_AmbientLight.destroy();
+        m_Shader.destroy();
+        
+        m_Tiles.clear();
+        m_Lights.clear();
+        m_Entities.clear();
+        
+        m_Tiles = null;
+        m_Lights = null;
+        m_Entities = null;
+        m_EntityComparator = null;
+        m_AmbientLight = null;
+        m_Shader = null;
+    }
+    
     @Override
     public void update()
     {
@@ -101,5 +132,10 @@ public final class Level extends GameObject
             return -1;
         }
         return 1;
+    }
+    
+    public static Level getActiveLevel()
+    {
+        return m_ActiveLevel;
     }
 }
