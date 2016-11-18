@@ -23,4 +23,5 @@ public interface TileBase
     void setParent(GameObject parent);
     void update();
     void render();
+    boolean isSolid();
 }

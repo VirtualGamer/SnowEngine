@@ -17,9 +17,14 @@ package com.snowengine.objects;
 
 import com.snowengine.graphics.Shader;
 import com.snowengine.maths.Vector3;
+import com.snowengine.objects.colliders.CollisionManager;
+import com.snowengine.objects.entities.AnimatedEntity;
+import com.snowengine.objects.entities.Entity;
 import com.snowengine.objects.entities.EntityBase;
 import com.snowengine.objects.lighting.AmbientLight;
 import com.snowengine.objects.lighting.Light;
+import com.snowengine.objects.tiles.AnimatedTile;
+import com.snowengine.objects.tiles.Tile;
 import com.snowengine.objects.tiles.TileBase;
 
 import java.util.ArrayList;
@@ -35,6 +40,7 @@ public final class Level extends GameObject
     private Comparator<EntityBase> m_EntityComparator;
     private AmbientLight m_AmbientLight;
     private Shader m_Shader;
+    private CollisionManager m_CollisionManager;
     
     public Level()
     {
@@ -55,6 +61,8 @@ public final class Level extends GameObject
         m_Shader.addVertexShader("shaders/basic.vert");
         m_Shader.addFragmentShader("shaders/basic.frag");
         m_Shader.compile();
+    
+        m_CollisionManager = new CollisionManager();
     }
     
     public void addTile(TileBase tile)
@@ -136,6 +144,34 @@ public final class Level extends GameObject
         {
             this.removeEntity((EntityBase) gameObject);
         }
+    }
+    
+    private void doCollisionCheck()
+    {
+        List<GameObject> gameObjects = new ArrayList<>();
+        for (TileBase tile : m_Tiles)
+        {
+            if (tile instanceof Tile)
+            {
+                gameObjects.add((Tile) tile);
+            }
+            else if (tile instanceof AnimatedTile)
+            {
+                gameObjects.add((AnimatedTile) tile);
+            }
+        }
+        for (EntityBase entity : m_Entities)
+        {
+            if (entity instanceof Entity)
+            {
+                gameObjects.add((Entity) entity);
+            }
+            else if (entity instanceof AnimatedEntity)
+            {
+                gameObjects.add((AnimatedEntity) entity);
+            }
+        }
+        m_CollisionManager.checkForCollisions(gameObjects);
     }
     
     @Override

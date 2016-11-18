@@ -48,4 +48,10 @@ public class Tile extends Sprite implements TileBase
     {
         super.render();
     }
+    
+    @Override
+    public boolean isSolid()
+    {
+        return false;
+    }
 }

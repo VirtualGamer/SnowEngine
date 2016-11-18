@@ -99,6 +99,10 @@ public class GameObject extends Object
     {
     }
     
+    public void onCollision(GameObject other)
+    {
+    }
+    
     public void move(Vector2 vector)
     {
         this.move(new Vector3(vector.getX(), vector.getY(), 0));

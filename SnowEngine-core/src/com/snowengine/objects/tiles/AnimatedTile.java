@@ -48,4 +48,10 @@ public class AnimatedTile extends AnimatedSprite implements TileBase
     {
         super.render();
     }
+    
+    @Override
+    public boolean isSolid()
+    {
+        return false;
+    }
 }

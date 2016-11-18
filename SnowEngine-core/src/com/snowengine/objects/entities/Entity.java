@@ -57,4 +57,10 @@ public class Entity extends Sprite implements EntityBase
         Vector3 pos = this.transform.getPosition();
         return new Vector2(pos.x, pos.y);
     }
+    
+    @Override
+    public boolean isSolid()
+    {
+        return false;
+    }
 }
