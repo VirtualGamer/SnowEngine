@@ -24,7 +24,6 @@ import com.snowengine.maths.Vector3;
 import com.snowengine.objects.AbstractGame;
 import com.snowengine.objects.Camera2D;
 import com.snowengine.objects.lighting.Light;
-import com.snowengine.utils.ColorUtils;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.TMXFile;
 
@@ -48,7 +47,7 @@ public final class Game extends AbstractGame
         TMXFile file = FileUtils.openTMXFile("maps/demo_map.tmx");
         this.setLevel(file.getLevel());
         
-        this.setAmbientColor(ColorUtils.translate(0xff959595));
+        this.setAmbientColor(new Vector3(0.4f, 0.2f, 0.2f));
         
         player = new Player();
         player.move(new Vector2(400, 400));
@@ -57,7 +56,7 @@ public final class Game extends AbstractGame
         Camera2D camera = new Camera2D();
         player.addChild(camera);
         
-        Light light = new Light(new Vector2(), new Vector3(0.1f, 0.5f, 0.3f), 128.0f);
+        Light light = new Light(new Vector2(), new Vector3(1.0f, 1.0f, 1.0f), 256.0f);
         player.addChild(light);
         
         Crate crate1 = new Crate();

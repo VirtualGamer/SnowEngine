@@ -91,6 +91,7 @@ public class GameObject extends Object
     
     public void onDestroy()
     {
+        m_Children.forEach(GameObject::destroy);
     }
     
     public void onCollision(GameObject other)

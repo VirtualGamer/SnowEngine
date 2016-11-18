@@ -62,6 +62,8 @@ public abstract class AbstractGame extends GameObject
     @Override
     public void onDestroy()
     {
+        super.onDestroy();
+        
         m_Level.destroy();
         m_Window.destroy();
     }
