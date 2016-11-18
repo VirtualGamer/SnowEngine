@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-import com.snowengine.audio.AudioClip;
-import com.snowengine.audio.AudioMaster;
-import com.snowengine.audio.AudioSource;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
@@ -32,8 +29,7 @@ import java.util.Random;
 public final class Game extends AbstractGame
 {
     private Player player;
-    private AudioSource m_MusicSource;
-    private AudioClip m_MusicClip;
+    private MusicPlayer m_MusicPlayer;
     
     public Game()
     {
@@ -92,10 +88,9 @@ public final class Game extends AbstractGame
             slime.move(new Vector2(x, y));
             this.add(slime);
         }
-        
-        m_MusicClip = AudioMaster.loadAudioClip("audio/Tormented.wav");
-        m_MusicSource = new AudioSource();
-        m_MusicSource.loop(m_MusicClip);
+    
+        m_MusicPlayer = new MusicPlayer();
+        m_MusicPlayer.shuffle();
         
         super.start();
     }
@@ -104,15 +99,20 @@ public final class Game extends AbstractGame
     public void onDestroy()
     {
         super.onDestroy();
-        m_MusicSource.stop();
-        m_MusicClip.delete();
-        m_MusicSource.delete();
+        
+        m_MusicPlayer.stop();
+        m_MusicPlayer.delete();
     }
     
     @Override
     public void update()
     {
         super.update();
+        
+        if (!m_MusicPlayer.isPlayingMusic())
+        {
+            m_MusicPlayer.shuffle();
+        }
         
         if (Keyboard.getKeyReleased(KeyCode.Escape))
         {

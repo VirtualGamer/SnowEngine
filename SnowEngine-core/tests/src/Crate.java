@@ -1,12 +1,3 @@
-import com.snowengine.audio.AudioClip;
-import com.snowengine.audio.AudioMaster;
-import com.snowengine.audio.AudioSource;
-import com.snowengine.maths.Vector2;
-import com.snowengine.objects.Level;
-import com.snowengine.objects.entities.AnimatedEntity;
-
-import java.util.Random;
-
 /**
  * Copyright (c) 2016 Mark Rienstra
  * <p>
@@ -22,6 +13,15 @@ import java.util.Random;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import com.snowengine.audio.AudioClip;
+import com.snowengine.audio.AudioMaster;
+import com.snowengine.audio.AudioSource;
+import com.snowengine.maths.Vector2;
+import com.snowengine.objects.Level;
+import com.snowengine.objects.entities.AnimatedEntity;
+
+import java.util.Random;
 
 public final class Crate extends AnimatedEntity
 {
@@ -47,8 +47,8 @@ public final class Crate extends AnimatedEntity
         {
             Level level = (Level) this.parent;
             Random random = new Random();
-            int chance = random.nextInt(5);
-            if (chance % 5 > 0)
+            int chance = random.nextInt(6);
+            if (chance == 5)
             {
                 int amount = random.nextInt();
                 for (int i = 0; i < amount; i++)

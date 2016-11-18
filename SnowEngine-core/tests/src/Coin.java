@@ -33,7 +33,7 @@ public final class Coin extends AnimatedEntity
         
         if (m_AudioClip == null)
         {
-            m_AudioClip = AudioMaster.loadAudioClip("audio/coin_pickup.wav");
+            m_AudioClip = AudioMaster.loadAudioClip("audio/coin_pickup2.wav");
         }
         
         m_AudioSource = new AudioSource();
