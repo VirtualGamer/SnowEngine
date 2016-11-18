@@ -16,6 +16,7 @@
 package com.snowengine.objects;
 
 import com.snowengine.graphics.Window;
+import com.snowengine.maths.Vector3;
 import com.snowengine.objects.entities.EntityBase;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.TileBase;
@@ -53,6 +54,11 @@ public abstract class AbstractGame extends GameObject
         m_Window.requestClose();
     }
     
+    public void setLevel(Level level)
+    {
+        m_Level = level;
+    }
+    
     @Override
     public void onDestroy()
     {
@@ -74,6 +80,11 @@ public abstract class AbstractGame extends GameObject
         }
         
         this.destroy();
+    }
+    
+    public void setAmbientColor(Vector3 color)
+    {
+        m_Level.setAmbientLight(color);
     }
     
     public void add(TileBase tile)

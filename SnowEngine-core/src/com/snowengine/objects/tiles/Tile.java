@@ -16,7 +16,10 @@
 package com.snowengine.objects.tiles;
 
 import com.snowengine.graphics.Texture;
+import com.snowengine.maths.Vector2;
+import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
+import com.snowengine.objects.entities.EntityBase;
 import com.snowengine.objects.sprites.Sprite;
 
 public class Tile extends Sprite implements TileBase
@@ -38,6 +41,29 @@ public class Tile extends Sprite implements TileBase
     }
     
     @Override
+    public void onCollision(GameObject other)
+    {
+        if (other instanceof TileBase)
+        {
+            this.onCollision((TileBase) other);
+        }
+        else if (other instanceof EntityBase)
+        {
+            this.onCollision((EntityBase) other);
+        }
+    }
+    
+    @Override
+    public void onCollision(TileBase tile)
+    {
+    }
+    
+    @Override
+    public void onCollision(EntityBase tile)
+    {
+    }
+    
+    @Override
     public void update()
     {
         super.update();
@@ -47,6 +73,13 @@ public class Tile extends Sprite implements TileBase
     public void render()
     {
         super.render();
+    }
+    
+    @Override
+    public Vector2 getPosition()
+    {
+        Vector3 pos = this.transform.getPosition();
+        return new Vector2(pos.x, pos.y);
     }
     
     @Override

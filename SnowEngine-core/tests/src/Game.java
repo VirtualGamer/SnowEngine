@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import com.snowengine.audio.AudioClip;
+import com.snowengine.audio.AudioMaster;
+import com.snowengine.audio.AudioSource;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
@@ -32,37 +35,54 @@ public final class Game extends AbstractGame
     private int timer2 = 0, maxTime2 = 10, frameIndex2 = 0;
     private int timer3 = 0, maxTime3 = 3, frameIndex3 = 0, framePointer = 1;
     private Vector3 horSpeed = new Vector3(5, 0, 0), verSpeed = new Vector3(0, 5, 0);
+    private AudioSource m_MusicSource;
+    private AudioClip m_MusicClip;
     
     public Game()
     {
-        super ("SnowEngine!", 960, 540);
+        super ("SnowEngine!", 960, 540, true);
     }
     
     @Override
     public void start()
     {
+        this.setAmbientColor(new Vector3(0.3f, 0.2f, 0.1f));
+        
         player = new AnimatedEntity("textures/player.png", 1, 7);
         this.add(player);
-    
+        
         Camera2D camera = new Camera2D();
         player.addChild(camera);
-    
+        
         Light light = new Light(new Vector2(), new Vector3(0.1f, 0.5f, 0.3f), 128.0f);
         player.addChild(light);
-    
+        
         crate = new AnimatedEntity("textures/crate_sheet.png", 1, 3);
         crate.move(new Vector2(-128, -128));
         this.add(crate);
-    
-        coin = new AnimatedEntity("textures/coins_crate.png", 1, 4);
+        
+        coin = new AnimatedEntity("textures/coin.png", 1, 4);
         coin.move(new Vector2(-256, -256));
         this.add(coin);
-    
+        
         Tile groundTile = new Tile("textures/ground_tile.png");
         groundTile.scale(new Vector2(50, 50));
         this.add(groundTile);
         
+        m_MusicClip = AudioMaster.loadAudioClip("audio/Tormented.wav");
+        m_MusicSource = new AudioSource();
+        m_MusicSource.loop(m_MusicClip);
+        
         super.start();
+    }
+    
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        m_MusicSource.stop();
+        m_MusicClip.delete();
+        m_MusicSource.delete();
     }
     
     @Override
@@ -78,7 +98,7 @@ public final class Game extends AbstractGame
             timer2 = 0;
             crate.setFrame((frameIndex2 < 3) ? frameIndex2++ : (frameIndex2 = 0));
         }
-    
+        
         if (timer3 >= maxTime3)
         {
             timer3 = 0;
@@ -89,11 +109,11 @@ public final class Game extends AbstractGame
             }
             coin.setFrame(frameIndex3 += framePointer);
         }
-    
+        
         timer++;
         timer2++;
         timer3++;
-    
+        
         if (!player.isColliding(crate))
         {
             if (Keyboard.getKey(KeyCode.Up))
@@ -104,7 +124,7 @@ public final class Game extends AbstractGame
             {
                 player.move(verSpeed);
             }
-        
+            
             if (Keyboard.getKey(KeyCode.Left))
             {
                 player.move(horSpeed.negate());
@@ -119,11 +139,6 @@ public final class Game extends AbstractGame
             player.move(new Vector2(-1, -1));
         }
         
-        if (player.isColliding(coin))
-        {
-            coin.destroy();
-        }
-    
         if (Keyboard.getKeyReleased(KeyCode.Escape))
         {
             this.stop();

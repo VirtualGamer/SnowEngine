@@ -17,11 +17,14 @@ package com.snowengine.objects.entities;
 
 import com.snowengine.maths.Vector2;
 import com.snowengine.objects.GameObject;
+import com.snowengine.objects.tiles.TileBase;
 
 public interface EntityBase
 {
     void destroy();
     void setParent(GameObject parent);
+    void onCollision(TileBase tile);
+    void onCollision(EntityBase tile);
     void update();
     void render();
     Vector2 getPosition();

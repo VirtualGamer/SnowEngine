@@ -20,6 +20,7 @@ import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
 import com.snowengine.objects.sprites.Sprite;
+import com.snowengine.objects.tiles.TileBase;
 
 public class Entity extends Sprite implements EntityBase
 {
@@ -37,6 +38,29 @@ public class Entity extends Sprite implements EntityBase
     public void setParent(GameObject parent)
     {
         this.parent = parent;
+    }
+    
+    @Override
+    public void onCollision(GameObject other)
+    {
+        if (other instanceof TileBase)
+        {
+            this.onCollision((TileBase) other);
+        }
+        else if (other instanceof EntityBase)
+        {
+            this.onCollision((EntityBase) other);
+        }
+    }
+    
+    @Override
+    public void onCollision(TileBase tile)
+    {
+    }
+    
+    @Override
+    public void onCollision(EntityBase tile)
+    {
     }
     
     @Override

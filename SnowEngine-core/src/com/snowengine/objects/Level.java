@@ -33,7 +33,6 @@ import java.util.List;
 
 public final class Level extends GameObject
 {
-    private static Level m_ActiveLevel = null;
     private List<TileBase> m_Tiles;
     private List<Light> m_Lights;
     private List<EntityBase> m_Entities;
@@ -45,11 +44,6 @@ public final class Level extends GameObject
     public Level()
     {
         super ("Level", 9);
-        
-        if (m_ActiveLevel == null)
-        {
-            m_ActiveLevel = this;
-        }
         
         m_Tiles = new ArrayList<>();
         m_Lights = new ArrayList<>();
@@ -104,11 +98,6 @@ public final class Level extends GameObject
     public void setAmbientLight(Vector3 color)
     {
         m_AmbientLight.setColor(color);
-    }
-    
-    public void makeCurrent()
-    {
-        m_ActiveLevel = this;
     }
     
     @Override
@@ -178,9 +167,11 @@ public final class Level extends GameObject
     public void update()
     {
         m_Shader.enable();
+        m_AmbientLight.update();
         m_Tiles.forEach(TileBase::update);
         m_Lights.forEach(Light::update);
         m_Entities.sort(m_EntityComparator);
+        this.doCollisionCheck();
         m_Entities.forEach(EntityBase::update);
         m_Shader.disable();
     }
@@ -189,9 +180,11 @@ public final class Level extends GameObject
     public void render()
     {
         m_Shader.enable();
+        m_AmbientLight.render();
         m_Tiles.forEach(TileBase::render);
         m_Lights.forEach(Light::render);
         m_Entities.sort(m_EntityComparator);
+        this.doCollisionCheck();
         m_Entities.forEach(EntityBase::render);
         m_Shader.disable();
     }
@@ -203,10 +196,5 @@ public final class Level extends GameObject
             return -1;
         }
         return 1;
-    }
-    
-    public static Level getActiveLevel()
-    {
-        return m_ActiveLevel;
     }
 }
