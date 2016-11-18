@@ -84,10 +84,14 @@ public final class Game extends AbstractGame
             this.add(coin);
         }
         
-        
-        Slime slime = new Slime();
-        slime.move(new Vector2(512, 574));
-        this.add(slime);
+        for (int i = 0; i < 10; i++)
+        {
+            Slime slime = new Slime();
+            float x = 512 + (random.nextInt(32) * 8.5f) * i;
+            float y = 574 + (random.nextInt(32) * 8.5f) * i;
+            slime.move(new Vector2(x, y));
+            this.add(slime);
+        }
         
         m_MusicClip = AudioMaster.loadAudioClip("audio/Tormented.wav");
         m_MusicSource = new AudioSource();

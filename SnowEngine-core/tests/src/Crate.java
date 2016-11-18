@@ -47,7 +47,7 @@ public final class Crate extends AnimatedEntity
         {
             Level level = (Level) this.parent;
             Random random = new Random();
-            int chance = random.nextInt(10);
+            int chance = random.nextInt(5);
             if (chance % 5 > 0)
             {
                 int amount = random.nextInt();

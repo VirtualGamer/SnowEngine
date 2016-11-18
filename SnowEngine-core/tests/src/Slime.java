@@ -18,6 +18,7 @@ import com.snowengine.audio.AudioClip;
 import com.snowengine.audio.AudioMaster;
 import com.snowengine.audio.AudioSource;
 import com.snowengine.maths.Vector2;
+import com.snowengine.objects.Level;
 import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.entities.EntityBase;
 
@@ -45,6 +46,33 @@ public final class Slime extends AnimatedEntity
         m_MaxTime = 10;
         m_FrameIndex = 0;
         m_FramePointer = 1;
+    }
+    
+    public void destroy()
+    {
+        super.destroy();
+    }
+    
+    public void onDestroy()
+    {
+        if (this.parent instanceof Level)
+        {
+            Level level = (Level) this.parent;
+            Random random = new Random();
+            int chance = random.nextInt(3);
+            if (chance % 3 > 0)
+            {
+                int amount = random.nextInt();
+                for (int i = 0; i < amount; i++)
+                {
+                    Coin coin = new Coin();
+                    coin.move(new Vector2(random.nextFloat() * 0.5f, random.nextFloat() * 0.5f));
+                    level.addEntity(coin);
+                }
+            }
+        }
+        
+        super.onDestroy();
     }
     
     public void hit(EntityBase attacker)
