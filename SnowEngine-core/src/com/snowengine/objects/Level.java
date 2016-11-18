@@ -60,16 +60,37 @@ public final class Level extends GameObject
     public void addTile(TileBase tile)
     {
         m_Tiles.add(tile);
+        tile.setParent(this);
+    }
+    
+    public void removeTile(TileBase tile)
+    {
+        m_Tiles.remove(tile);
+        tile.setParent(null);
     }
     
     public void addLight(Light light)
     {
         m_Lights.add(light);
+        light.parent = this;
+    }
+    
+    public void removeLight(Light light)
+    {
+        m_Lights.remove(light);
+        light.parent = null;
     }
     
     public void addEntity(EntityBase entity)
     {
         m_Entities.add(entity);
+        entity.setParent(this);
+    }
+    
+    public void removeEntity(EntityBase entity)
+    {
+        m_Entities.remove(entity);
+        entity.setParent(null);
     }
     
     public void setAmbientLight(Vector3 color)
@@ -85,9 +106,6 @@ public final class Level extends GameObject
     @Override
     public void onDestroy()
     {
-        m_Tiles.forEach(TileBase::destroy);
-        m_Lights.forEach(Light::destroy);
-        m_Entities.forEach(EntityBase::destroy);
         m_AmbientLight.destroy();
         m_Shader.destroy();
         
@@ -101,6 +119,23 @@ public final class Level extends GameObject
         m_EntityComparator = null;
         m_AmbientLight = null;
         m_Shader = null;
+    }
+    
+    @Override
+    public void removeChild(GameObject gameObject)
+    {
+        if (gameObject instanceof TileBase)
+        {
+            this.removeTile((TileBase) gameObject);
+        }
+        else if (gameObject instanceof Light)
+        {
+            this.removeLight((Light) gameObject);
+        }
+        else if (gameObject instanceof EntityBase)
+        {
+            this.removeEntity((EntityBase) gameObject);
+        }
     }
     
     @Override

@@ -23,6 +23,7 @@ import com.snowengine.objects.Camera2D;
 import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.Tile;
+import com.snowengine.utils.FileUtils;
 
 public final class Game extends AbstractGame
 {
@@ -117,6 +118,11 @@ public final class Game extends AbstractGame
         {
             player.move(new Vector2(-1, -1));
         }
+        
+        if (player.isColliding(coin))
+        {
+            coin.destroy();
+        }
     
         if (Keyboard.getKeyReleased(KeyCode.Escape))
         {
@@ -124,5 +130,11 @@ public final class Game extends AbstractGame
         }
         
         super.update();
+    }
+    
+    public static void main(String args[])
+    {
+        FileUtils.setPathPrefix(args[0]);
+        new Game().start();
     }
 }

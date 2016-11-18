@@ -88,6 +88,10 @@ public class GameObject extends Object
     
     public void destroy()
     {
+        if (this.parent != null)
+        {
+            this.parent.removeChild(this);
+        }
         this.onDestroy();
     }
     

@@ -18,6 +18,7 @@ package com.snowengine.objects.entities;
 import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
+import com.snowengine.objects.GameObject;
 import com.snowengine.objects.sprites.AnimatedSprite;
 
 public class AnimatedEntity extends AnimatedSprite implements EntityBase
@@ -30,6 +31,12 @@ public class AnimatedEntity extends AnimatedSprite implements EntityBase
     public AnimatedEntity(Texture[] textures)
     {
         super (textures);
+    }
+    
+    @Override
+    public void setParent(GameObject parent)
+    {
+        this.parent = parent;
     }
     
     @Override

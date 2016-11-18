@@ -16,10 +16,12 @@
 package com.snowengine.objects.entities;
 
 import com.snowengine.maths.Vector2;
+import com.snowengine.objects.GameObject;
 
 public interface EntityBase
 {
     void destroy();
+    void setParent(GameObject parent);
     void update();
     void render();
     

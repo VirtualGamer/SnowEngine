@@ -15,9 +15,12 @@
  */
 package com.snowengine.objects.tiles;
 
+import com.snowengine.objects.GameObject;
+
 public interface TileBase
 {
     void destroy();
+    void setParent(GameObject parent);
     void update();
     void render();
 }

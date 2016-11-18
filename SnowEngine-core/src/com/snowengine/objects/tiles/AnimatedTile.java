@@ -16,6 +16,7 @@
 package com.snowengine.objects.tiles;
 
 import com.snowengine.graphics.Texture;
+import com.snowengine.objects.GameObject;
 import com.snowengine.objects.sprites.AnimatedSprite;
 
 public class AnimatedTile extends AnimatedSprite implements TileBase
@@ -28,6 +29,12 @@ public class AnimatedTile extends AnimatedSprite implements TileBase
     public AnimatedTile(Texture[] textures)
     {
         super (textures);
+    }
+    
+    @Override
+    public void setParent(GameObject parent)
+    {
+        this.parent = parent;
     }
     
     @Override
