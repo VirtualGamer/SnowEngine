@@ -46,7 +46,7 @@ public final class Game extends AbstractGame
         TMXFile file = FileUtils.openTMXFile("maps/demo_map.tmx");
         this.setLevel(file.getLevel());
         
-        this.setAmbientColor(new Vector3(0.4f, 0.2f, 0.2f));
+        this.setAmbientColor(new Vector3(0.25f, 0.1f, 0.1f));
         
         player = new Player();
         player.move(new Vector2(400, 400));
