@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="opencl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Dependencies/opencl/jar/opencl.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/Dependencies/opencl/docs/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Dependencies/opencl/src" />
+    </SOURCES>
+  </library>
+</component>

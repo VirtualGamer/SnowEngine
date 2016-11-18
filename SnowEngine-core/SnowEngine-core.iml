@@ -19,5 +19,6 @@
     <orderEntry type="library" exported="" name="glfw" level="project" />
     <orderEntry type="library" exported="" name="opengl" level="project" />
     <orderEntry type="library" exported="" name="openal" level="project" />
+    <orderEntry type="library" name="opencl" level="project" />
   </component>
 </module>

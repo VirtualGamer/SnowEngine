@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Game.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/Game.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/Game.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/opencl.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/SnowEngine-core.iml" afterPath="$PROJECT_DIR$/SnowEngine-core/SnowEngine-core.iml" />
     </list>
     <ignored path="SnowEngine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +30,7 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
+            <state relative-caret-position="362">
               <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -624,7 +625,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15323742" />
     <property name="project.structure.side.proportion" value="0.13593882" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Dependencies/opencl/src" />
     <property name="SearchEverywhereHistoryKey" value="java.awt.Rect&#9;PSI&#9;JAVA://java.awt.Rectangle&#10;Math&#9;FILE&#9;jar://C:/Program Files (x86)/Java/jdk1.8.0_91/src.zip!/java/lang/Math.java" />
   </component>
   <component name="RecentsManager">
@@ -1386,7 +1387,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
+        <state relative-caret-position="362">
           <caret line="48" column="44" selection-start-line="48" selection-start-column="44" selection-end-line="48" selection-end-column="44" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1453,6 +1454,7 @@
             <option name="proportions">
               <list>
                 <option value="0.13593882" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -1472,7 +1474,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>glfw</last-edited>
+          <last-edited>opencl</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
