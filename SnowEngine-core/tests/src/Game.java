@@ -23,6 +23,10 @@ import com.snowengine.objects.Camera2D;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.TMXFile;
+import entities.Coin;
+import entities.Crate;
+import entities.Player;
+import entities.Slime;
 
 import java.util.Random;
 

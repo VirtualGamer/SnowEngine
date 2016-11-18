@@ -1,4 +1,4 @@
-/**
+package entities; /**
  * Copyright (c) 2016 Mark Rienstra
  * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
