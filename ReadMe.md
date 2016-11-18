@@ -11,6 +11,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 * LWJGL 3.1.0
 * GLFW
 * OpenAL
+* OpenCL
 * OpenGL
 
 # Development Team
