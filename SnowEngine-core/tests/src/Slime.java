@@ -14,6 +14,9 @@
  * limitations under the License.
  */
 
+import com.snowengine.audio.AudioClip;
+import com.snowengine.audio.AudioMaster;
+import com.snowengine.audio.AudioSource;
 import com.snowengine.maths.Vector2;
 import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.entities.EntityBase;
@@ -22,12 +25,21 @@ import java.util.Random;
 
 public final class Slime extends AnimatedEntity
 {
+    private static AudioClip m_AudioClip;
+    private AudioSource m_AudioSource;
     private int m_Health, m_Timer, m_MaxTime, m_FrameIndex, m_FramePointer;
     private float xa = 0, ya = 0;
     
     public Slime()
     {
         super ("textures/slime.png", 1, 3);
+    
+        if (m_AudioClip == null)
+        {
+            m_AudioClip = AudioMaster.loadAudioClip("audio/enemy_hit.wav");
+        }
+    
+        m_AudioSource = new AudioSource();
         m_Health = 5 + new Random().nextInt(3);
         m_Timer = 0;
         m_MaxTime = 10;
@@ -37,6 +49,8 @@ public final class Slime extends AnimatedEntity
     
     public void hit(EntityBase attacker)
     {
+        m_AudioSource.setPosition(this.transform.getPosition());
+        m_AudioSource.play(m_AudioClip);
         m_Health -= 1;
     }
     
