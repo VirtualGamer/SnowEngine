@@ -16,6 +16,8 @@
 package com.snowengine.objects.entities;
 
 import com.snowengine.graphics.Texture;
+import com.snowengine.maths.Vector2;
+import com.snowengine.maths.Vector3;
 import com.snowengine.objects.sprites.Sprite;
 
 public class Entity extends Sprite implements EntityBase
@@ -40,5 +42,12 @@ public class Entity extends Sprite implements EntityBase
     public void render()
     {
         super.render();
+    }
+    
+    @Override
+    public Vector2 getPosition()
+    {
+        Vector3 pos = this.transform.getPosition();
+        return new Vector2(pos.x, pos.y);
     }
 }

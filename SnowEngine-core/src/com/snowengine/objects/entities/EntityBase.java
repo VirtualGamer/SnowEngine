@@ -15,8 +15,12 @@
  */
 package com.snowengine.objects.entities;
 
+import com.snowengine.maths.Vector2;
+
 public interface EntityBase
 {
     void update();
     void render();
+    
+    Vector2 getPosition();
 }

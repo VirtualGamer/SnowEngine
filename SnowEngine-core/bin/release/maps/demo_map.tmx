@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="64" nextobjectid="10">
+ <tileset firstgid="1" name="tilesheet" tilewidth="64" tileheight="64" tilecount="4" columns="2">
+  <image source="../textures/tilesheet.png" width="128" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="solid" type="bool" value="false"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="solid" type="bool" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Floors and walls" width="20" height="20">
+  <data encoding="csv">
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,
+3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <objectgroup color="#00aa00" name="Lights">
+  <properties>
+   <property name="ambient color" type="color" value="#ff959595"/>
+  </properties>
+  <object id="6" name="Light" x="384" y="576" width="64" height="64">
+   <properties>
+    <property name="color" type="color" value="#ffff0000"/>
+    <property name="radius" type="float" value="128"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ffaa00" name="Crates">
+  <object id="9" name="Crate" x="256" y="832" width="64" height="64">
+   <properties>
+    <property name="animation speed" type="int" value="5"/>
+    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="columns" type="int" value="1"/>
+    <property name="lootChance" type="int" value="5"/>
+    <property name="playAudioEvent" value="onDestroy"/>
+    <property name="rows" type="int" value="3"/>
+    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#5500ff" name="Doors">
+  <object id="8" name="Door" x="576" y="128.5" width="64" height="128">
+   <properties>
+    <property name="audio" type="file" value="../audio/door_enter.wav"/>
+    <property name="playAudioEvent" value="onCollision"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup color="#ff0000" name="Entities">
+  <object id="7" name="Player" x="896" y="576" width="64" height="128">
+   <properties>
+    <property name="animation speed" type="int" value="5"/>
+    <property name="columns" type="int" value="1"/>
+    <property name="rows" type="int" value="7"/>
+    <property name="speed" type="float" value="5"/>
+    <property name="sprite" type="file" value="../textures/player.png"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Audio"/>
+</map>

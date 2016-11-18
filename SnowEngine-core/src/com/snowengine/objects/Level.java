@@ -16,6 +16,7 @@
 package com.snowengine.objects;
 
 import com.snowengine.graphics.Shader;
+import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.entities.EntityBase;
 import com.snowengine.objects.lighting.AmbientLight;
@@ -23,6 +24,7 @@ import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.TileBase;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public final class Level extends GameObject
@@ -30,6 +32,7 @@ public final class Level extends GameObject
     private List<TileBase> m_Tiles;
     private List<Light> m_Lights;
     private List<EntityBase> m_Entities;
+    private Comparator<EntityBase> m_EntityComparator;
     private AmbientLight m_AmbientLight;
     private Shader m_Shader;
     
@@ -38,8 +41,9 @@ public final class Level extends GameObject
         super ("Level", 9);
         
         m_Tiles = new ArrayList<>();
-        m_Entities = new ArrayList<>();
         m_Lights = new ArrayList<>();
+        m_Entities = new ArrayList<>();
+        m_EntityComparator = this::compare;
         m_AmbientLight = AmbientLight.create(new Vector3(0.1f, 0.1f, 0.1f));
     
         m_Shader = new Shader();
@@ -74,6 +78,8 @@ public final class Level extends GameObject
         m_Shader.enable();
         m_Tiles.forEach(TileBase::update);
         m_Lights.forEach(Light::update);
+        m_Entities.sort(m_EntityComparator);
+        m_Entities.forEach(EntityBase::update);
         m_Shader.disable();
     }
     
@@ -83,6 +89,17 @@ public final class Level extends GameObject
         m_Shader.enable();
         m_Tiles.forEach(TileBase::render);
         m_Lights.forEach(Light::render);
+        m_Entities.sort(m_EntityComparator);
+        m_Entities.forEach(EntityBase::render);
         m_Shader.disable();
+    }
+    
+    private int compare(EntityBase e1, EntityBase e2)
+    {
+        if (e1.getPosition().getY() < e2.getPosition().getY())
+        {
+            return -1;
+        }
+        return 1;
     }
 }
