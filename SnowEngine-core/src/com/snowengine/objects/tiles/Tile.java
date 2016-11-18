@@ -29,4 +29,16 @@ public class Tile extends Sprite implements TileBase
     {
         super (texture);
     }
+    
+    @Override
+    public void update()
+    {
+        super.update();
+    }
+    
+    @Override
+    public void render()
+    {
+        super.render();
+    }
 }

@@ -17,4 +17,6 @@ package com.snowengine.objects.entities;
 
 public interface EntityBase
 {
+    void update();
+    void render();
 }

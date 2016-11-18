@@ -29,4 +29,16 @@ public class AnimatedEntity extends AnimatedSprite implements EntityBase
     {
         super (textures);
     }
+    
+    @Override
+    public void update()
+    {
+        super.update();
+    }
+    
+    @Override
+    public void render()
+    {
+        super.render();
+    }
 }

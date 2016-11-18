@@ -17,4 +17,6 @@ package com.snowengine.objects.tiles;
 
 public interface TileBase
 {
+    void update();
+    void render();
 }

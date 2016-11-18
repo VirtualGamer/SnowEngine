@@ -29,4 +29,16 @@ public class AnimatedTile extends AnimatedSprite implements TileBase
     {
         super (textures);
     }
+    
+    @Override
+    public void update()
+    {
+        super.update();
+    }
+    
+    @Override
+    public void render()
+    {
+        super.render();
+    }
 }
