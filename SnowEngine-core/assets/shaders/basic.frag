@@ -8,7 +8,7 @@ in DATA
     vec2 position;
 } fs_in;
 
-const int MAX_LIGHTS = 50;
+const int MAX_LIGHTS = 10;
 
 struct Light
 {

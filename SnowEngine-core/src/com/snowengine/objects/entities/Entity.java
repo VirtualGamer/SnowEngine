@@ -19,8 +19,12 @@ import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
+import com.snowengine.objects.Level;
 import com.snowengine.objects.sprites.Sprite;
 import com.snowengine.objects.tiles.TileBase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Entity extends Sprite implements EntityBase
 {
@@ -41,38 +45,91 @@ public class Entity extends Sprite implements EntityBase
     }
     
     @Override
+    public void destroy()
+    {
+        super.destroy();
+    }
+    
+    @Override
     public void onCollision(GameObject other)
     {
-        if (other instanceof TileBase)
-        {
-            this.onCollision((TileBase) other);
-        }
-        else if (other instanceof EntityBase)
-        {
-            this.onCollision((EntityBase) other);
-        }
-    }
-    
-    @Override
-    public void onCollision(TileBase tile)
-    {
-    }
-    
-    @Override
-    public void onCollision(EntityBase tile)
-    {
+        super.onCollision(other);
     }
     
     @Override
     public void update()
     {
         super.update();
+        
+        if (this.parent instanceof Level)
+        {
+            this.checkForCollisions((Level) this.parent);
+        }
     }
     
     @Override
     public void render()
     {
         super.render();
+    }
+    
+    private void checkForCollisions(Level level)
+    {
+        List<TileBase> tiles = new ArrayList<>();
+        List<EntityBase> entities = new ArrayList<>();
+        
+        for (TileBase tile : level.getTiles())
+        {
+            if (tile instanceof GameObject)
+            {
+                if (((GameObject) tile).isColliding(this))
+                {
+                    tiles.add(tile);
+                }
+            }
+        }
+        
+        for (EntityBase entity : level.getEntities())
+        {
+            if (entity instanceof GameObject)
+            {
+                if (((GameObject) entity).isColliding(this))
+                {
+                    entities.add(entity);
+                }
+            }
+        }
+        
+        this.checkForTileCollision(tiles);
+        this.checkForEntityCollision(entities);
+    }
+    
+    private void checkForTileCollision(List<TileBase> tiles)
+    {
+        for (TileBase tile : tiles)
+        {
+            if (tile != null && tile != this)
+            {
+                if (tile instanceof GameObject)
+                {
+                    this.onCollision((GameObject) tile);
+                }
+            }
+        }
+    }
+    
+    private void checkForEntityCollision(List<EntityBase> entities)
+    {
+        for (EntityBase entity : entities)
+        {
+            if (entity != null && entity != this)
+            {
+                if (entity instanceof GameObject)
+                {
+                    this.onCollision((GameObject) entity);
+                }
+            }
+        }
     }
     
     @Override

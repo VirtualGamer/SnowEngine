@@ -22,7 +22,7 @@ import com.snowengine.objects.GameObject;
 
 public class Light extends GameObject
 {
-    private static final int MAX_LIGHTS = 50;
+    private static final int MAX_LIGHTS = 10;
     private static int m_CurrentLightCount = 0;
     private int m_LightID;
     private Vector3 m_Color;

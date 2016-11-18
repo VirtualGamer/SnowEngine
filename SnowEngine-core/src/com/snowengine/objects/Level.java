@@ -16,6 +16,7 @@
 package com.snowengine.objects;
 
 import com.snowengine.graphics.Shader;
+import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.colliders.CollisionManager;
 import com.snowengine.objects.entities.AnimatedEntity;
@@ -33,6 +34,7 @@ import java.util.List;
 
 public final class Level extends GameObject
 {
+    public static final int DEFAULT_TILE_SIZE = 64;
     private List<TileBase> m_Tiles;
     private List<Light> m_Lights;
     private List<EntityBase> m_Entities;
@@ -168,11 +170,22 @@ public final class Level extends GameObject
     {
         m_Shader.enable();
         m_AmbientLight.update();
-        m_Tiles.forEach(TileBase::update);
+        for (TileBase tile : m_Tiles)
+        {
+            if (tile instanceof GameObject)
+            {
+                ((GameObject) tile).update();
+            }
+        }
         m_Lights.forEach(Light::update);
-        m_Entities.sort(m_EntityComparator);
-        this.doCollisionCheck();
-        m_Entities.forEach(EntityBase::update);
+        //this.doCollisionCheck();
+        for (EntityBase entity : m_Entities)
+        {
+            if (entity instanceof GameObject)
+            {
+                ((GameObject) entity).update();
+            }
+        }
         m_Shader.disable();
     }
     
@@ -181,12 +194,65 @@ public final class Level extends GameObject
     {
         m_Shader.enable();
         m_AmbientLight.render();
-        m_Tiles.forEach(TileBase::render);
+        for (TileBase tile : m_Tiles)
+        {
+            if (tile instanceof GameObject)
+            {
+                ((GameObject) tile).render();
+            }
+        }
         m_Lights.forEach(Light::render);
         m_Entities.sort(m_EntityComparator);
-        this.doCollisionCheck();
-        m_Entities.forEach(EntityBase::render);
+        //this.doCollisionCheck();
+        for (EntityBase entity : m_Entities)
+        {
+            if (entity instanceof GameObject)
+            {
+                ((GameObject) entity).render();
+            }
+        }
         m_Shader.disable();
+    }
+    
+    public TileBase[] getTiles()
+    {
+        return m_Tiles.toArray(new TileBase[m_Tiles.size()]);
+    }
+    
+    public TileBase getTileAt(Vector2 position)
+    {
+        TileBase[] tiles = this.getTiles();
+        for (TileBase tile : tiles)
+        {
+            if (tile.getPosition().equals(position))
+            {
+                return tile;
+            }
+        }
+        return null;
+    }
+    
+    public Light[] getLights()
+    {
+        return m_Lights.toArray(new Light[m_Lights.size()]);
+    }
+    
+    public EntityBase[] getEntities()
+    {
+        return m_Entities.toArray(new EntityBase[m_Entities.size()]);
+    }
+    
+    public EntityBase getEntityAt(Vector2 position)
+    {
+        EntityBase[] entities = this.getEntities();
+        for (EntityBase entity : entities)
+        {
+            if (entity.getPosition().equals(position))
+            {
+                return entity;
+            }
+        }
+        return null;
     }
     
     private int compare(EntityBase e1, EntityBase e2)

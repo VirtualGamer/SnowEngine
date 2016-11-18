@@ -18,7 +18,7 @@ package com.snowengine.utils.files;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-public class XMLFile extends File
+public final class XMLFile extends File
 {
     public XMLFile(String filepath)
     {

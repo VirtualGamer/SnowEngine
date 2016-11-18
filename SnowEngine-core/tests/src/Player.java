@@ -16,9 +16,10 @@
 
 import com.snowengine.audio.AudioListener;
 import com.snowengine.maths.Vector3;
+import com.snowengine.objects.GameObject;
+import com.snowengine.objects.Level;
 import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.entities.EntityBase;
-import com.snowengine.objects.tiles.TileBase;
 
 public class Player extends AnimatedEntity
 {
@@ -31,20 +32,9 @@ public class Player extends AnimatedEntity
     }
     
     @Override
-    public void onCollision(TileBase other)
+    public void onCollision(GameObject other)
     {
         super.onCollision(other);
-    }
-    
-    @Override
-    public void onCollision(EntityBase other)
-    {
-        super.onCollision(other);
-        
-        if (other instanceof Coin)
-        {
-            other.destroy();
-        }
     }
     
     @Override
@@ -52,5 +42,12 @@ public class Player extends AnimatedEntity
     {
         super.move(vector);
         m_Listener.setPosition(this.transform.getPosition());
+    }
+    
+    @Override
+    public void update()
+    {
+        super.update();
+        System.out.println("Update");
     }
 }

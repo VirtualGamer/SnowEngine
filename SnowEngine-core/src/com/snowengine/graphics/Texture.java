@@ -25,31 +25,33 @@ import static org.lwjgl.opengl.GL13.*;
 public final class Texture
 {
     private static Texture m_ActiveTexture = null;
-    private int m_TextureID, m_Width, m_Height;
+    private int m_TextureID, m_Width, m_Height, m_Pixels[];
 
     public Texture(String filepath)
     {
         ImageFile file = FileUtils.openImageFile(filepath);
         m_Width = file.getWidth();
         m_Height = file.getHeight();
-        this.create(file.getPixels());
+        m_Pixels = file.getPixels();
+        this.create();
     }
     
     private Texture(int width, int height, int pixels[])
     {
         m_Width = width;
         m_Height = height;
-        this.create(pixels);
+        m_Pixels = pixels;
+        this.create();
     }
     
-    private void create(int pixels[])
+    private void create()
     {
         m_TextureID = glGenTextures();
         
         glBindTexture(GL_TEXTURE_2D, m_TextureID);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_Pixels);
         glBindTexture(GL_TEXTURE_2D, 0);
     }
     
@@ -74,6 +76,11 @@ public final class Texture
     public int getHeight()
     {
         return m_Height;
+    }
+    
+    public Texture copy()
+    {
+        return new Texture(m_Width, m_Height, m_Pixels);
     }
     
     public boolean isActive()

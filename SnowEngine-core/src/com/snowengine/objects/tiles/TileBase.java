@@ -17,16 +17,11 @@ package com.snowengine.objects.tiles;
 
 import com.snowengine.maths.Vector2;
 import com.snowengine.objects.GameObject;
-import com.snowengine.objects.entities.EntityBase;
 
 public interface TileBase
 {
     void destroy();
     void setParent(GameObject parent);
-    void onCollision(TileBase tile);
-    void onCollision(EntityBase tile);
-    void update();
-    void render();
     Vector2 getPosition();
     boolean isSolid();
 }

@@ -70,6 +70,8 @@ public final class FileUtils
                     file = new XMLFile(filepath);
                     break;
                 case TMX:
+                    file = new TMXFile(filepath);
+                    break;
                 default:
                     return null;
             }
@@ -96,6 +98,11 @@ public final class FileUtils
     public static XMLFile openXMLFile(String filepath)
     {
         return (XMLFile) openFile(filepath, DataType.XML);
+    }
+
+    public static TMXFile openTMXFile(String filepath)
+    {
+        return (TMXFile) openFile(filepath, DataType.TMX);
     }
 
     public static void closeFiles()

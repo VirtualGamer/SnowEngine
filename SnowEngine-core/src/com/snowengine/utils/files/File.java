@@ -36,6 +36,8 @@ public abstract class File
                 m_FileData = new XMLData(filepath);
                 break;
             case TMX:
+                m_FileData = new TMXData(filepath);
+                break;
             default:
                 throw new IllegalArgumentException("Unknown file data type (" + type + ")");
         }

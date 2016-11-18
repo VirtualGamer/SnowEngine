@@ -13,15 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.objects.entities;
+package com.snowengine.utils.files;
 
-import com.snowengine.maths.Vector2;
-import com.snowengine.objects.GameObject;
+import com.snowengine.objects.Level;
 
-public interface EntityBase
+public final class TMXFile extends File
 {
-    void destroy();
-    void setParent(GameObject parent);
-    Vector2 getPosition();
-    boolean isSolid();
+    public TMXFile(String filepath)
+    {
+        super (filepath, DataType.TMX);
+    }
+    
+    public TMXData getTMXData()
+    {
+        return (TMXData) super.getFileData();
+    }
+    
+    public Level getLevel()
+    {
+        return this.getTMXData().getLevel();
+    }
 }

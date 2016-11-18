@@ -18,7 +18,6 @@ package com.snowengine.objects.colliders;
 import com.snowengine.objects.GameObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public final class CollisionManager
@@ -27,37 +26,33 @@ public final class CollisionManager
     {
     }
     
-    public <T extends GameObject> void checkForCollisions(List<T> objects)
+    public void checkForCollisions(final List<GameObject> objects)
     {
-        List<T> copyList = new ArrayList<>();
+        final List<GameObject> copyList = new ArrayList<>();
         copyList.addAll(objects);
-        for (T object : objects)
-        {
+        objects.forEach(object -> {
             GameObject[] collisions = getCollisions(object, copyList);
-            
+    
             for (GameObject collision : collisions)
             {
-                object.onCollision(collision);
+                if (object != collision)
+                {
+                    object.onCollision(collision);
+                }
             }
-        }
+        });
     }
     
-    private <T extends GameObject> GameObject[] getCollisions(T object, List<T> others)
+    private GameObject[] getCollisions(final GameObject object, List<GameObject> others)
     {
         List<GameObject> result = new ArrayList<>();
         
-        for (T other : others)
-        {
-            if (other == object)
-            {
-                continue;
-            }
-            
-            if (object.isColliding(other))
+        others.forEach(other -> {
+            if (object.isColliding(other) || other.isColliding(object))
             {
                 result.add(other);
             }
-        }
+        });
         
         return result.toArray(new GameObject[result.size()]);
     }

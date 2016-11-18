@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="64" nextobjectid="10">
- <tileset firstgid="1" name="tilesheet" tilewidth="64" tileheight="64" tilecount="4" columns="2">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="64" nextobjectid="19">
+ <tileset firstgid="1" name="tilesheet" tilewidth="64" tileheight="64" tilecount="4" columns="2" rows="2">
   <image source="../textures/tilesheet.png" width="128" height="128"/>
   <tile id="0">
    <properties>
@@ -12,8 +12,13 @@
     <property name="solid" type="bool" value="true"/>
    </properties>
   </tile>
+  <tile id="2">
+   <properties>
+    <property name="solid" type="bool" value="true"/>
+   </properties>
+  </tile>
  </tileset>
- <layer name="Floors and walls" width="20" height="20">
+ <layer name="Tiles" width="20" height="20">
   <data encoding="csv">
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
@@ -47,9 +52,76 @@
     <property name="radius" type="float" value="128"/>
    </properties>
   </object>
+  <object id="10" name="Light" x="576" y="192" width="64" height="64">
+   <properties>
+    <property name="color" type="color" value="#ffffffff"/>
+    <property name="radius" type="float" value="128"/>
+   </properties>
+  </object>
+  <object id="18" name="Light" x="1280" y="768" width="64" height="64">
+   <properties>
+    <property name="color" type="color" value="#ffffffff"/>
+    <property name="radius" type="float" value="128"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup color="#ffaa00" name="Crates">
-  <object id="9" name="Crate" x="256" y="832" width="64" height="64">
+  <object id="9" name="Crate" x="256" y="960" width="64" height="64">
+   <properties>
+    <property name="animation speed" type="int" value="5"/>
+    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="columns" type="int" value="1"/>
+    <property name="lootChance" type="int" value="5"/>
+    <property name="playAudioEvent" value="onDestroy"/>
+    <property name="rows" type="int" value="3"/>
+    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+   </properties>
+  </object>
+  <object id="12" name="Crate" x="320" y="960" width="64" height="64">
+   <properties>
+    <property name="animation speed" type="int" value="5"/>
+    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="columns" type="int" value="1"/>
+    <property name="lootChance" type="int" value="5"/>
+    <property name="playAudioEvent" value="onDestroy"/>
+    <property name="rows" type="int" value="3"/>
+    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+   </properties>
+  </object>
+  <object id="13" name="Crate" x="0" y="256" width="64" height="64">
+   <properties>
+    <property name="animation speed" type="int" value="5"/>
+    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="columns" type="int" value="1"/>
+    <property name="lootChance" type="int" value="5"/>
+    <property name="playAudioEvent" value="onDestroy"/>
+    <property name="rows" type="int" value="3"/>
+    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+   </properties>
+  </object>
+  <object id="14" name="Crate" x="64" y="256" width="64" height="64">
+   <properties>
+    <property name="animation speed" type="int" value="5"/>
+    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="columns" type="int" value="1"/>
+    <property name="lootChance" type="int" value="5"/>
+    <property name="playAudioEvent" value="onDestroy"/>
+    <property name="rows" type="int" value="3"/>
+    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+   </properties>
+  </object>
+  <object id="15" name="Crate" x="0" y="320" width="64" height="64">
+   <properties>
+    <property name="animation speed" type="int" value="5"/>
+    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="columns" type="int" value="1"/>
+    <property name="lootChance" type="int" value="5"/>
+    <property name="playAudioEvent" value="onDestroy"/>
+    <property name="rows" type="int" value="3"/>
+    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+   </properties>
+  </object>
+  <object id="16" name="Crate" x="896" y="1152" width="64" height="64">
    <properties>
     <property name="animation speed" type="int" value="5"/>
     <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
@@ -62,7 +134,7 @@
   </object>
  </objectgroup>
  <objectgroup color="#5500ff" name="Doors">
-  <object id="8" name="Door" x="576" y="128.5" width="64" height="128">
+  <object id="8" name="Door" x="576" y="128" width="64" height="128">
    <properties>
     <property name="audio" type="file" value="../audio/door_enter.wav"/>
     <property name="playAudioEvent" value="onCollision"/>

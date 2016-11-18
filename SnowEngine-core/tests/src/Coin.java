@@ -14,12 +14,32 @@
  * limitations under the License.
  */
 
+import com.snowengine.audio.AudioClip;
+import com.snowengine.audio.AudioMaster;
+import com.snowengine.audio.AudioSource;
 import com.snowengine.objects.entities.AnimatedEntity;
 
 public final class Coin extends AnimatedEntity
 {
+    private static AudioClip m_AudioClip;
+    private AudioSource m_AudioSource;
+    
     public Coin()
     {
         super ("textures/coin.png", 1, 4);
+        
+        if (m_AudioClip == null)
+        {
+            m_AudioClip = AudioMaster.loadAudioClip("audio/coin_pickup.wav");
+        }
+        
+        m_AudioSource = new AudioSource();
+    }
+    
+    @Override
+    public void onDestroy()
+    {
+        m_AudioSource.setPosition(this.transform.getPosition());
+        m_AudioSource.play(m_AudioClip);
     }
 }

@@ -27,6 +27,8 @@ import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.Tile;
 import com.snowengine.utils.FileUtils;
+import com.snowengine.utils.files.TMXData;
+import com.snowengine.utils.files.TMXFile;
 
 public final class Game extends AbstractGame
 {
@@ -40,13 +42,16 @@ public final class Game extends AbstractGame
     
     public Game()
     {
-        super ("SnowEngine!", 960, 540, true);
+        super ("SnowEngine!", 960, 540, false);
     }
     
     @Override
     public void start()
     {
-        this.setAmbientColor(new Vector3(0.3f, 0.2f, 0.1f));
+        TMXFile file = FileUtils.openTMXFile("maps/demo_map.tmx");
+        this.setLevel(file.getLevel());
+        
+        this.setAmbientColor(new Vector3(0.2f, 0.1f, 0.1f));
         
         player = new AnimatedEntity("textures/player.png", 1, 7);
         this.add(player);
@@ -61,13 +66,9 @@ public final class Game extends AbstractGame
         crate.move(new Vector2(-128, -128));
         this.add(crate);
         
-        coin = new AnimatedEntity("textures/coin.png", 1, 4);
+        coin = new Coin();
         coin.move(new Vector2(-256, -256));
         this.add(coin);
-        
-        Tile groundTile = new Tile("textures/ground_tile.png");
-        groundTile.scale(new Vector2(50, 50));
-        this.add(groundTile);
         
         m_MusicClip = AudioMaster.loadAudioClip("audio/Tormented.wav");
         m_MusicSource = new AudioSource();
@@ -99,7 +100,7 @@ public final class Game extends AbstractGame
             crate.setFrame((frameIndex2 < 3) ? frameIndex2++ : (frameIndex2 = 0));
         }
         
-        if (timer3 >= maxTime3)
+        if (timer3 >= maxTime3 && coin != null)
         {
             timer3 = 0;
             int newFrame = frameIndex3 + framePointer;
@@ -139,11 +140,17 @@ public final class Game extends AbstractGame
             player.move(new Vector2(-1, -1));
         }
         
+        if (coin != null && player.isColliding(coin))
+        {
+            coin.destroy();
+            coin = null;
+        }
+        
         if (Keyboard.getKeyReleased(KeyCode.Escape))
         {
             this.stop();
         }
-        
+    
         super.update();
     }
     
