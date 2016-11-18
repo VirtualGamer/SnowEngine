@@ -23,26 +23,22 @@ import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.AbstractGame;
 import com.snowengine.objects.Camera2D;
-import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.lighting.Light;
-import com.snowengine.objects.tiles.Tile;
 import com.snowengine.utils.FileUtils;
-import com.snowengine.utils.files.TMXData;
 import com.snowengine.utils.files.TMXFile;
+
+import java.util.Random;
 
 public final class Game extends AbstractGame
 {
-    private AnimatedEntity player, crate, coin;
+    private Player player;
     private int timer = 0, maxTime = 10, frameIndex = 0;
-    private int timer2 = 0, maxTime2 = 10, frameIndex2 = 0;
-    private int timer3 = 0, maxTime3 = 3, frameIndex3 = 0, framePointer = 1;
-    private Vector3 horSpeed = new Vector3(5, 0, 0), verSpeed = new Vector3(0, 5, 0);
     private AudioSource m_MusicSource;
     private AudioClip m_MusicClip;
     
     public Game()
     {
-        super ("SnowEngine!", 960, 540, false);
+        super ("SnowEngine!", 960, 540, true);
     }
     
     @Override
@@ -51,9 +47,10 @@ public final class Game extends AbstractGame
         TMXFile file = FileUtils.openTMXFile("maps/demo_map.tmx");
         this.setLevel(file.getLevel());
         
-        this.setAmbientColor(new Vector3(0.2f, 0.1f, 0.1f));
+        this.setAmbientColor(new Vector3(0.6f, 0.5f, 0.5f));
         
-        player = new AnimatedEntity("textures/player.png", 1, 7);
+        player = new Player();
+        player.move(new Vector2(400, 400));
         this.add(player);
         
         Camera2D camera = new Camera2D();
@@ -62,13 +59,31 @@ public final class Game extends AbstractGame
         Light light = new Light(new Vector2(), new Vector3(0.1f, 0.5f, 0.3f), 128.0f);
         player.addChild(light);
         
-        crate = new AnimatedEntity("textures/crate_sheet.png", 1, 3);
-        crate.move(new Vector2(-128, -128));
-        this.add(crate);
-        
-        coin = new Coin();
-        coin.move(new Vector2(-256, -256));
-        this.add(coin);
+        Crate crate1 = new Crate();
+        crate1.move(new Vector2(0, 256));
+        this.add(crate1);
+    
+        Crate crate2 = new Crate();
+        crate2.move(new Vector2(64, 256));
+        this.add(crate2);
+    
+        Crate crate3 = new Crate();
+        crate3.move(new Vector2(0, 320));
+        this.add(crate3);
+    
+        Crate crate4 = new Crate();
+        crate4.move(new Vector2(256, 320));
+        this.add(crate4);
+    
+        Random random = new Random();
+        for (int i = 0; i < 5; i++)
+        {
+            float x = random.nextFloat() * 3.2f + i;
+            float y = random.nextFloat() * 3.2f + i;
+            Coin coin = new Coin();
+            coin.move(new Vector2(x, y));
+            this.add(coin);
+        }
         
         m_MusicClip = AudioMaster.loadAudioClip("audio/Tormented.wav");
         m_MusicSource = new AudioSource();
@@ -94,64 +109,15 @@ public final class Game extends AbstractGame
             timer = 0;
             player.setFrame((frameIndex < 6) ? frameIndex++ : (frameIndex = 0));
         }
-        if (timer2 >= maxTime2)
-        {
-            timer2 = 0;
-            crate.setFrame((frameIndex2 < 3) ? frameIndex2++ : (frameIndex2 = 0));
-        }
-        
-        if (timer3 >= maxTime3 && coin != null)
-        {
-            timer3 = 0;
-            int newFrame = frameIndex3 + framePointer;
-            if (newFrame < 0 || newFrame >= 4)
-            {
-                framePointer = -framePointer;
-            }
-            coin.setFrame(frameIndex3 += framePointer);
-        }
         
         timer++;
-        timer2++;
-        timer3++;
         
-        if (!player.isColliding(crate))
-        {
-            if (Keyboard.getKey(KeyCode.Up))
-            {
-                player.move(verSpeed.negate());
-            }
-            if (Keyboard.getKey(KeyCode.Down))
-            {
-                player.move(verSpeed);
-            }
-            
-            if (Keyboard.getKey(KeyCode.Left))
-            {
-                player.move(horSpeed.negate());
-            }
-            if (Keyboard.getKey(KeyCode.Right))
-            {
-                player.move(horSpeed);
-            }
-        }
-        else
-        {
-            player.move(new Vector2(-1, -1));
-        }
-        
-        if (coin != null && player.isColliding(coin))
-        {
-            coin.destroy();
-            coin = null;
-        }
+        super.update();
         
         if (Keyboard.getKeyReleased(KeyCode.Escape))
         {
             this.stop();
         }
-    
-        super.update();
     }
     
     public static void main(String args[])

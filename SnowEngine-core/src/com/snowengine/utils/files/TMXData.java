@@ -52,7 +52,6 @@ public final class TMXData extends XMLData
         int mapHeight = this.getMapHeight();
         int tileWidth = this.getTileWidth();
         int tileHeight = this.getTileHeight();
-        System.out.println(tileWidth + ", " + tileHeight);
     
         for (int y = 0; y < mapHeight; y++)
         {

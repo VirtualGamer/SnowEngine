@@ -36,6 +36,7 @@ import java.util.List;
  */
 public class GameObject extends Object
 {
+    private static int m_LastGameObjectID = 0;
     public GameObject parent;
     public Transform transform;
     public Collider collider;
@@ -44,7 +45,7 @@ public class GameObject extends Object
     
     public GameObject(String name, int instanceID)
     {
-        super (name, instanceID);
+        super (name, m_LastGameObjectID++);
         this.transform = new Transform();
         this.transform.gameObject = this;
         m_Children = new ArrayList<>();
@@ -62,15 +63,8 @@ public class GameObject extends Object
     
     public void addChild(GameObject gameObject)
     {
-        if (m_Children.contains(gameObject))
-        {
-            System.out.println(this + " already contains an instance of " + gameObject);
-        }
-        else
-        {
-            m_Children.add(gameObject);
-            gameObject.parent = this;
-        }
+        m_Children.add(gameObject);
+        gameObject.parent = this;
     }
     
     public void removeChild(GameObject gameObject)
@@ -141,7 +135,10 @@ public class GameObject extends Object
     public void render()
     {
         Shader shader = Shader.getActiveShader();
-        shader.setUniformMatrix4f("model", this.transform.getTransformMatrix());
+        if (shader != null)
+        {
+            shader.setUniformMatrix4f("model", this.transform.getTransformMatrix());
+        }
         m_Children.forEach(GameObject::render);
     }
     

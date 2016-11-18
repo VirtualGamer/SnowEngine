@@ -60,79 +60,12 @@ public class AnimatedEntity extends AnimatedSprite implements EntityBase
     public void update()
     {
         super.update();
-    
-        if (this.parent instanceof Level)
-        {
-            this.checkForCollisions((Level) this.parent);
-        }
     }
     
     @Override
     public void render()
     {
         super.render();
-    }
-    
-    private void checkForCollisions(Level level)
-    {
-        List<TileBase> tiles = new ArrayList<>();
-        List<EntityBase> entities = new ArrayList<>();
-        
-        for (TileBase tile : level.getTiles())
-        {
-            if (tile instanceof GameObject)
-            {
-                if (((GameObject) tile).isColliding(this))
-                {
-                    tiles.add(tile);
-                }
-            }
-        }
-        
-        for (EntityBase entity : level.getEntities())
-        {
-            if (entity != this)
-            {
-                if (entity instanceof GameObject)
-                {
-                    if (((GameObject) entity).isColliding(this))
-                    {
-                        entities.add(entity);
-                    }
-                }
-            }
-        }
-        
-        this.checkForTileCollision(tiles);
-        this.checkForEntityCollision(entities);
-    }
-    
-    private void checkForTileCollision(List<TileBase> tiles)
-    {
-        for (TileBase tile : tiles)
-        {
-            if (tile != null && tile != this)
-            {
-                if (tile instanceof GameObject)
-                {
-                    this.onCollision((GameObject) tile);
-                }
-            }
-        }
-    }
-    
-    private void checkForEntityCollision(List<EntityBase> entities)
-    {
-        for (EntityBase entity : entities)
-        {
-            if (entity != null && entity != this)
-            {
-                if (entity instanceof GameObject)
-                {
-                    this.onCollision((GameObject) entity);
-                }
-            }
-        }
     }
     
     @Override

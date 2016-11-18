@@ -34,7 +34,7 @@ public class AnimatedSprite extends GameObject
     
     public AnimatedSprite(Texture[] textures)
     {
-        super ("AnimatedSprite", 0);
+        super ("AnimatedSprite", 13);
         m_Mesh = new Mesh();
         m_Texture = textures;
         m_FrameIndex = 0;
@@ -121,5 +121,10 @@ public class AnimatedSprite extends GameObject
                 new Vector2(x + w, y + h),
                 new Vector2(x + w, y - h)
         };
+    }
+    
+    public Vector2 getSize()
+    {
+        return new Vector2(m_Texture[0].getWidth(), m_Texture[0].getHeight());
     }
 }

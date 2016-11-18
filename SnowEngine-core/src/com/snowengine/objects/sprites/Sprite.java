@@ -108,4 +108,9 @@ public class Sprite extends GameObject
             new Vector2(x + w, y - h)
         };
     }
+    
+    public Vector2 getSize()
+    {
+        return new Vector2(m_Texture.getWidth(), m_Texture.getHeight());
+    }
 }

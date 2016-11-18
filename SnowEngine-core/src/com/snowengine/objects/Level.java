@@ -64,7 +64,7 @@ public final class Level extends GameObject
     public void addTile(TileBase tile)
     {
         m_Tiles.add(tile);
-        tile.setParent(this);
+        this.addChild((GameObject) tile);
     }
     
     public void removeTile(TileBase tile)
@@ -76,7 +76,7 @@ public final class Level extends GameObject
     public void addLight(Light light)
     {
         m_Lights.add(light);
-        light.parent = this;
+        this.addChild((GameObject) light);
     }
     
     public void removeLight(Light light)
@@ -88,7 +88,7 @@ public final class Level extends GameObject
     public void addEntity(EntityBase entity)
     {
         m_Entities.add(entity);
-        entity.setParent(this);
+        this.addChild((GameObject) entity);
     }
     
     public void removeEntity(EntityBase entity)
@@ -135,6 +135,10 @@ public final class Level extends GameObject
         {
             this.removeEntity((EntityBase) gameObject);
         }
+        else
+        {
+            super.removeChild(gameObject);
+        }
     }
     
     private void doCollisionCheck()
@@ -170,23 +174,26 @@ public final class Level extends GameObject
     {
         m_Shader.enable();
         m_AmbientLight.update();
-        for (TileBase tile : m_Tiles)
-        {
-            if (tile instanceof GameObject)
-            {
-                ((GameObject) tile).update();
-            }
-        }
         m_Lights.forEach(Light::update);
-        //this.doCollisionCheck();
-        for (EntityBase entity : m_Entities)
-        {
-            if (entity instanceof GameObject)
+        List<TileBase> tileUpdateCall = new ArrayList<>();
+        tileUpdateCall.addAll(m_Tiles);
+        tileUpdateCall.forEach(tileBase -> {
+            if (tileBase instanceof GameObject)
             {
-                ((GameObject) entity).update();
+                ((GameObject) tileBase).update();
             }
-        }
+        });
+        List<EntityBase> entityUpdateCall = new ArrayList<>();
+        entityUpdateCall.addAll(m_Entities);
+        entityUpdateCall.forEach(entityBase -> {
+            if (entityBase instanceof GameObject)
+            {
+                ((GameObject) entityBase).update();
+            }
+        });
         m_Shader.disable();
+        this.doCollisionCheck();
+        super.update();
     }
     
     @Override
@@ -194,23 +201,29 @@ public final class Level extends GameObject
     {
         m_Shader.enable();
         m_AmbientLight.render();
-        for (TileBase tile : m_Tiles)
-        {
-            if (tile instanceof GameObject)
-            {
-                ((GameObject) tile).render();
-            }
-        }
         m_Lights.forEach(Light::render);
-        m_Entities.sort(m_EntityComparator);
-        //this.doCollisionCheck();
-        for (EntityBase entity : m_Entities)
-        {
-            if (entity instanceof GameObject)
+        m_Tiles.forEach(tileBase -> {
+            if (tileBase instanceof GameObject)
             {
-                ((GameObject) entity).render();
+                ((GameObject) tileBase).render();
             }
-        }
+        });
+        m_Entities.sort(m_EntityComparator);
+        m_Entities.forEach(entityBase -> {
+            
+            if (entityBase instanceof Entity)
+            {
+                ((Entity) entityBase).render();
+            }
+            else if (entityBase instanceof AnimatedEntity)
+            {
+                ((AnimatedEntity) entityBase).render();
+            }
+            else if (entityBase instanceof GameObject)
+            {
+                ((GameObject) entityBase).render();
+            }
+        });
         m_Shader.disable();
     }
     
