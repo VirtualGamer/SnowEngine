@@ -26,6 +26,7 @@ public class Player extends AnimatedEntity
 {
     private AudioListener m_Listener;
     public float speed;
+    private int m_Coins;
     
     public Player()
     {
@@ -35,11 +36,29 @@ public class Player extends AnimatedEntity
     }
     
     @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        
+        System.out.println("you found " + m_Coins + " in this dungeon");
+    }
+    
+    @Override
     public void onCollision(GameObject other)
     {
         super.onCollision(other);
+        boolean attack = Keyboard.getKeyPressed(KeyCode.Space);
         
-        if (other instanceof Crate)
+        if (other instanceof Slime)
+        {
+            Slime slime = (Slime) other;
+    
+            if (attack)
+            {
+                slime.hit(this);
+            }
+        }
+        else if (other instanceof Crate)
         {
             Crate crate = (Crate) other;
             float xa = 0, ya = 0;
@@ -62,15 +81,15 @@ public class Player extends AnimatedEntity
             }
             this.move(new Vector2(xa, ya));
             
-            if (Keyboard.getKeyPressed(KeyCode.Space))
+            if (attack)
             {
                 crate.destroy();
             }
         }
-        
-        if (other instanceof Coin)
+        else if (other instanceof Coin)
         {
             Coin coin = (Coin) other;
+            m_Coins++;
             coin.destroy();
         }
     }

@@ -24,6 +24,7 @@ import com.snowengine.maths.Vector3;
 import com.snowengine.objects.AbstractGame;
 import com.snowengine.objects.Camera2D;
 import com.snowengine.objects.lighting.Light;
+import com.snowengine.utils.ColorUtils;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.TMXFile;
 
@@ -47,7 +48,7 @@ public final class Game extends AbstractGame
         TMXFile file = FileUtils.openTMXFile("maps/demo_map.tmx");
         this.setLevel(file.getLevel());
         
-        this.setAmbientColor(new Vector3(0.6f, 0.5f, 0.5f));
+        this.setAmbientColor(ColorUtils.translate(0xff959595));
         
         player = new Player();
         player.move(new Vector2(400, 400));
@@ -78,12 +79,17 @@ public final class Game extends AbstractGame
         Random random = new Random();
         for (int i = 0; i < 5; i++)
         {
-            float x = random.nextFloat() * 3.2f + i;
-            float y = random.nextFloat() * 3.2f + i;
+            float x = 512 + (random.nextInt(16) * 3.2f) * i;
+            float y = 320 + (random.nextInt(16) * 3.2f) * i;
             Coin coin = new Coin();
             coin.move(new Vector2(x, y));
             this.add(coin);
         }
+        
+        
+        Slime slime = new Slime();
+        slime.move(new Vector2(512, 574));
+        this.add(slime);
         
         m_MusicClip = AudioMaster.loadAudioClip("audio/Tormented.wav");
         m_MusicSource = new AudioSource();

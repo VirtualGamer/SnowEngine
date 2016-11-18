@@ -14,12 +14,34 @@
  * limitations under the License.
  */
 
-import com.snowengine.objects.sprites.AnimatedSprite;
+import com.snowengine.objects.entities.AnimatedEntity;
+import com.snowengine.objects.entities.EntityBase;
 
-public final class Slime extends AnimatedSprite
+import java.util.Random;
+
+public final class Slime extends AnimatedEntity
 {
+    private int m_Health;
+    
     public Slime()
     {
         super ("textures/slime.png", 1, 3);
+        m_Health = 5 + new Random().nextInt(3);
+    }
+    
+    public void hit(EntityBase attacker)
+    {
+        m_Health -= 1;
+    }
+    
+    @Override
+    public void update()
+    {
+        super.update();
+        
+        if (m_Health <= 0)
+        {
+            this.destroy();
+        }
     }
 }
