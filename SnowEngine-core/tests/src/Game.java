@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import com.snowengine.graphics.TTFont;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
@@ -34,6 +35,7 @@ public final class Game extends AbstractGame
 {
     private Player player;
     private MusicPlayer m_MusicPlayer;
+    private TTFont m_Font;
     
     public Game()
     {
@@ -94,6 +96,7 @@ public final class Game extends AbstractGame
         }
     
         m_MusicPlayer = new MusicPlayer();
+        m_Font = new TTFont("fonts/pdark.ttf", 24, 512, 512);
         
         super.start();
     }
@@ -126,6 +129,13 @@ public final class Game extends AbstractGame
         {
             this.stop();
         }
+    }
+    
+    @Override
+    public void render()
+    {
+        super.render();
+        m_Font.drawString("Hello World!", new Vector2(0, 0));
     }
     
     public static void main(String args[])

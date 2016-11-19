@@ -58,7 +58,7 @@ public final class Slime extends AnimatedEntity
         
         m_AudioSource.setPosition(this.transform.getPosition());
         m_AudioSource.play(m_AudioClip);
-        m_Health -= 1;
+        m_Health--;
     }
     
     @Override
