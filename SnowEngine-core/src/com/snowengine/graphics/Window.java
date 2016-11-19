@@ -27,8 +27,6 @@ import org.lwjgl.glfw.GLFWVidMode;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
 import static org.lwjgl.opengl.GL11.*;
-import static org.lwjgl.opencl.CL10.*;
-import static org.lwjgl.opencl.CL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public final class Window
