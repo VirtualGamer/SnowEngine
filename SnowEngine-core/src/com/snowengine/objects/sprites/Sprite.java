@@ -25,6 +25,7 @@ public class Sprite extends GameObject
 {
     private Mesh m_Mesh;
     private Texture m_Texture;
+    private Vector2 m_Bounds;
     
     public Sprite(String filepath)
     {
@@ -63,12 +64,19 @@ public class Sprite extends GameObject
         };
         
         m_Mesh.setMeshData(vertices, uvs, indices, true);
+    
+        m_Bounds = new Vector2(x * 2, y * 2);
     }
     
     @Override
     protected BoxCollider createCollider()
     {
         return new BoxCollider();
+    }
+    
+    protected void setBounds(float width, float height)
+    {
+        m_Bounds = new Vector2(width, height);
     }
     
     @Override
@@ -99,8 +107,8 @@ public class Sprite extends GameObject
     {
         float x = this.transform.getPosition().getX();
         float y = this.transform.getPosition().getY();
-        float w = m_Texture.getWidth() / 2;
-        float h = m_Texture.getHeight() / 2;
+        float w = m_Bounds.getX();
+        float h = m_Bounds.getY();
         return new Vector2[] {
             new Vector2(x - w, y - h),
             new Vector2(x - w, y + h),

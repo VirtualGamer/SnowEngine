@@ -31,6 +31,8 @@ public class Player extends AnimatedEntity
     public Player()
     {
         super ("textures/player.png", 1, 7);
+        super.setBounds(1, 1);
+        
         m_Listener = new AudioListener();
         this.speed = 5;
         m_Coins = 0;

@@ -138,7 +138,7 @@ public final class Window
         System.out.println("LWJGL " + Version.getVersion());
         System.out.println("GLFW " + glfwGetVersionString());
         System.out.println("OpenAL " + AudioMaster.getVersionString());
-        System.out.println("OpenCL ??w");
+        System.out.println("OpenCL ??");
         System.out.println("OpenGL " + glGetString(GL_VERSION));
         return true;
     }
