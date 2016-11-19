@@ -31,7 +31,7 @@ public class Player extends AnimatedEntity
     public Player()
     {
         super ("textures/player.png", 1, 7);
-        super.setBounds(1, 1);
+        super.setBounds(16, 16);
         
         m_Listener = new AudioListener();
         this.speed = 5;
@@ -69,22 +69,24 @@ public class Player extends AnimatedEntity
             Crate crate = (Crate) other;
             float xa = 0, ya = 0;
             Vector2 pos = this.getPosition(), opos = crate.getPosition();
-            if (pos.getX() < opos.getX())
+            
+            if (Keyboard.getKey(KeyCode.Up) && pos.getY() > opos.getY())
             {
-                xa = -1;
+                ya = this.speed;
             }
-            else if (pos.getX() > opos.getX())
+            else if (Keyboard.getKey(KeyCode.Down) && pos.getY() < opos.getY())
             {
-                xa = +1;
+                ya = -this.speed;
             }
-            if (pos.getY() < opos.getY())
+            if (Keyboard.getKey(KeyCode.Left) && pos.getX() < opos.getX())
             {
-                ya = -1;
+                xa = this.speed;
             }
-            else if (pos.getY() > opos.getY())
+            else if (Keyboard.getKey(KeyCode.Right) && pos.getX() > opos.getX())
             {
-                ya = +1;
+                xa = -this.speed;
             }
+            
             this.move(new Vector2(xa, ya));
             
             if (attack)
