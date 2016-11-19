@@ -18,6 +18,7 @@ import com.snowengine.audio.AudioClip;
 import com.snowengine.audio.AudioMaster;
 import com.snowengine.audio.AudioSource;
 import com.snowengine.maths.Vector2;
+import com.snowengine.objects.GameObject;
 import com.snowengine.objects.entities.AnimatedEntity;
 
 public final class Coin extends AnimatedEntity
@@ -51,6 +52,19 @@ public final class Coin extends AnimatedEntity
         
         m_AudioSource.setPosition(this.transform.getPosition());
         m_AudioSource.play(m_AudioClip);
+    }
+    
+    @Override
+    public void onCollision(GameObject other)
+    {
+        super.onCollision(other);
+        
+        if (other instanceof Player)
+        {
+            Player player = (Player) other;
+            player.addScore(1);
+            this.destroy();
+        }
     }
    
     @Override

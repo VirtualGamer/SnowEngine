@@ -26,16 +26,16 @@ public class Player extends AnimatedEntity
 {
     private AudioListener m_Listener;
     public float speed;
-    private int m_Coins, m_Timer, m_MaxTime, m_FrameIndex;
+    private int m_Score, m_Timer, m_MaxTime, m_FrameIndex;
     
     public Player()
     {
         super ("textures/player.png", 1, 7);
-        super.setBounds(16, 16);
+        super.setBounds(0, 32, 16, 16);
         
         m_Listener = new AudioListener();
         this.speed = 5;
-        m_Coins = 0;
+        m_Score = 0;
         m_Timer = 0;
         m_MaxTime = 10;
         m_FrameIndex = 0;
@@ -45,8 +45,6 @@ public class Player extends AnimatedEntity
     public void onDestroy()
     {
         super.onDestroy();
-        
-        System.out.println("you found " + m_Coins + " in this dungeon");
     }
     
     @Override
@@ -67,24 +65,24 @@ public class Player extends AnimatedEntity
         else if (other instanceof Crate)
         {
             Crate crate = (Crate) other;
-            float xa = 0, ya = 0;
+            float xa = 0, ya = 0, speed = 1;
             Vector2 pos = this.getPosition(), opos = crate.getPosition();
             
-            if (Keyboard.getKey(KeyCode.Up) && pos.getY() > opos.getY())
+            if (pos.getY() > (opos.getY() - 1))
             {
-                ya = this.speed;
+                ya = speed;
             }
-            else if (Keyboard.getKey(KeyCode.Down) && pos.getY() < opos.getY())
+            else if (pos.getY() < (opos.getY() + 1))
             {
-                ya = -this.speed;
+                ya = -speed;
             }
-            if (Keyboard.getKey(KeyCode.Left) && pos.getX() < opos.getX())
+            if (pos.getX() < (opos.getX() - 1))
             {
-                xa = this.speed;
+                xa = speed;
             }
-            else if (Keyboard.getKey(KeyCode.Right) && pos.getX() > opos.getX())
+            else if (pos.getX() > (opos.getX() + 1))
             {
-                xa = -this.speed;
+                xa = -speed;
             }
             
             this.move(new Vector2(xa, ya));
@@ -94,11 +92,27 @@ public class Player extends AnimatedEntity
                 crate.destroy();
             }
         }
-        else if (other instanceof Coin)
+    }
+    
+    public void setScore(int score)
+    {
+        m_Score = score;
+    }
+    
+    public void addScore(int score)
+    {
+        m_Score += score;
+    }
+    
+    public void removeScore(int score)
+    {
+        if (m_Score > score)
         {
-            Coin coin = (Coin) other;
-            m_Coins++;
-            coin.destroy();
+            m_Score += score;
+        }
+        else
+        {
+            this.setScore(0);
         }
     }
     

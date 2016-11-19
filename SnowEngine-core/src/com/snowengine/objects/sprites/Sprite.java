@@ -25,7 +25,7 @@ public class Sprite extends GameObject
 {
     private Mesh m_Mesh;
     private Texture m_Texture;
-    private Vector2 m_Bounds;
+    private Vector2 m_Bounds, m_BoundsOffset;
     
     public Sprite(String filepath)
     {
@@ -66,6 +66,7 @@ public class Sprite extends GameObject
         m_Mesh.setMeshData(vertices, uvs, indices, true);
     
         m_Bounds = new Vector2(x * 2, y * 2);
+        m_BoundsOffset = new Vector2();
     }
     
     @Override
@@ -77,6 +78,17 @@ public class Sprite extends GameObject
     protected void setBounds(float width, float height)
     {
         m_Bounds = new Vector2(width, height);
+    }
+    
+    protected void setBounds(float x, float y, float width, float height)
+    {
+        this.setBoundsOffset(x, y);
+        this.setBounds(width, height);
+    }
+    
+    protected void setBoundsOffset(float x, float y)
+    {
+        m_BoundsOffset = new Vector2(x, y);
     }
     
     @Override
@@ -105,15 +117,15 @@ public class Sprite extends GameObject
     
     public Vector2[] getExtents()
     {
-        float x = this.transform.getPosition().getX();
-        float y = this.transform.getPosition().getY();
+        float x = this.transform.getPosition().getX() + m_BoundsOffset.getX();
+        float y = this.transform.getPosition().getY() + m_BoundsOffset.getY();
         float w = m_Bounds.getX();
         float h = m_Bounds.getY();
         return new Vector2[] {
-            new Vector2(x - w, y - h),
-            new Vector2(x - w, y + h),
-            new Vector2(x + w, y + h),
-            new Vector2(x + w, y - h)
+                new Vector2(x - w, y - h),
+                new Vector2(x - w, y + h),
+                new Vector2(x + w, y + h),
+                new Vector2(x + w, y - h)
         };
     }
     

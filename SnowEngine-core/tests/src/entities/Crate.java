@@ -47,20 +47,29 @@ public final class Crate extends AnimatedEntity
         {
             Level level = (Level) this.parent;
             Random random = new Random();
-            int chance = random.nextInt(6);
-            if (chance == 5)
+            int chance = random.nextInt(4);
+            if (chance == 3)
             {
-                int amount = random.nextInt();
-                for (int i = 0; i < amount; i++)
-                {
-                    Coin coin = new Coin();
-                    coin.move(new Vector2(random.nextFloat() * 0.5f, random.nextFloat() * 0.5f));
-                    level.addEntity(coin);
-                }
+                this.spawnCoins(level, random);
             }
         }
         
         super.destroy();
+    }
+    
+    private void spawnCoins(Level level, Random random)
+    {
+        int amount = random.nextInt(5) + 2;
+        for (int i = 0; i < amount; i++)
+        {
+            Coin coin = new Coin();
+            float x = this.getPosition().getX();
+            float y = this.getPosition().getY();
+            x += random.nextInt(16) * 2;
+            y += random.nextInt(16) * 2;
+            coin.move(new Vector2(x, y));
+            level.addEntity(coin);
+        }
     }
     
     @Override

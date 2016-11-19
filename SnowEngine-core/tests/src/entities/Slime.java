@@ -48,35 +48,14 @@ public final class Slime extends AnimatedEntity
         m_FramePointer = 1;
     }
     
-    public void destroy()
-    {
-        super.destroy();
-    }
-    
-    public void onDestroy()
-    {
-        if (this.parent instanceof Level)
-        {
-            Level level = (Level) this.parent;
-            Random random = new Random();
-            int chance = random.nextInt(4);
-            if (chance == 3)
-            {
-                int amount = random.nextInt();
-                for (int i = 0; i < amount; i++)
-                {
-                    Coin coin = new Coin();
-                    coin.move(new Vector2(random.nextFloat() * 0.5f, random.nextFloat() * 0.5f));
-                    level.addEntity(coin);
-                }
-            }
-        }
-        
-        super.onDestroy();
-    }
-    
     public void hit(EntityBase attacker)
     {
+        if (attacker instanceof Player)
+        {
+            Player player = (Player) attacker;
+            player.addScore(2);
+        }
+        
         m_AudioSource.setPosition(this.transform.getPosition());
         m_AudioSource.play(m_AudioClip);
         m_Health -= 1;

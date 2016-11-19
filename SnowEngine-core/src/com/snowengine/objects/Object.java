@@ -45,10 +45,6 @@ public abstract class Object
     @Override
     public final boolean equals(java.lang.Object obj)
     {
-        if (obj instanceof Object)
-        {
-            return this.equals((Object) obj);
-        }
         return super.equals(obj);
     }
     
