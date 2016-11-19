@@ -191,7 +191,6 @@ public final class Level extends GameObject
                 ((GameObject) entityBase).update();
             }
         });
-        m_Shader.disable();
         this.doCollisionCheck();
         super.update();
     }
@@ -224,7 +223,6 @@ public final class Level extends GameObject
                 ((GameObject) entityBase).render();
             }
         });
-        m_Shader.disable();
     }
     
     public TileBase[] getTiles()
