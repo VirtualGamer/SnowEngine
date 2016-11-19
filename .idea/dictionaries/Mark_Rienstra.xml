@@ -2,6 +2,7 @@
   <dictionary name="Mark Rienstra">
     <words>
       <w>collider</w>
+      <w>coords</w>
       <w>glfw</w>
       <w>lwjgl</w>
       <w>rienstra</w>
