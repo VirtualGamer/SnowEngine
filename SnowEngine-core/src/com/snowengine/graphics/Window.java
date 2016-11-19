@@ -19,7 +19,6 @@ import com.snowengine.audio.AudioMaster;
 import com.snowengine.input.Keyboard;
 import com.snowengine.input.Mouse;
 import com.snowengine.maths.Vector3;
-import com.snowengine.objects.Level;
 import com.snowengine.utils.FileUtils;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFWErrorCallback;
@@ -28,6 +27,8 @@ import org.lwjgl.glfw.GLFWVidMode;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL.createCapabilities;
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opencl.CL10.*;
+import static org.lwjgl.opencl.CL11.*;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
 public final class Window
@@ -133,11 +134,12 @@ public final class Window
             System.out.println("Failed to initialize OpenAL!");
             return false;
         }
-
+    
         System.out.println("LWJGL " + Version.getVersion());
         System.out.println("GLFW " + glfwGetVersionString());
-        System.out.println("OpenGL " + glGetString(GL_VERSION));
         System.out.println("OpenAL " + AudioMaster.getVersionString());
+        System.out.println("OpenCL ??w");
+        System.out.println("OpenGL " + glGetString(GL_VERSION));
         return true;
     }
 

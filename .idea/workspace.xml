@@ -5,26 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/stb.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/music/a-stormy-front-raiden.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/music/advantageous-development-raiden.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/music/all-or-nothing-raiden.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/music/can-t-retrace-raiden.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/music/dawn-of-sorrow-raiden.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/music/flap-toward-the-hope-raiden.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Coin.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Crate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Slime.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Game.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/MusicPlayer.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/MusicPlayer.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/music/a-stormy-front-raiden.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/music/advantageous-development-raiden.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/music/all-or-nothing-raiden.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/music/can-t-retrace-raiden.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/music/dawn-of-sorrow-raiden.wav" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/music/flap-toward-the-hope-raiden.wav" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/graphics/Window.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/graphics/Window.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadMe.md" afterPath="$PROJECT_DIR$/ReadMe.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/SnowEngine-core.iml" afterPath="$PROJECT_DIR$/SnowEngine-core/SnowEngine-core.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/maps/demo_map.tmx" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/maps/demo_map.tmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/Game.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/MusicPlayer.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/MusicPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/tests/src/entities/Slime.java" afterPath="$PROJECT_DIR$/SnowEngine-core/tests/src/entities/Slime.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" />
     </list>
     <ignored path="SnowEngine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MusicPlayer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MusicPlayer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/MusicPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-513">
+            <state relative-caret-position="-276">
               <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -123,6 +112,18 @@
                 <element signature="e#2389#2390#0" expanded="true" />
                 <element signature="e#2691#2692#0" expanded="true" />
                 <element signature="e#2739#2740#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Window.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -169,7 +170,6 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/lighting/AmbientLight.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Transform.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/ColorUtils.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/colliders/CollisionManager.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/entities/EntityBase.java" />
@@ -197,11 +197,12 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/Crate.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/entities/Slime.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/Game.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/MusicPlayer.java" />
-        <option value="$PROJECT_DIR$/ReadMe.md" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Graphics.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/files/TTFData.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Font.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/tests/src/MusicPlayer.java" />
+        <option value="$PROJECT_DIR$/ReadMe.md" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" />
       </list>
     </option>
   </component>
@@ -1102,13 +1103,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/Main.java" />
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-968">
-          <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/util/Arrays.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -1354,7 +1348,7 @@
         <state relative-caret-position="198">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="e#810#811#0" expanded="true" />
+            <element signature="e#810#811#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1455,17 +1449,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReadMe.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/tests/src/MusicPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513">
+        <state relative-caret-position="-276">
           <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1475,6 +1461,24 @@
             <element signature="e#2389#2390#0" expanded="true" />
             <element signature="e#2691#2692#0" expanded="true" />
             <element signature="e#2739#2740#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReadMe.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
