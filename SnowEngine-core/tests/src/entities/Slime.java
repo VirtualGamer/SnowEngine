@@ -59,8 +59,8 @@ public final class Slime extends AnimatedEntity
         {
             Level level = (Level) this.parent;
             Random random = new Random();
-            int chance = random.nextInt(3);
-            if (chance % 3 > 0)
+            int chance = random.nextInt(4);
+            if (chance == 3)
             {
                 int amount = random.nextInt();
                 for (int i = 0; i < amount; i++)

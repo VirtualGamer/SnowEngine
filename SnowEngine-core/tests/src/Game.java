@@ -94,7 +94,6 @@ public final class Game extends AbstractGame
         }
     
         m_MusicPlayer = new MusicPlayer();
-        m_MusicPlayer.shuffle();
         
         super.start();
     }
@@ -115,7 +114,12 @@ public final class Game extends AbstractGame
         
         if (!m_MusicPlayer.isPlayingMusic())
         {
-            m_MusicPlayer.shuffle();
+            m_MusicPlayer.playNextSong();
+        }
+        
+        if (Keyboard.getKeyPressed(KeyCode.R))
+        {
+            m_MusicPlayer.stop();
         }
         
         if (Keyboard.getKeyReleased(KeyCode.Escape))

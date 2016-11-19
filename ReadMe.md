@@ -13,6 +13,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 * OpenAL
 * OpenCL
 * OpenGL
+* STB
 
 # Development Team
 * Lead Programmer: Mark Rienstra

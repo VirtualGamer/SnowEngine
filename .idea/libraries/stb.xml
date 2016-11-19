@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="stb">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Dependencies/stb/jar/stb.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/Dependencies/stb/docs/javadoc" />
+    </JAVADOC>
+    <NATIVE>
+      <root url="file://$PROJECT_DIR$/Dependencies/stb/native" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Dependencies/stb/src" />
+    </SOURCES>
+  </library>
+</component>

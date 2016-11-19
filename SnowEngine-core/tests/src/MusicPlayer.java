@@ -18,25 +18,58 @@ import com.snowengine.audio.AudioClip;
 import com.snowengine.audio.AudioMaster;
 import com.snowengine.audio.AudioSource;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public final class MusicPlayer
 {
     private Map<Integer, AudioClip> m_TrackList;
     private AudioSource m_TrackPlayer;
+    private ArrayList<Integer> m_Playlist;
+    private int m_PlaylistOffset;
     
     public MusicPlayer()
     {
         m_TrackList = new HashMap<>();
-        m_TrackList.put(0, AudioMaster.loadAudioClip("music/all-or-nothing-raiden.wav"));
-        m_TrackList.put(1, AudioMaster.loadAudioClip("music/flap-toward-the-hope-raiden.wav"));
-        m_TrackList.put(2, AudioMaster.loadAudioClip("music/dawn-of-sorrow-raiden.wav"));
-        m_TrackList.put(3, AudioMaster.loadAudioClip("music/advantageous-development-raiden.wav"));
-        m_TrackList.put(4, AudioMaster.loadAudioClip("music/can-t-retrace-raiden.wav"));
-        m_TrackList.put(5, AudioMaster.loadAudioClip("music/a-stormy-front-raiden.wav"));
+        m_TrackList.put(0, AudioMaster.loadAudioClip("music/POL-unbeatable-guild-short.wav"));
         m_TrackPlayer = new AudioSource();
+        m_Playlist = new ArrayList<>();
+        m_PlaylistOffset = 0;
+    }
+    
+    private void shufflePlaylist()
+    {
+    
+        int lastTrack = -1;
+        if (!m_Playlist.isEmpty())
+        {
+            lastTrack = m_Playlist.get(m_Playlist.size() - 1);
+            m_Playlist.clear();
+        }
+        
+        for (int i = 0; i < m_TrackList.size(); i++)
+        {
+            m_Playlist.add(i);
+        }
+        
+        if (m_TrackList.size() > 1)
+        {
+            this.swapList();
+    
+            while (lastTrack != -1 && m_Playlist.get(0) == lastTrack)
+            {
+                this.swapList();
+            }
+        }
+    }
+    
+    private void swapList()
+    {
+        for (int i = 0; i < m_Playlist.size(); i++)
+        {
+            Random random = new Random();
+            int trackId = random.nextInt(m_Playlist.size() - 1) + 1;
+            Collections.swap(m_Playlist, i, trackId);
+        }
     }
     
     public void delete()
@@ -50,11 +83,19 @@ public final class MusicPlayer
         m_TrackPlayer.stop();
     }
     
-    public void shuffle()
+    public void playNextSong()
     {
-        Random random = new Random();
-        AudioClip track = m_TrackList.get(random.nextInt(6));
-        m_TrackPlayer.play(track);
+        m_TrackPlayer.play(this.next());
+    }
+    
+    private AudioClip next()
+    {
+        if (m_PlaylistOffset >= m_Playlist.size())
+        {
+            this.shufflePlaylist();
+            m_PlaylistOffset = 0;
+        }
+        return m_TrackList.get(m_Playlist.get(m_PlaylistOffset++));
     }
     
     public boolean isPlayingMusic()

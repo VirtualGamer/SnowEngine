@@ -20,5 +20,6 @@
     <orderEntry type="library" exported="" name="opengl" level="project" />
     <orderEntry type="library" exported="" name="openal" level="project" />
     <orderEntry type="library" name="opencl" level="project" />
+    <orderEntry type="library" name="stb" level="project" />
   </component>
 </module>
