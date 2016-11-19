@@ -5,19 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/assets/shaders/font.vert" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Canvas.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/graphics/Font.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/graphics/TTFont.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/fonts/arial.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/fonts/pdark.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/fonts/Character.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Game.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/debug/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/graphics/Window.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/graphics/Window.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/arial.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/arial.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/calibri.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/calibri.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/harrington.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/harrington.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/sans.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/sans.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/segoe.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/segoe.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/segoeUI.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/segoeUI.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/tahoma.fnt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/SnowEngine-core/assets/fonts/tahoma.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/hs_err_pid14036.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/hs_err_pid6416.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/shaders/font.frag" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/shaders/font.frag" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/shaders/font.vert" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/shaders/font.vert" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" />
     </list>
     <ignored path="SnowEngine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -598,24 +602,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnowEngine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SnowEngine-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -978,7 +964,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1924" height="1048" extended-state="0" />
+    <frame x="-9" y="-9" width="1924" height="1048" extended-state="1" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
