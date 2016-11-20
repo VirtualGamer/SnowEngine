@@ -15,10 +15,8 @@
  */
 package com.snowengine.objects.gui;
 
-import com.snowengine.graphics.Shader;
 import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
-import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
 import com.snowengine.objects.sprites.Sprite;
 
@@ -26,8 +24,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.lwjgl.opengl.GL11.*;
 
 public final class Font extends GameObject
 {

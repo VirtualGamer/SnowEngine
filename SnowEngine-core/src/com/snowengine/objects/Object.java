@@ -15,17 +15,6 @@
  */
 package com.snowengine.objects;
 
-/**
- * <summary>
- * <project>SnowEngine</project>
- * <package>com.snowengine.objects</package>
- * <class>Object</class>
- * <since>1.0</since>
- * </summary>
- *
- * @author Mark Rienstra
- * @since 1.0
- */
 public abstract class Object
 {
     public String name;

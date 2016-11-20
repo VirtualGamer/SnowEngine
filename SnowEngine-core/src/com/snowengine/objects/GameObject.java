@@ -23,17 +23,6 @@ import com.snowengine.objects.colliders.Collider;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <summary>
- * <project>SnowEngine</project>
- * <package>com.snowengine.objects</package>
- * <class>GameObject</class>
- * <since>1.0</since>
- * </summary>
- *
- * @author Mark Rienstra
- * @since 1.0
- */
 public class GameObject extends Object
 {
     private static int m_LastGameObjectID = 0;

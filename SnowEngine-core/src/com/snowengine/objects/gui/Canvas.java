@@ -15,21 +15,43 @@
  */
 package com.snowengine.objects.gui;
 
-import com.snowengine.graphics.Shader;
+import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
-import com.snowengine.objects.Camera2D;
 import com.snowengine.objects.GameObject;
+import com.snowengine.objects.sprites.Sprite;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public final class Canvas extends GameObject
 {
     public GameObject owner;
     private Font m_Font;
+    private List<Sprite> m_Drawables;
     
     public Canvas()
     {
         super ("Canvas", 0);
         m_Font = new Font("fonts/test_font.png");
+        this.addChild(m_Font);
+        m_Drawables = new ArrayList<>();
+    }
+    
+    public void drawImage(Texture texture, Vector2 offset)
+    {
+        Sprite sprite = new Sprite(texture);
+        sprite.move(offset);
+        m_Drawables.add(sprite);
+    }
+    
+    public void draw(GUIText guiText)
+    {
+        if (guiText == null)
+        {
+            return;
+        }
+        this.drawString(guiText.getText(), guiText.getPosition());
     }
     
     public void drawString(String string, Vector2 offset)
@@ -39,12 +61,20 @@ public final class Canvas extends GameObject
         {
             pos = new Vector2(this.owner.transform.getPosition().getX(), this.owner.transform.getPosition().getY());
         }
-        m_Font.drawString(string, offset.add(pos.add(offset)), true);
+        m_Font.drawString(string, offset.copy().add(pos.add(offset)), true);
     }
     
     @Override
     public void update()
     {
+        super.update();
+    }
+    
+    @Override
+    public void render()
+    {
+        super.render();
+    
         if (this.owner != null)
         {
             Vector3 pos = this.transform.getPosition();
@@ -54,14 +84,11 @@ public final class Canvas extends GameObject
             cpos.z = pos.z;
         }
         
-        super.update();
-    }
-    
-    @Override
-    public void render()
-    {
-        super.render();
-        
-        m_Font.render();
+        if (!m_Drawables.isEmpty())
+        {
+            m_Drawables.forEach(sprite -> sprite.transform.move(this.transform.getPosition()));
+            m_Drawables.forEach(Sprite::render);
+            m_Drawables.clear();
+        }
     }
 }

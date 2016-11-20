@@ -18,17 +18,6 @@ package com.snowengine.objects;
 import com.snowengine.maths.Matrix4;
 import com.snowengine.maths.Vector3;
 
-/**
- * <summary>
- * <project>SnowEngine</project>
- * <package>com.snowengine.objects</package>
- * <class>Transform</class>
- * <since>1.0</since>
- * </summary>
- *
- * @author Mark Rienstra
- * @since 1.0
- */
 public final class Transform extends Object
 {
     public GameObject gameObject;

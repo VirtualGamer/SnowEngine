@@ -14,6 +14,7 @@ package entities; /**
  * limitations under the License.
  */
 
+import com.snowengine.graphics.Texture;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
@@ -23,6 +24,7 @@ import com.snowengine.objects.Level;
 import com.snowengine.objects.gui.Canvas;
 import com.snowengine.objects.GameObject;
 import com.snowengine.objects.entities.AnimatedEntity;
+import com.snowengine.objects.gui.GUIText;
 import com.snowengine.objects.lighting.Light;
 
 public class Player extends AnimatedEntity
@@ -31,6 +33,9 @@ public class Player extends AnimatedEntity
     public float speed;
     private float m_Score;
     private int m_Timer, m_MaxTime, m_FrameIndex;
+    
+    private GUIText m_ScoreText;
+    private Texture m_Portret;
     
     public Player()
     {
@@ -48,6 +53,9 @@ public class Player extends AnimatedEntity
         m_Timer = 0;
         m_MaxTime = 10;
         m_FrameIndex = 0;
+    
+        m_ScoreText = new GUIText("Score 0", new Vector2(0, -64));
+        m_Portret = new Texture("gui/portret.png");
     }
     
     @Override
@@ -154,6 +162,8 @@ public class Player extends AnimatedEntity
         {
             this.move(horSpeed);
         }
+        
+        m_ScoreText.setText("Score " + ((int) m_Score));
     
         super.update();
     }
@@ -174,7 +184,8 @@ public class Player extends AnimatedEntity
         Canvas canvas = m_Camera.getCanvas();
         if (canvas != null)
         {
-            canvas.drawString("Score " + ((int) m_Score), new Vector2(0, -64));
+            canvas.drawImage(m_Portret, new Vector2());
+            canvas.draw(m_ScoreText);
         }
         else
         {

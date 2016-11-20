@@ -35,7 +35,7 @@ public final class Game extends AbstractGame
     
     public Game()
     {
-        super ("SnowEngine!", 960, 540, true);
+        super ("SnowEngine!", 960, 540, false);
     }
     
     @Override
