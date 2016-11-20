@@ -18,6 +18,7 @@ package com.snowengine.objects;
 import com.snowengine.graphics.Window;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.entities.EntityBase;
+import com.snowengine.objects.gui.Font;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.TileBase;
 
@@ -82,11 +83,6 @@ public abstract class AbstractGame extends GameObject
         }
         
         this.destroy();
-    }
-    
-    public void setFont(Font font)
-    {
-        m_Level.setFont(font);
     }
     
     public void setAmbientColor(Vector3 color)

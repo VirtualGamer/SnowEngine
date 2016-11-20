@@ -14,19 +14,20 @@ package entities; /**
  * limitations under the License.
  */
 
-import com.snowengine.audio.AudioListener;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
-import com.snowengine.objects.Font;
+import com.snowengine.objects.Camera2D;
+import com.snowengine.objects.Level;
+import com.snowengine.objects.gui.Canvas;
 import com.snowengine.objects.GameObject;
 import com.snowengine.objects.entities.AnimatedEntity;
+import com.snowengine.objects.lighting.Light;
 
 public class Player extends AnimatedEntity
 {
-    private AudioListener m_Listener;
-    private Font m_Font;
+    private Camera2D m_Camera;
     public float speed;
     private float m_Score;
     private int m_Timer, m_MaxTime, m_FrameIndex;
@@ -35,9 +36,13 @@ public class Player extends AnimatedEntity
     {
         super ("textures/player.png", 1, 7);
         super.setBounds(0, 32, 16, 16);
+    
+        m_Camera = new Camera2D();
+        this.addChild(m_Camera);
+    
+        Light light = new Light(new Vector2(), new Vector3(1.0f, 1.0f, 1.0f), 256.0f);
+        this.addChild(light);
         
-        m_Listener = new AudioListener();
-        m_Font = new Font("fonts/test_font.png");
         this.speed = 5;
         m_Score = 0;
         m_Timer = 0;
@@ -124,7 +129,6 @@ public class Player extends AnimatedEntity
     public void move(Vector3 vector)
     {
         super.move(vector);
-        m_Listener.setPosition(this.transform.getPosition());
     }
     
     @Override
@@ -166,9 +170,21 @@ public class Player extends AnimatedEntity
         m_Timer++;
         
         super.render();
-        
-        m_Font.drawString("Score " + ((int) m_Score), this.getPosition().copy().subtract(new Vector2(0, 128)), true);
-        
-        m_Font.render();
+    
+        Canvas canvas = m_Camera.getCanvas();
+        if (canvas != null)
+        {
+            canvas.drawString("Score " + ((int) m_Score), new Vector2(0, -64));
+        }
+        else
+        {
+            if (this.parent instanceof Level)
+            {
+                Level level = (Level) this.parent;
+                canvas = level.getCanvas();
+                canvas.move(this.getPosition());
+                m_Camera.setCanvas(canvas);
+            }
+        }
     }
 }

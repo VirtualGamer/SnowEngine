@@ -19,9 +19,6 @@ import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.AbstractGame;
-import com.snowengine.objects.Camera2D;
-import com.snowengine.objects.Font;
-import com.snowengine.objects.lighting.Light;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.TMXFile;
 import entities.Coin;
@@ -35,11 +32,10 @@ public final class Game extends AbstractGame
 {
     private Player player;
     private MusicPlayer m_MusicPlayer;
-    private Font m_Font;
     
     public Game()
     {
-        super ("SnowEngine!", 960, 540, true );
+        super ("SnowEngine!", 960, 540, true);
     }
     
     @Override
@@ -53,12 +49,6 @@ public final class Game extends AbstractGame
         player = new Player();
         player.move(new Vector2(400, 400));
         this.add(player);
-        
-        Camera2D camera = new Camera2D();
-        player.addChild(camera);
-        
-        Light light = new Light(new Vector2(), new Vector3(1.0f, 1.0f, 1.0f), 256.0f);
-        player.addChild(light);
         
         Crate crate1 = new Crate();
         crate1.move(new Vector2(0, 256));
@@ -96,8 +86,6 @@ public final class Game extends AbstractGame
         }
     
         m_MusicPlayer = new MusicPlayer();
-        m_Font = new Font("fonts/test_font.png");
-        this.setFont(m_Font);
         
         super.start();
     }
@@ -136,7 +124,6 @@ public final class Game extends AbstractGame
     public void render()
     {
         super.render();
-        m_Font.drawString("Use the arrow keys to\ncontrol the character", new Vector2(1, 1000), false);
     }
     
     public static void main(String args[])

@@ -22,6 +22,8 @@ import com.snowengine.objects.colliders.CollisionManager;
 import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.entities.Entity;
 import com.snowengine.objects.entities.EntityBase;
+import com.snowengine.objects.gui.Canvas;
+import com.snowengine.objects.gui.Font;
 import com.snowengine.objects.lighting.AmbientLight;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.AnimatedTile;
@@ -42,7 +44,7 @@ public final class Level extends GameObject
     private AmbientLight m_AmbientLight;
     private Shader m_Shader;
     private CollisionManager m_CollisionManager;
-    private Font m_Font;
+    private Canvas m_Canvas;
     
     public Level()
     {
@@ -60,6 +62,7 @@ public final class Level extends GameObject
         m_Shader.compile();
     
         m_CollisionManager = new CollisionManager();
+        m_Canvas = new Canvas();
     }
     
     public void addTile(TileBase tile)
@@ -101,11 +104,6 @@ public final class Level extends GameObject
     public void setAmbientLight(Vector3 color)
     {
         m_AmbientLight.setColor(color);
-    }
-    
-    public void setFont(Font font)
-    {
-        m_Font = font;
     }
     
     @Override
@@ -197,13 +195,10 @@ public final class Level extends GameObject
                 ((GameObject) entityBase).update();
             }
         });
-        if (m_Font != null)
-        {
-            m_Font.update();
-        }
+        m_Canvas.update();
+        m_Shader.disable();
         this.doCollisionCheck();
         super.update();
-        m_Shader.disable();
     }
     
     @Override
@@ -234,10 +229,7 @@ public final class Level extends GameObject
                 ((GameObject) entityBase).render();
             }
         });
-        if (m_Font != null)
-        {
-            m_Font.render();
-        }
+        m_Canvas.render();
         m_Shader.disable();
     }
     
@@ -280,6 +272,11 @@ public final class Level extends GameObject
             }
         }
         return null;
+    }
+    
+    public Canvas getCanvas()
+    {
+        return m_Canvas;
     }
     
     private int compare(EntityBase e1, EntityBase e2)

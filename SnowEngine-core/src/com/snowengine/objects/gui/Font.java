@@ -13,16 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.snowengine.objects;
+package com.snowengine.objects.gui;
 
+import com.snowengine.graphics.Shader;
 import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
+import com.snowengine.maths.Vector3;
+import com.snowengine.objects.GameObject;
 import com.snowengine.objects.sprites.Sprite;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public final class Font extends GameObject
 {
@@ -152,7 +157,24 @@ public final class Font extends GameObject
         font.put("7", getTexture(textures, 8, 3, width));
         font.put("8", getTexture(textures, 9, 3, width));
         font.put("9", getTexture(textures,10, 3, width));
+        
         // Special characters
+        font.put("`", getTexture(textures,11, 3, width));
+        font.put("-", getTexture(textures,12, 3, width));
+        font.put("=", getTexture(textures,13, 3, width));
+        font.put("~", getTexture(textures,14, 3, width));
+        font.put("!", getTexture(textures,15, 3, width));
+        font.put("@", getTexture(textures,16, 3, width));
+        font.put("#", getTexture(textures,17, 3, width));
+        font.put("$", getTexture(textures,18, 3, width));
+        font.put("%", getTexture(textures,19, 3, width));
+        font.put("^", getTexture(textures,20, 3, width));
+        font.put("&", getTexture(textures,21, 3, width));
+        font.put("*", getTexture(textures,22, 3, width));
+        font.put("(", getTexture(textures,23, 3, width));
+        font.put(")", getTexture(textures,24, 3, width));
+        font.put("_", getTexture(textures,25, 3, width));
+        font.put("+", getTexture(textures,26, 3, width));
         
         return spacing;
     }

@@ -124,7 +124,7 @@ public final class Window
 
         glfwMakeContextCurrent(m_Window);
         glfwSwapInterval(m_VSync ? GLFW_TRUE : GLFW_FALSE);
-
+    
         createCapabilities();
 
         if (!AudioMaster.init())

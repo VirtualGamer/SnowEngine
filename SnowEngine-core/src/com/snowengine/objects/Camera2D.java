@@ -19,22 +19,15 @@ import com.snowengine.audio.AudioListener;
 import com.snowengine.graphics.Shader;
 import com.snowengine.graphics.Window;
 import com.snowengine.maths.Matrix4;
+import com.snowengine.maths.Vector2;
+import com.snowengine.maths.Vector3;
+import com.snowengine.objects.gui.Canvas;
 
-/**
- * <summary>
- * <project>SnowEngine</project>
- * <package>com.snowengine.objects</package>
- * <class>Camera2D</class>
- * <since>1.0</since>
- * </summary>
- *
- * @author Mark Rienstra
- * @since 1.0
- */
 public final class Camera2D extends GameObject
 {
     private Matrix4 m_Projection, m_ViewMatrix;
     private AudioListener m_Listener;
+    private Canvas m_Canvas;
     
     public Camera2D()
     {
@@ -48,6 +41,18 @@ public final class Camera2D extends GameObject
         m_ViewMatrix = Matrix4.identity();
     
         m_Listener = new AudioListener();
+    }
+    
+    public void setCanvas(Canvas canvas)
+    {
+        m_Canvas = canvas;
+        m_Canvas.owner = this;
+    }
+    
+    @Override
+    public void move(Vector3 vector)
+    {
+        super.move(vector);
     }
     
     @Override
@@ -85,6 +90,11 @@ public final class Camera2D extends GameObject
     public AudioListener getAudioListener()
     {
         return m_Listener;
+    }
+    
+    public Canvas getCanvas()
+    {
+        return m_Canvas;
     }
     
     private void windowResize(int newWidth, int newHeight)
