@@ -84,6 +84,11 @@ public abstract class AbstractGame extends GameObject
         this.destroy();
     }
     
+    public void setFont(Font font)
+    {
+        m_Level.setFont(font);
+    }
+    
     public void setAmbientColor(Vector3 color)
     {
         m_Level.setAmbientLight(color);

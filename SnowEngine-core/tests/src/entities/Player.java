@@ -19,14 +19,17 @@ import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
+import com.snowengine.objects.Font;
 import com.snowengine.objects.GameObject;
 import com.snowengine.objects.entities.AnimatedEntity;
 
 public class Player extends AnimatedEntity
 {
     private AudioListener m_Listener;
+    private Font m_Font;
     public float speed;
-    private int m_Score, m_Timer, m_MaxTime, m_FrameIndex;
+    private float m_Score;
+    private int m_Timer, m_MaxTime, m_FrameIndex;
     
     public Player()
     {
@@ -34,6 +37,7 @@ public class Player extends AnimatedEntity
         super.setBounds(0, 32, 16, 16);
         
         m_Listener = new AudioListener();
+        m_Font = new Font("fonts/test_font.png");
         this.speed = 5;
         m_Score = 0;
         m_Timer = 0;
@@ -94,21 +98,21 @@ public class Player extends AnimatedEntity
         }
     }
     
-    public void setScore(int score)
+    public void setScore(float score)
     {
         m_Score = score;
     }
     
-    public void addScore(int score)
+    public void addScore(float score)
     {
         m_Score += score;
     }
     
-    public void removeScore(int score)
+    public void removeScore(float score)
     {
         if (m_Score > score)
         {
-            m_Score += score;
+            m_Score -= score;
         }
         else
         {
@@ -162,5 +166,9 @@ public class Player extends AnimatedEntity
         m_Timer++;
         
         super.render();
+        
+        m_Font.drawString("Score " + ((int) m_Score), this.getPosition().copy().subtract(new Vector2(0, 128)), true);
+        
+        m_Font.render();
     }
 }

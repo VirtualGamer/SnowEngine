@@ -42,6 +42,7 @@ public final class Level extends GameObject
     private AmbientLight m_AmbientLight;
     private Shader m_Shader;
     private CollisionManager m_CollisionManager;
+    private Font m_Font;
     
     public Level()
     {
@@ -100,6 +101,11 @@ public final class Level extends GameObject
     public void setAmbientLight(Vector3 color)
     {
         m_AmbientLight.setColor(color);
+    }
+    
+    public void setFont(Font font)
+    {
+        m_Font = font;
     }
     
     @Override
@@ -191,8 +197,13 @@ public final class Level extends GameObject
                 ((GameObject) entityBase).update();
             }
         });
+        if (m_Font != null)
+        {
+            m_Font.update();
+        }
         this.doCollisionCheck();
         super.update();
+        m_Shader.disable();
     }
     
     @Override
@@ -223,6 +234,11 @@ public final class Level extends GameObject
                 ((GameObject) entityBase).render();
             }
         });
+        if (m_Font != null)
+        {
+            m_Font.render();
+        }
+        m_Shader.disable();
     }
     
     public TileBase[] getTiles()

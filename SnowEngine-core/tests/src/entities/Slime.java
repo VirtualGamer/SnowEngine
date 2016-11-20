@@ -53,7 +53,7 @@ public final class Slime extends AnimatedEntity
         if (attacker instanceof Player)
         {
             Player player = (Player) attacker;
-            player.addScore(2);
+            player.addScore(0.5f);
         }
         
         m_AudioSource.setPosition(this.transform.getPosition());

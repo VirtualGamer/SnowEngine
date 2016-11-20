@@ -20,6 +20,7 @@ import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.AbstractGame;
 import com.snowengine.objects.Camera2D;
+import com.snowengine.objects.Font;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.TMXFile;
@@ -34,10 +35,11 @@ public final class Game extends AbstractGame
 {
     private Player player;
     private MusicPlayer m_MusicPlayer;
+    private Font m_Font;
     
     public Game()
     {
-        super ("SnowEngine!", 960, 540, false);
+        super ("SnowEngine!", 960, 540, true );
     }
     
     @Override
@@ -94,6 +96,8 @@ public final class Game extends AbstractGame
         }
     
         m_MusicPlayer = new MusicPlayer();
+        m_Font = new Font("fonts/test_font.png");
+        this.setFont(m_Font);
         
         super.start();
     }
@@ -132,6 +136,7 @@ public final class Game extends AbstractGame
     public void render()
     {
         super.render();
+        m_Font.drawString("Use the arrow keys to\ncontrol the character", new Vector2(1, 1000), false);
     }
     
     public static void main(String args[])
