@@ -94,7 +94,7 @@ public final class TMXData extends XMLData
                 Node node = nodeMap.item(j);
                 if (node.getNodeName().equals("name"))
                 {
-                    if (node.getNodeValue().equals("Light"))
+                    if (node.getNodeValue().equals("ambient"))
                     {
                         node.getChildNodes();
                     }

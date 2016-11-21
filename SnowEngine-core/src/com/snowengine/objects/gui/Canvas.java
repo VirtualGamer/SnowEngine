@@ -15,11 +15,9 @@
  */
 package com.snowengine.objects.gui;
 
-import com.snowengine.graphics.Texture;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
-import com.snowengine.objects.sprites.Sprite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,7 @@ public final class Canvas extends GameObject
 {
     public GameObject owner;
     private Font m_Font;
-    private List<Sprite> m_Drawables;
+    private List<GUIContainer> m_Drawables;
     
     public Canvas()
     {
@@ -38,11 +36,10 @@ public final class Canvas extends GameObject
         m_Drawables = new ArrayList<>();
     }
     
-    public void drawImage(Texture texture, Vector2 offset)
+    public void drawImage(GUIContainer container)
     {
-        Sprite sprite = new Sprite(texture);
-        sprite.move(offset);
-        m_Drawables.add(sprite);
+        m_Drawables.add(container);
+        this.addChild(container);
     }
     
     public void draw(GUIText guiText)
@@ -67,14 +64,6 @@ public final class Canvas extends GameObject
     @Override
     public void update()
     {
-        super.update();
-    }
-    
-    @Override
-    public void render()
-    {
-        super.render();
-    
         if (this.owner != null)
         {
             Vector3 pos = this.transform.getPosition();
@@ -84,10 +73,21 @@ public final class Canvas extends GameObject
             cpos.z = pos.z;
         }
         
+        super.update();
+    }
+    
+    @Override
+    public void render()
+    {
+        super.render();
+        
         if (!m_Drawables.isEmpty())
         {
-            m_Drawables.forEach(sprite -> sprite.transform.move(this.transform.getPosition()));
-            m_Drawables.forEach(Sprite::render);
+            m_Drawables.forEach(guiContainer -> {
+                guiContainer.getImage().transform.getPosition().add(this.transform.getPosition());
+                guiContainer.getImage().render();
+            });
+            m_Drawables.forEach(this::removeChild);
             m_Drawables.clear();
         }
     }
