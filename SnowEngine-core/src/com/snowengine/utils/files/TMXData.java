@@ -68,6 +68,8 @@ public final class TMXData extends XMLData
                 }
             }
         }
+        
+        this.getObjectProperties("Lights");
     }
     
     private NodeList getMapList()
@@ -78,6 +80,50 @@ public final class TMXData extends XMLData
     private NodeList getTilesetList()
     {
         return this.getElementsByTagName("tileset");
+    }
+    
+    private Node getObjectProperties(String name)
+    {
+        NodeList nodeList = this.getElementsByTagName("objectgroup");
+    
+        for (int i = 0; i < nodeList.getLength(); i++)
+        {
+            NamedNodeMap nodeMap = nodeList.item(i).getAttributes();
+            for (int j = 0; j < nodeMap.getLength(); j++)
+            {
+                Node node = nodeMap.item(j);
+                if (node.getNodeName().equals("name"))
+                {
+                    if (node.getNodeValue().equals("Light"))
+                    {
+                        node.getChildNodes();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    
+    private NodeList getObjectGroup(String name)
+    {
+        NodeList nodeList = this.getElementsByTagName("objectgroup");
+        
+        for (int i = 0; i < nodeList.getLength(); i++)
+        {
+            NamedNodeMap nodeMap = nodeList.item(i).getAttributes();
+            for (int j = 0; j < nodeMap.getLength(); j++)
+            {
+                Node node = nodeMap.item(j);
+                if (node.getNodeName().equals("name"))
+                {
+                    if (node.getNodeValue().equals(name))
+                    {
+                        return node.getChildNodes();
+                    }
+                }
+            }
+        }
+        return null;
     }
     
     private Node getMapElement(String name)
@@ -198,7 +244,7 @@ public final class TMXData extends XMLData
         String filepath = null;
         int columns = 0, rows = 0;
     
-        NodeList nodeList = this.getElementsByTagName("tileset");
+        NodeList nodeList = this.getTilesetList();
         for (int i = 0; i < nodeList.getLength(); i++)
         {
             NamedNodeMap map = nodeList.item(i).getAttributes();

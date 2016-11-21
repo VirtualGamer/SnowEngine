@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SnowEngine-core:jar">
+    <output-path>$PROJECT_DIR$/bin/artifacts//</output-path>
+    <root id="archive" name="SnowEngine-core.jar">
+      <element id="module-output" name="SnowEngine-core" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Dependencies/lwjgl/jar/lwjgl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Dependencies/opencl/jar/opencl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Dependencies/stb/jar/stb.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Dependencies/glfw/jar/glfw.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Dependencies/opengl/jar/opengl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Dependencies/openal/jar/openal.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
