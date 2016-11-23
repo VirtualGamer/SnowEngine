@@ -1,0 +1,3 @@
+W A S D - movement
+W S - menu control
+F - menu select/potion

@@ -58,15 +58,14 @@ public final class GUILayer
         m_Shader.enable();
         m_Drawables.forEach(GUIContainer::update);
         m_Shader.disable();
-    
-        
-        Window window = Window.getActiveWindow();
-        float w = (float) window.getWidth(), h = (float) window.getHeight();
-        m_Projection = Matrix4.orthographic(0, w, h, 0, -1, 1);
     }
     
     public void render()
     {
+        Window window = Window.getActiveWindow();
+        float w = (float) window.getWidth(), h = (float) window.getHeight();
+        m_Projection = Matrix4.orthographic(0, w, h, 0, -1, 1);
+        
         m_Shader.enable();
         m_Shader.setUniformMatrix4f("projection", m_Projection);
         m_Drawables.forEach(GUIContainer::render);

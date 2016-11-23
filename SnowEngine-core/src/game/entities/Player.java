@@ -43,7 +43,7 @@ public class Player extends AnimatedEntity
     private int m_Timer, m_MaxTime, m_FrameIndex;
     
     private GUIText m_ScoreText;
-    private GUIContainer m_Portret;
+    private GUIContainer m_Portrait;
     private GUIContainerAnimated m_HealthBar;
     
     public Player()
@@ -65,7 +65,8 @@ public class Player extends AnimatedEntity
         m_Health = 100;
     
         m_ScoreText = new GUIText("Score 0", new Vector2(0, 14));
-        m_Portret = new GUIContainer("gui/portret.png", new Vector2(10, 10));
+        m_Portrait = new GUIContainer("gui/portrait.png", new Vector2(-284, -292));
+        m_Portrait.scale(-0.9f);
         m_HealthBar = new GUIContainerAnimated("gui/healthbar.png", 1, 11, new Vector2(75, 46));
         m_HealthBar.setFrame(10);
     }
@@ -239,7 +240,7 @@ public class Player extends AnimatedEntity
         if (canvas != null)
         {
             canvas.draw(m_ScoreText);
-            canvas.drawImage(m_Portret);
+            canvas.drawImage(m_Portrait);
             canvas.drawImage(m_HealthBar);
         }
         else

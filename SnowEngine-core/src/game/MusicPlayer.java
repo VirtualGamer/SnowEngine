@@ -31,7 +31,7 @@ public final class MusicPlayer
     public MusicPlayer()
     {
         m_TrackList = new HashMap<>();
-        m_TrackList.put(0, AudioMaster.loadAudioClip("music/POL-unbeatable-guild-short.wav"));
+        m_TrackList.put(0, AudioMaster.loadAudioClip("music/dungeon.wav"));
         m_TrackPlayer = new AudioSource();
         m_Playlist = new ArrayList<>();
         m_PlaylistOffset = 0;

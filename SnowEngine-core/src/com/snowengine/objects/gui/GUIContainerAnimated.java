@@ -55,6 +55,12 @@ public class GUIContainerAnimated extends GUIContainer
     }
     
     @Override
+    public void scale(float scale)
+    {
+        m_Sprite.scale(new Vector2(scale, scale));
+    }
+    
+    @Override
     public void render()
     {
         m_Sprite.render();
