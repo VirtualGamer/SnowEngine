@@ -33,7 +33,7 @@ import com.snowengine.objects.sprites.Sprite;
  * @author Mark Rienstra
  * @since 1.0
  */
-public final class GUIContainer extends GameObject
+public class GUIContainer extends GameObject
 {
     private Sprite m_Sprite;
     
@@ -55,13 +55,20 @@ public final class GUIContainer extends GameObject
     public GUIContainer(Texture texture, Vector2 offset)
     {
         super ("GUIContainer", 0);
-        m_Sprite = new Sprite(texture);
-        offset.add(m_Sprite.getSize().divide(2));
-        m_Sprite.move(new Vector3(offset.x, offset.y, 0));
+        if (texture != null && offset != null)
+        {
+            m_Sprite = new Sprite(texture);
+            offset.add(m_Sprite.getSize().divide(2));
+            m_Sprite.move(new Vector3(offset.x, offset.y, 0));
+        }
     }
     
-    protected Sprite getImage()
+    @Override
+    public void render()
     {
-        return m_Sprite;
+        if (m_Sprite != null)
+        {
+            m_Sprite.render();
+        }
     }
 }

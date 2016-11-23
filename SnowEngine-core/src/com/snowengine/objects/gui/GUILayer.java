@@ -69,7 +69,7 @@ public final class GUILayer
     {
         m_Shader.enable();
         m_Shader.setUniformMatrix4f("projection", m_Projection);
-        m_Drawables.forEach(guiContainer -> guiContainer.getImage().render());
+        m_Drawables.forEach(GUIContainer::render);
         m_Font.render();
         m_Shader.disable();
         

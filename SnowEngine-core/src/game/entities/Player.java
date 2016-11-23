@@ -27,21 +27,24 @@ import com.snowengine.objects.gui.Canvas;
 import com.snowengine.objects.GameObject;
 import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.gui.GUIContainer;
+import com.snowengine.objects.gui.GUIContainerAnimated;
 import com.snowengine.objects.gui.GUIText;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.Tile;
 import com.snowengine.objects.tiles.TileBase;
+import game.Game;
 import game.tiles.WallTile;
 
 public class Player extends AnimatedEntity
 {
     private Camera2D m_Camera;
     public float speed;
-    private float m_Score;
+    private float m_Score, m_Health;
     private int m_Timer, m_MaxTime, m_FrameIndex;
     
     private GUIText m_ScoreText;
     private GUIContainer m_Portret;
+    private GUIContainerAnimated m_HealthBar;
     
     public Player()
     {
@@ -59,9 +62,12 @@ public class Player extends AnimatedEntity
         m_Timer = 0;
         m_MaxTime = 5;
         m_FrameIndex = 0;
+        m_Health = 100;
     
         m_ScoreText = new GUIText("Score 0", new Vector2(0, 14));
-        m_Portret = new GUIContainer("gui/portret.png", new Vector2());
+        m_Portret = new GUIContainer("gui/portret.png", new Vector2(10, 10));
+        m_HealthBar = new GUIContainerAnimated("gui/healthbar.png", 1, 11, new Vector2(75, 46));
+        m_HealthBar.setFrame(10);
     }
     
     @Override
@@ -84,6 +90,8 @@ public class Player extends AnimatedEntity
             {
                 slime.hit(this);
             }
+            
+            m_Health -= 0.25f;
         }
         else if (other instanceof Crate)
         {
@@ -198,7 +206,13 @@ public class Player extends AnimatedEntity
             this.move(horSpeed);
         }
         
+        if (m_Health < 0)
+        {
+            Game.getGame().stop();
+        }
+        
         m_ScoreText.setText("Score " + ((int) m_Score));
+        m_HealthBar.setFrame(Math.round(m_Health / 10.0f));
     
         super.update();
     }
@@ -210,6 +224,11 @@ public class Player extends AnimatedEntity
         {
             m_Timer = 0;
             this.setFrame((m_FrameIndex < 6) ? m_FrameIndex++ : (m_FrameIndex = 0));
+            
+            if (m_Health < 100)
+            {
+                m_Health++;
+            }
         }
     
         m_Timer++;
@@ -219,8 +238,9 @@ public class Player extends AnimatedEntity
         Canvas canvas = m_Camera.getCanvas();
         if (canvas != null)
         {
-            canvas.drawImage(m_Portret);
             canvas.draw(m_ScoreText);
+            canvas.drawImage(m_Portret);
+            canvas.drawImage(m_HealthBar);
         }
         else
         {

@@ -15,6 +15,8 @@
  */
 package com.snowengine.maths;
 
+import org.lwjgl.opengl.GL11;
+
 public final class Matrix4
 {
     public final float elements[];

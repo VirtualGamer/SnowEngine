@@ -31,12 +31,14 @@ import java.util.Random;
 
 public final class Game extends AbstractGame
 {
+    private static Game theGame;
     private Player player;
     private MusicPlayer m_MusicPlayer;
     
     public Game()
     {
-        super ("SnowEngine!", 1600, 1200, false);
+        super ("SnowEngine!", 1600, 1200, true);
+        theGame = this;
     }
     
     @Override
@@ -125,6 +127,11 @@ public final class Game extends AbstractGame
     public void render()
     {
         super.render();
+    }
+    
+    public static Game getGame()
+    {
+        return theGame;
     }
     
     public static void main(String args[])
