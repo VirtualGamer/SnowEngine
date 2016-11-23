@@ -21,6 +21,8 @@ import com.snowengine.maths.Vector3;
 import com.snowengine.objects.Level;
 import com.snowengine.objects.tiles.Tile;
 import com.snowengine.objects.tiles.TileBase;
+import game.tiles.GroundTile;
+import game.tiles.WallTile;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -232,7 +234,19 @@ public final class TMXData extends XMLData
         {
             for (int x = 0; x < width; x++)
             {
-                tileMap.put(id++, new Tile(tileTextures[x + y * width]));
+                if (id == 0)
+                {
+                    tileMap.put(id, new GroundTile(tileTextures[x + y * width]));
+                }
+                else if (id == 1)
+                {
+                    tileMap.put(id, new WallTile(tileTextures[x + y * width]));
+                }
+                else
+                {
+                    tileMap.put(id, new Tile(tileTextures[x + y * width]));
+                }
+                id++;
             }
         }
         

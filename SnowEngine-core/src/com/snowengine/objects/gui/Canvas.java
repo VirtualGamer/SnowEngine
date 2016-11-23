@@ -15,31 +15,21 @@
  */
 package com.snowengine.objects.gui;
 
-import com.snowengine.maths.Vector2;
-import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public final class Canvas extends GameObject
 {
-    public GameObject owner;
-    private Font m_Font;
-    private List<GUIContainer> m_Drawables;
+    private GUILayer m_Layer;
     
     public Canvas()
     {
         super ("Canvas", 0);
-        m_Font = new Font("fonts/test_font.png");
-        this.addChild(m_Font);
-        m_Drawables = new ArrayList<>();
+        m_Layer = new GUILayer();
     }
     
     public void drawImage(GUIContainer container)
     {
-        m_Drawables.add(container);
-        this.addChild(container);
+        m_Layer.add(container);
     }
     
     public void draw(GUIText guiText)
@@ -48,47 +38,18 @@ public final class Canvas extends GameObject
         {
             return;
         }
-        this.drawString(guiText.getText(), guiText.getPosition());
-    }
-    
-    public void drawString(String string, Vector2 offset)
-    {
-        Vector2 pos = new Vector2();
-        if (this.owner != null)
-        {
-            pos = new Vector2(this.owner.transform.getPosition().getX(), this.owner.transform.getPosition().getY());
-        }
-        m_Font.drawString(string, offset.copy().add(pos.add(offset)), true);
+        m_Layer.add(guiText);
     }
     
     @Override
     public void update()
     {
-        if (this.owner != null)
-        {
-            Vector3 pos = this.transform.getPosition();
-            Vector3 cpos = this.owner.transform.getPosition();
-            cpos.x = pos.x;
-            cpos.y = pos.y;
-            cpos.z = pos.z;
-        }
-        
-        super.update();
+        m_Layer.update();
     }
     
     @Override
     public void render()
     {
-        super.render();
-        
-        if (!m_Drawables.isEmpty())
-        {
-            m_Drawables.forEach(guiContainer -> {
-                guiContainer.getImage().transform.getPosition().add(this.transform.getPosition());
-                guiContainer.getImage().render();
-            });
-            m_Drawables.forEach(this::removeChild);
-            m_Drawables.clear();
-        }
+        m_Layer.render();
     }
 }

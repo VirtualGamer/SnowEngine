@@ -29,17 +29,24 @@ import java.util.List;
 public class Tile extends Sprite implements TileBase
 {
     private Texture m_Texture;
+    protected boolean m_Solid;
     
     public Tile(String filepath)
     {
         super (filepath);
         m_Texture = new Texture(filepath);
+        m_Solid = false;
     }
     
     public Tile(Texture texture)
     {
         super (texture);
         m_Texture = texture;
+    }
+    
+    public void setSolid(boolean b)
+    {
+        m_Solid = b;
     }
     
     @Override
@@ -82,7 +89,7 @@ public class Tile extends Sprite implements TileBase
     @Override
     public boolean isSolid()
     {
-        return false;
+        return m_Solid;
     }
     
     public Tile copy()

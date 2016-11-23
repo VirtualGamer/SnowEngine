@@ -29,6 +29,9 @@ import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.gui.GUIContainer;
 import com.snowengine.objects.gui.GUIText;
 import com.snowengine.objects.lighting.Light;
+import com.snowengine.objects.tiles.Tile;
+import com.snowengine.objects.tiles.TileBase;
+import game.tiles.WallTile;
 
 public class Player extends AnimatedEntity
 {
@@ -54,7 +57,7 @@ public class Player extends AnimatedEntity
         this.speed = 5;
         m_Score = 0;
         m_Timer = 0;
-        m_MaxTime = 10;
+        m_MaxTime = 5;
         m_FrameIndex = 0;
     
         m_ScoreText = new GUIText("Score 0", new Vector2(0, -64));
@@ -110,6 +113,35 @@ public class Player extends AnimatedEntity
             if (attack)
             {
                 crate.destroy();
+            }
+        }
+        
+        if (other instanceof Tile)
+        {
+            Tile tile = (Tile) other;
+            if (tile.isSolid())
+            {
+                float xa = 0, ya = 0, speed = 1;
+                Vector2 pos = this.getPosition(), opos = tile.getPosition();
+    
+                if (pos.getY() > (opos.getY() - 1))
+                {
+                    ya = speed;
+                }
+                else if (pos.getY() < (opos.getY() + 1))
+                {
+                    ya = -speed;
+                }
+                if (pos.getX() < (opos.getX() - 1))
+                {
+                    xa = speed;
+                }
+                else if (pos.getX() > (opos.getX() + 1))
+                {
+                    xa = -speed;
+                }
+    
+                this.move(new Vector2(xa, ya));
             }
         }
     }

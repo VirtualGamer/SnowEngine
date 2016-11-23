@@ -46,7 +46,6 @@ public final class Camera2D extends GameObject
     public void setCanvas(Canvas canvas)
     {
         m_Canvas = canvas;
-        m_Canvas.owner = this;
     }
     
     @Override
