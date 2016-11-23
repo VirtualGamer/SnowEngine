@@ -22,7 +22,7 @@ import com.snowengine.objects.GameObject;
 import com.snowengine.objects.sprites.AnimatedSprite;
 import com.snowengine.objects.sprites.Sprite;
 
-public final class GUIContainerAnimated extends GUIContainer
+public class GUIContainerAnimated extends GUIContainer
 {
     private AnimatedSprite m_Sprite;
     

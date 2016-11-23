@@ -5,20 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45543491-1181-4d20-bcf0-c297ed694070" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/game/screens/MainMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/maths/Matrix4.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/maths/Matrix4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Screen.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIButton.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/gui/GUIContainer.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/gui/GUIContainer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/gui/GUILayer.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/gui/GUILayer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/gui/GUIContainerAnimated.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/com/snowengine/objects/gui/GUIContainerAnimated.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/game/Game.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/game/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/bin/release/game/entities/Player.class" afterPath="$PROJECT_DIR$/SnowEngine-core/bin/release/game/entities/Player.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/artifacts/SnowEngine-core.jar" afterPath="$PROJECT_DIR$/bin/artifacts/SnowEngine-core.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Matrix4.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Matrix4.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AbstractGame.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AbstractGame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainer.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUILayer.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUILayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/game/Game.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/game/Game.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/game/entities/Player.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/game/entities/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SnowEngine-core/src/game/screens/MainMenu.java" afterPath="$PROJECT_DIR$/SnowEngine-core/src/game/screens/MainMenu.java" />
     </list>
     <ignored path="SnowEngine.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,22 +39,25 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/game/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="133" column="23" selection-start-line="133" selection-start-column="23" selection-end-line="133" selection-end-column="23" />
+            <state relative-caret-position="459">
+              <caret line="134" column="22" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
               <folding>
-                <element signature="e#3480#3481#0" expanded="true" />
-                <element signature="e#3510#3511#0" expanded="true" />
+                <element signature="e#3705#3706#0" expanded="true" />
+                <element signature="e#3735#3736#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic.vert" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.vert">
+      <file leaf-file-name="AbstractGame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AbstractGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="323">
+              <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+              <folding>
+                <element signature="e#1723#1724#0" expanded="true" />
+                <element signature="e#1754#1755#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,35 +98,44 @@
       <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/game/screens/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GUIContainerAnimated.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="763">
-              <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            <state relative-caret-position="213">
+              <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
               <folding>
-                <element signature="e#1770#1771#0" expanded="true" />
-                <element signature="e#1810#1811#0" expanded="true" />
-                <element signature="e#1860#1861#0" expanded="true" />
-                <element signature="e#1893#1894#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GUILayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUILayer.java">
+      <file leaf-file-name="GUIContainer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
+            <state relative-caret-position="455">
+              <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
+                <element signature="e#1391#1392#0" expanded="true" />
+                <element signature="e#1871#1872#0" expanded="true" />
+                <element signature="e#1928#1929#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GUIButton.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIButton.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-95">
+              <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+              <folding>
+                <element signature="e#824#825#0" expanded="true" />
+                <element signature="e#870#871#0" expanded="true" />
+                <element signature="e#1053#1054#0" expanded="true" />
+                <element signature="e#1083#1084#0" expanded="true" />
+                <element signature="e#1359#1360#0" expanded="true" />
+                <element signature="e#1389#1390#0" expanded="true" />
+                <element signature="e#1432#1433#0" expanded="true" />
+                <element signature="e#1465#1466#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -174,8 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/utils/FileUtils.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Font.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/TTFont.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Canvas.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/fonts/Character.java" />
@@ -190,7 +198,6 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/fonts/TextMeshCreator.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/fonts/TrueTypeFont.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Font.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AbstractGame.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/font.frag" />
         <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/font.vert" />
         <option value="$PROJECT_DIR$/SnowEngine-core/assets/shaders/basic.frag" />
@@ -219,11 +226,14 @@
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/graphics/Window.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/Font.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/maths/Matrix4.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUILayer.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainer.java" />
-        <option value="$PROJECT_DIR$/SnowEngine-core/src/game/Game.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/game/entities/Player.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Screen.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIButton.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AbstractGame.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/game/Game.java" />
+        <option value="$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainer.java" />
         <option value="$PROJECT_DIR$/SnowEngine-core/src/game/screens/MainMenu.java" />
       </list>
     </option>
@@ -1291,8 +1301,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/fonts/Word.java" />
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/fonts/TextMeshCreator.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/awt/Font.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1344,19 +1352,6 @@
         <state relative-caret-position="88">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AbstractGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1474">
-          <caret line="110" column="18" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
-          <folding>
-            <element signature="e#2648#2649#0" expanded="false" />
-            <element signature="e#2680#2681#0" expanded="false" />
-            <element signature="e#2730#2731#0" expanded="false" />
-            <element signature="e#2762#2763#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1652,51 +1647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="70" column="30" selection-start-line="70" selection-start-column="30" selection-end-line="70" selection-end-column="30" />
-          <folding>
-            <element signature="e#1339#1340#0" expanded="true" />
-            <element signature="e#1391#1392#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="763">
-          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
-          <folding>
-            <element signature="e#1770#1771#0" expanded="true" />
-            <element signature="e#1810#1811#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
-            <element signature="e#1893#1894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUILayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="70" column="64" selection-start-line="70" selection-start-column="64" selection-end-line="70" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/game/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="133" column="23" selection-start-line="133" selection-start-column="23" selection-end-line="133" selection-end-column="23" />
-          <folding>
-            <element signature="e#3480#3481#0" expanded="true" />
-            <element signature="e#3510#3511#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/game/entities/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2185">
@@ -1708,11 +1658,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUILayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/Screen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1161#1162#0" expanded="true" />
+            <element signature="e#1194#1195#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1277#1278#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainerAnimated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="57" column="16" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+          <folding>
+            <element signature="e#1854#1855#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+            <element signature="e#1359#1360#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1432#1433#0" expanded="true" />
+            <element signature="e#1465#1466#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/game/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="134" column="22" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="22" />
+          <folding>
+            <element signature="e#3705#3706#0" expanded="true" />
+            <element signature="e#3735#3736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/AbstractGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+          <folding>
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1754#1755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/com/snowengine/objects/gui/GUIContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
+          <folding>
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1391#1392#0" expanded="true" />
+            <element signature="e#1871#1872#0" expanded="true" />
+            <element signature="e#1928#1929#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SnowEngine-core/src/game/screens/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="213">
+          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

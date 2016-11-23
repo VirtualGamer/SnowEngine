@@ -108,12 +108,18 @@ public abstract class AbstractGame extends GameObject
     @Override
     public void update()
     {
-        m_Level.update();
+        if (m_Level != null)
+        {
+            m_Level.update();
+        }
     }
     
     @Override
     public void render()
     {
-        m_Level.render();
+        if (m_Level != null)
+        {
+            m_Level.render();
+        }
     }
 }

@@ -15,17 +15,25 @@
  */
 package game.screens;
 
-/**
- * <summary>
- * <project>SnowEngine</project>
- * <package>game.screens</package>
- * <class>MainMenu</class>
- * <since>1.0</since>
- * </summary>
- *
- * @author Mark Rienstra
- * @since 1.0
- */
-public final class MainMenu
+import com.snowengine.maths.Vector2;
+import com.snowengine.objects.Screen;
+import com.snowengine.objects.gui.GUIContainer;
+
+public final class MainMenu extends Screen
 {
+    private GUIContainer m_TitleImage;
+    
+    public MainMenu()
+    {
+        m_TitleImage = new GUIContainer("gui/logo.png", new Vector2(64, -96));
+        m_TitleImage.scale(-0.5f);
+    }
+    
+    @Override
+    public void render()
+    {
+        guiLayer.add(m_TitleImage);
+        
+        super.render();
+    }
 }

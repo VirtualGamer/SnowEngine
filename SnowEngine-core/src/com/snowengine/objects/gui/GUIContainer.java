@@ -63,6 +63,11 @@ public class GUIContainer extends GameObject
         }
     }
     
+    public void scale(float scale)
+    {
+        m_Sprite.scale(new Vector2(scale, scale));
+    }
+    
     @Override
     public void render()
     {
