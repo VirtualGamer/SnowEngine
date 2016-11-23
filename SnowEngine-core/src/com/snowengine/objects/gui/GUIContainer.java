@@ -56,7 +56,8 @@ public final class GUIContainer extends GameObject
     {
         super ("GUIContainer", 0);
         m_Sprite = new Sprite(texture);
-        m_Sprite.transform.getPosition().add(new Vector3(offset.x, offset.y, 0));
+        offset.add(m_Sprite.getSize().divide(2));
+        m_Sprite.move(new Vector3(offset.x, offset.y, 0));
     }
     
     protected Sprite getImage()

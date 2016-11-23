@@ -114,7 +114,7 @@ public final class Window
         if (!m_FullScreen)
         {
             GLFWVidMode vidMode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-            glfwSetWindowPos(m_Window, (vidMode.width() - m_Width) / 2, (vidMode.height() - m_Height) / 2);
+            glfwSetWindowPos(m_Window, (vidMode.width() - m_Width) / 2, 0);
         }
 
         glfwSetWindowSizeCallback(m_Window, this::windowResize);
@@ -136,7 +136,6 @@ public final class Window
         System.out.println("LWJGL " + Version.getVersion());
         System.out.println("GLFW " + glfwGetVersionString());
         System.out.println("OpenAL " + AudioMaster.getVersionString());
-        System.out.println("OpenCL ??");
         System.out.println("OpenGL " + glGetString(GL_VERSION));
         return true;
     }

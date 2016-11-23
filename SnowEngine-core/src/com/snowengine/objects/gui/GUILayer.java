@@ -18,6 +18,7 @@ package com.snowengine.objects.gui;
 import com.snowengine.graphics.Shader;
 import com.snowengine.graphics.Window;
 import com.snowengine.maths.Matrix4;
+import com.snowengine.maths.Vector2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,6 @@ import java.util.List;
 public final class GUILayer
 {
     private List<GUIContainer> m_Drawables;
-    private List<GUIText> m_TextFields;
     private Font m_Font;
     private Shader m_Shader;
     private Matrix4 m_Projection;
@@ -33,7 +33,6 @@ public final class GUILayer
     public GUILayer()
     {
         m_Drawables = new ArrayList<>();
-        m_TextFields = new ArrayList<>();
         m_Font = new Font("fonts/test_font.png");
         m_Shader = new Shader();
         m_Shader.addVertexShader("shaders/gui.vert");
@@ -48,7 +47,10 @@ public final class GUILayer
     
     public void add(GUIText text)
     {
-        m_TextFields.add(text);
+        Vector2 pos = text.getPosition().copy();
+        float w = (float) Window.getActiveWindow().getWidth() / 2;
+        pos.add(new Vector2(w, 14));
+        m_Font.drawString(text.getText(), pos, true);
     }
     
     public void update()
@@ -59,19 +61,18 @@ public final class GUILayer
     
         
         Window window = Window.getActiveWindow();
-        float w = (float) window.getWidth() / 2.0f, h = (float) window.getHeight() / 2.0f;
-        m_Projection = Matrix4.orthographic(-w, w, h, -h, -1, 1);
+        float w = (float) window.getWidth(), h = (float) window.getHeight();
+        m_Projection = Matrix4.orthographic(0, w, h, 0, -1, 1);
     }
     
     public void render()
     {
         m_Shader.enable();
         m_Shader.setUniformMatrix4f("projection", m_Projection);
-        m_Drawables.forEach(GUIContainer::render);
-        m_TextFields.forEach(guiText -> m_Font.drawString(guiText.getText(), guiText.getPosition(), true));
+        m_Drawables.forEach(guiContainer -> guiContainer.getImage().render());
+        m_Font.render();
         m_Shader.disable();
         
         m_Drawables.clear();
-        m_TextFields.clear();
     }
 }

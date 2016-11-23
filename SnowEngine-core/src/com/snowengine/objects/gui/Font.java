@@ -86,7 +86,7 @@ public final class Font extends GameObject
     private static Vector2 load(String filepath, Map<String, Texture> font, int width, int height)
     {
         Texture[] textures = Texture.splitTextures(filepath, width, height);
-        Vector2 spacing = new Vector2(textures[0].getWidth(), textures[0].getHeight());
+        Vector2 spacing = new Vector2(textures[0].getWidth() / 2, textures[0].getHeight());
         
         // Alphabet Uppercase
         font.put("A", getTexture(textures, 1, 1, width));

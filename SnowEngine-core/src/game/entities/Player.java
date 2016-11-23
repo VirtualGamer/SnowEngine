@@ -60,7 +60,7 @@ public class Player extends AnimatedEntity
         m_MaxTime = 5;
         m_FrameIndex = 0;
     
-        m_ScoreText = new GUIText("Score 0", new Vector2(0, -64));
+        m_ScoreText = new GUIText("Score 0", new Vector2(0, 14));
         m_Portret = new GUIContainer("gui/portret.png", new Vector2());
     }
     
@@ -180,20 +180,20 @@ public class Player extends AnimatedEntity
         Vector2 horSpeed = new Vector2(this.speed, 0);
         Vector2 verSpeed = new Vector2(0, this.speed);
         
-        if (Keyboard.getKey(KeyCode.Up))
+        if (Keyboard.getKey(KeyCode.W))
         {
             this.move(verSpeed.negate());
         }
-        if (Keyboard.getKey(KeyCode.Down))
+        if (Keyboard.getKey(KeyCode.S))
         {
             this.move(verSpeed);
         }
     
-        if (Keyboard.getKey(KeyCode.Left))
+        if (Keyboard.getKey(KeyCode.A))
         {
             this.move(horSpeed.negate());
         }
-        if (Keyboard.getKey(KeyCode.Right))
+        if (Keyboard.getKey(KeyCode.D))
         {
             this.move(horSpeed);
         }
