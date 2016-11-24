@@ -29,6 +29,7 @@ public final class Spider extends AnimatedEntity
     private static AudioClip m_AudioClip;
     private AudioSource m_AudioSource;
     private int m_Health, m_Timer, m_MaxTime, m_FrameIndex, m_FramePointer;
+    private boolean m_Moving, m_Hit;
     private float xa = 0, ya = 0;
     
     public Spider()
@@ -43,7 +44,7 @@ public final class Spider extends AnimatedEntity
         m_AudioSource = new AudioSource();
         m_Health = 5 + new Random().nextInt(3);
         m_Timer = 0;
-        m_MaxTime = 10;
+        m_MaxTime = 4;
         m_FrameIndex = 0;
         m_FramePointer = 4;
     }
@@ -56,6 +57,9 @@ public final class Spider extends AnimatedEntity
             player.addScore(1);
         }
         
+        m_Hit = true;
+        xa = 0;
+        ya = 0;
         m_AudioSource.setPosition(this.transform.getPosition());
         m_AudioSource.play(m_AudioClip);
         m_Health--;
@@ -66,47 +70,67 @@ public final class Spider extends AnimatedEntity
     {
         super.update();
     
-        if (m_Timer >= m_MaxTime)
+        if ((m_Timer >= m_MaxTime))
         {
             m_Timer = 0;
-            int newFrame = m_FrameIndex + m_FramePointer;
-            if (newFrame < 0 || newFrame >= 8 * m_FramePointer)
+            if (!m_Hit)
             {
-                m_FramePointer = -m_FramePointer;
-            }
-            this.setFrame(m_FrameIndex += m_FramePointer);
+                int newFrame = m_FrameIndex + m_FramePointer;
+                if ((newFrame < 0 || newFrame >= (8 * m_FramePointer)) && m_Moving)
+                {
+                    m_FramePointer = -m_FramePointer;
+                }
+                this.setFrame(m_FrameIndex += m_FramePointer);
+                m_Moving = false;
     
-            int rand1 = new Random().nextInt(4);
-            int rand2 = new Random().nextInt(4);
+                int rand1 = new Random().nextInt(4);
+                int rand2 = new Random().nextInt(4);
     
-            if (rand1 == 0)
-            {
-                xa = 1;
-            }
-            else if (rand1 == 1)
-            {
-                xa = -1;
+                if (rand1 == 0)
+                {
+                    xa = 1;
+                    m_Moving = true;
+                    if (this.getScale().x > 0)
+                    {
+                        this.scale(new Vector2(-2, 0));
+                    }
+                }
+                else if (rand1 == 1)
+                {
+                    xa = -1;
+                    m_Moving = true;
+                    if (this.getScale().x < 0)
+                    {
+                        this.scale(new Vector2(2, 0));
+                    }
+                }
+                else
+                {
+                    xa = 0;
+                }
+    
+                if (rand2 == 0)
+                {
+                    ya = 1;
+                    m_Moving = true;
+                }
+                else if (rand2 == 1)
+                {
+                    ya = -1;
+                    m_Moving = true;
+                }
+                else
+                {
+                    ya = 0;
+                }
             }
             else
             {
-                xa = 0;
+                m_Hit = false;
             }
-    
-            if (rand2 == 0)
-            {
-                ya = 1;
-            }
-            else if (rand2 == 2)
-            {
-                ya = -1;
-            }
-            else
-            {
-                ya = 0;
-            }
+            
+            this.move(new Vector2(xa, ya));
         }
-    
-        this.move(new Vector2(xa, ya));
         
         m_Timer++;
         

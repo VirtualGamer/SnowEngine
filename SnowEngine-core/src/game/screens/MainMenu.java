@@ -31,14 +31,14 @@ public final class MainMenu extends Screen
     
     public MainMenu()
     {
-        m_TitleImage = new GUIContainer("gui/logo.png", new Vector2(-64, -96));
+        m_TitleImage = new GUIContainer("gui/logo.png", new Vector2(-128, -96));
         m_TitleImage.scale(-0.5f);
-        m_Play = new GUIButton("gui/buttons/play.png", new Vector2(608, 512));
+        m_Play = new GUIButton("gui/buttons/play.png", new Vector2(544, 512));
         m_Play.scale(-0.25f);
         m_Play.setSelected(true);
-        m_Controls = new GUIButton("gui/buttons/controls.png", new Vector2(608, 640));
+        m_Controls = new GUIButton("gui/buttons/controls.png", new Vector2(544, 640));
         m_Controls.scale(-0.25f);
-        m_Quit = new GUIButton("gui/buttons/quit.png", new Vector2(608, 768));
+        m_Quit = new GUIButton("gui/buttons/quit.png", new Vector2(544, 768));
         m_Quit.scale(-0.25f);
     }
     

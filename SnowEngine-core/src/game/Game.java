@@ -18,10 +18,13 @@ package game;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
+import com.snowengine.maths.Vector3;
 import com.snowengine.objects.AbstractGame;
 import com.snowengine.utils.ColorUtils;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.TMXFile;
+import game.commands.Command;
+import game.commands.CommandDialog;
 import game.entities.Coin;
 import game.entities.Crate;
 import game.entities.Player;
@@ -42,7 +45,7 @@ public final class Game extends AbstractGame
     
     public Game()
     {
-        super ("SnowEngine!", 1600, 1200, false);
+        super ("Spiral Knights", 1600, 1200, false);
         theGame = this;
     }
     
@@ -52,7 +55,7 @@ public final class Game extends AbstractGame
         TMXFile file = FileUtils.openTMXFile("maps/demo_map.tmx");
         this.setLevel(file.getLevel());
 
-        this.setAmbientColor(ColorUtils.translate(0x353535));
+        this.setAmbientColor(new Vector3(0.3f, 0.2f, 0.2f));
 
         player = new Player();
         player.move(new Vector2(400, 400));
@@ -96,7 +99,6 @@ public final class Game extends AbstractGame
         m_GameState = GameState.MainMenu;
         m_MainMenu = new MainMenu();
         m_ControlMenu = new ControlMenu();
-    
         m_MusicPlayer = new MusicPlayer();
         
         super.start();
@@ -131,6 +133,11 @@ public final class Game extends AbstractGame
         {
             super.update();
             
+            if (Keyboard.getKeyPressed(KeyCode.GraveAccent))
+            {
+                new CommandDialog();
+            }
+            
             if (Keyboard.getKeyPressed(KeyCode.Escape))
             {
                 this.setGameState(GameState.MainMenu);
@@ -163,6 +170,11 @@ public final class Game extends AbstractGame
     public GameState getGameState()
     {
         return m_GameState;
+    }
+    
+    public Player getPlayer()
+    {
+        return this.player;
     }
     
     public static Game getGame()

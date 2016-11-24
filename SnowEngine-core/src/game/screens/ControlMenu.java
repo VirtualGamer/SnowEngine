@@ -31,9 +31,9 @@ public final class ControlMenu extends Screen
     
     public ControlMenu()
     {
-        m_TitleImage = new GUIContainer("gui/logo.png", new Vector2(-64, -96));
+        m_TitleImage = new GUIContainer("gui/logo.png", new Vector2(-128, -96));
         m_TitleImage.scale(-0.5f);
-        m_Back = new GUIButton("gui/buttons/back.png", new Vector2(608, 896));
+        m_Back = new GUIButton("gui/buttons/back.png", new Vector2(544, 896));
         m_Back.scale(-0.25f);
         m_Back.setSelected(true);
     }

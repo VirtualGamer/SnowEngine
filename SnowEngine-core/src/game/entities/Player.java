@@ -28,6 +28,7 @@ import com.snowengine.objects.gui.GUIContainer;
 import com.snowengine.objects.gui.GUIContainerAnimated;
 import com.snowengine.objects.gui.GUIText;
 import com.snowengine.objects.lighting.Light;
+import com.snowengine.objects.sprites.Sprite;
 import com.snowengine.objects.tiles.Tile;
 import game.Game;
 
@@ -39,18 +40,24 @@ public class Player extends AnimatedEntity
     private int m_HealTimer, m_MaxHealTime, m_FrameIndex;
     private boolean m_Walking, m_Blocking, m_Attacking, m_Forward;
     
+    private Sprite m_Shadow;
+    
     private GUIText m_ScoreText;
     private GUIContainer m_Portrait;
     private GUIContainerAnimated m_HealthBar;
     
     public Player()
     {
-        super ("textures/player.png", 1, 7);
-        super.setBounds(0, 32, 16, 16);
-    
+        super ("textures/player.png", 12, 11);
+        super.setBounds(0, 32, 32, 32);
+        
+        m_Shadow = new Sprite("textures/shadow.png");
+        m_Shadow.move(new Vector2(0, 48));
+        
         m_Camera = new Camera2D();
+        m_Camera.addChild(m_Shadow);
         this.addChild(m_Camera);
-    
+        
         Light light = new Light(new Vector2(), new Vector3(1.0f, 1.0f, 1.0f), 256.0f);
         this.addChild(light);
         
@@ -62,7 +69,7 @@ public class Player extends AnimatedEntity
         m_Health = 100;
         m_Walking = false;
         m_Forward = true;
-    
+        
         m_ScoreText = new GUIText("Score 0", new Vector2(0, 14));
         m_Portrait = new GUIContainer("gui/portrait.png", new Vector2(-284, -292));
         m_Portrait.scale(-0.9f);
@@ -85,7 +92,7 @@ public class Player extends AnimatedEntity
         if (other instanceof Spider)
         {
             Spider slime = (Spider) other;
-    
+            
             if (attack)
             {
                 slime.hit(this);
@@ -134,7 +141,7 @@ public class Player extends AnimatedEntity
             {
                 float xa = 0, ya = 0, speed = 1;
                 Vector2 pos = this.getPosition(), opos = tile.getPosition();
-    
+                
                 if (pos.getY() > (opos.getY() - 1))
                 {
                     ya = speed;
@@ -151,7 +158,7 @@ public class Player extends AnimatedEntity
                 {
                     xa = -speed;
                 }
-    
+                
                 this.move(new Vector2(xa, ya));
             }
         }
@@ -179,6 +186,28 @@ public class Player extends AnimatedEntity
         }
     }
     
+    public void setHealth(float health)
+    {
+        m_Health = health;
+    }
+    
+    public void addHealth(float health)
+    {
+        m_Health += health;
+    }
+    
+    public void removeHealth(float health)
+    {
+        if (m_Health > health)
+        {
+            m_Health -= health;
+        }
+        else
+        {
+            this.setHealth(0);
+        }
+    }
+    
     @Override
     public void move(Vector3 vector)
     {
@@ -203,13 +232,13 @@ public class Player extends AnimatedEntity
             ya = 1;
             m_Forward = false;
         }
-    
+        
         if (Keyboard.getKey(KeyCode.A))
         {
             xa = -1;
             if (this.getScale().x > 0)
             {
-                this.transform.scale(-2, 0, 0);
+                this.scale(new Vector2(-2, 0));
             }
         }
         if (Keyboard.getKey(KeyCode.D))
@@ -217,7 +246,7 @@ public class Player extends AnimatedEntity
             xa = 1;
             if (this.getScale().x < 0)
             {
-                this.transform.scale(2, 0, 0);
+                this.scale(new Vector2(2, 0));
             }
         }
         
@@ -251,8 +280,16 @@ public class Player extends AnimatedEntity
         }
         
         m_ScoreText.setText("Score " + ((int) m_Score));
-        m_HealthBar.setFrame(Math.round(m_Health / 10.0f));
-    
+        
+        if (m_Health < 100)
+        {
+            m_HealthBar.setFrame(Math.round(m_Health / 10.0f));
+        }
+        else
+        {
+            m_HealthBar.setFrame(10);
+        }
+        
         super.update();
     }
     
@@ -268,11 +305,11 @@ public class Player extends AnimatedEntity
                 m_Health++;
             }
         }
-    
+        
         m_HealTimer++;
         
         super.render();
-    
+        
         if (m_Blocking)
         {
             if (m_Forward)
@@ -295,8 +332,7 @@ public class Player extends AnimatedEntity
                 this.setFrame(5);
             }
         }
-    
-    
+        
         Canvas canvas = m_Camera.getCanvas();
         if (canvas != null)
         {
