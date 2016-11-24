@@ -15,6 +15,9 @@
  */
 package game.screens;
 
+import com.snowengine.audio.AudioClip;
+import com.snowengine.audio.AudioMaster;
+import com.snowengine.audio.AudioSource;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
@@ -28,6 +31,8 @@ public final class MainMenu extends Screen
 {
     private GUIContainer m_TitleImage;
     private GUIButton m_Play, m_Controls, m_Quit;
+    private AudioClip m_ButtonSelect, m_ButtonClick;
+    private AudioSource m_AudioSource;
     
     public MainMenu()
     {
@@ -40,6 +45,9 @@ public final class MainMenu extends Screen
         m_Controls.scale(-0.25f);
         m_Quit = new GUIButton("gui/buttons/quit.png", new Vector2(544, 768));
         m_Quit.scale(-0.25f);
+        m_ButtonSelect = AudioMaster.loadAudioClip("audio/button_select.wav");
+        m_ButtonClick = AudioMaster.loadAudioClip("audio/button_click.wav");
+        m_AudioSource = new AudioSource();
     }
     
     @Override
@@ -51,6 +59,7 @@ public final class MainMenu extends Screen
         
         if (Keyboard.getKeyPressed(KeyCode.W))
         {
+            m_AudioSource.play(m_ButtonSelect);
             if (m_Play.isSelected())
             {
                 m_Play.setSelected(false);
@@ -72,6 +81,7 @@ public final class MainMenu extends Screen
         }
         else if (Keyboard.getKeyPressed(KeyCode.S))
         {
+            m_AudioSource.play(m_ButtonSelect);
             if (m_Play.isSelected())
             {
                 m_Play.setSelected(false);
@@ -94,6 +104,7 @@ public final class MainMenu extends Screen
         
         if (Keyboard.getKeyPressed(KeyCode.F))
         {
+            m_AudioSource.play(m_ButtonClick);
             Game game = Game.getGame();
             if (m_Play.isSelected())
             {

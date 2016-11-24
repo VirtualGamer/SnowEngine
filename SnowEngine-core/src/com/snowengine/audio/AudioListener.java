@@ -138,4 +138,9 @@ public final class AudioListener
     {
         return (m_ActiveListener == this);
     }
+    
+    public static AudioListener getActiveListener()
+    {
+        return m_ActiveListener;
+    }
 }

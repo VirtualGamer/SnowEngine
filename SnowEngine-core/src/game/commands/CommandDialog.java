@@ -32,6 +32,10 @@ public final class CommandDialog
         {
             ((HealthCommand) cmd).parse(command);
         }
+        else if (cmd instanceof VolumeCommand)
+        {
+            ((VolumeCommand) cmd).parse(command);
+        }
     }
     
     private static Command getCommand(String command)
@@ -43,6 +47,10 @@ public final class CommandDialog
         else if (command.startsWith("health"))
         {
             return new HealthCommand();
+        }
+        else if (command.startsWith("volume"))
+        {
+            return new VolumeCommand();
         }
         return null;
     }

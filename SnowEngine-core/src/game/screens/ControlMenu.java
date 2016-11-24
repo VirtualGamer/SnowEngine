@@ -15,6 +15,9 @@
  */
 package game.screens;
 
+import com.snowengine.audio.AudioClip;
+import com.snowengine.audio.AudioMaster;
+import com.snowengine.audio.AudioSource;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
@@ -26,16 +29,21 @@ import game.GameState;
 
 public final class ControlMenu extends Screen
 {
-    private GUIContainer m_TitleImage;
+    private GUIContainer m_TitleImage, m_ButtonLayout;
     private GUIButton m_Back;
+    private AudioClip m_ButtonClick;
+    private AudioSource m_AudioSource;
     
     public ControlMenu()
     {
         m_TitleImage = new GUIContainer("gui/logo.png", new Vector2(-128, -96));
         m_TitleImage.scale(-0.5f);
+        m_ButtonLayout = new GUIContainer("gui/buttons/button_layout.png", new Vector2(576, 544));
         m_Back = new GUIButton("gui/buttons/back.png", new Vector2(544, 896));
         m_Back.scale(-0.25f);
         m_Back.setSelected(true);
+        m_ButtonClick = AudioMaster.loadAudioClip("audio/button_click.wav");
+        m_AudioSource = new AudioSource();
     }
     
     @Override
@@ -43,51 +51,9 @@ public final class ControlMenu extends Screen
     {
         m_Back.update();
         
-//        if (Keyboard.getKeyPressed(KeyCode.W))
-//        {
-//            if (m_Back.isSelected())
-//            {
-//                m_Play.setSelected(false);
-//                m_Controls.setSelected(false);
-//                m_Quit.setSelected(true);
-//            }
-//            else if (m_Controls.isSelected())
-//            {
-//                m_Play.setSelected(true);
-//                m_Controls.setSelected(false);
-//                m_Quit.setSelected(false);
-//            }
-//            else if (m_Quit.isSelected())
-//            {
-//                m_Play.setSelected(false);
-//                m_Controls.setSelected(true);
-//                m_Quit.setSelected(false);
-//            }
-//        }
-//        else if (Keyboard.getKeyPressed(KeyCode.S))
-//        {
-//            if (m_Play.isSelected())
-//            {
-//                m_Play.setSelected(false);
-//                m_Controls.setSelected(true);
-//                m_Quit.setSelected(false);
-//            }
-//            else if (m_Controls.isSelected())
-//            {
-//                m_Play.setSelected(false);
-//                m_Controls.setSelected(false);
-//                m_Quit.setSelected(true);
-//            }
-//            else if (m_Quit.isSelected())
-//            {
-//                m_Play.setSelected(true);
-//                m_Controls.setSelected(false);
-//                m_Quit.setSelected(false);
-//            }
-//        }
-        
         if (Keyboard.getKeyPressed(KeyCode.F))
         {
+            m_AudioSource.play(m_ButtonClick);
             Game game = Game.getGame();
             if (m_Back.isSelected())
             {
@@ -102,6 +68,7 @@ public final class ControlMenu extends Screen
     public void render()
     {
         guiLayer.add(m_TitleImage);
+        guiLayer.add(m_ButtonLayout);
         guiLayer.add(m_Back);
         
         super.render();
