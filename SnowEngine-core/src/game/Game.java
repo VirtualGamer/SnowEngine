@@ -30,6 +30,7 @@ import game.entities.Crate;
 import game.entities.Player;
 import game.entities.Spider;
 import game.screens.ControlMenu;
+import game.screens.EndScreen;
 import game.screens.MainMenu;
 
 import java.util.Random;
@@ -41,6 +42,7 @@ public final class Game extends AbstractGame
     private GameState m_GameState;
     private MainMenu m_MainMenu;
     private ControlMenu m_ControlMenu;
+    private EndScreen m_EndScreen;
     private MusicPlayer m_MusicPlayer;
     
     public Game()
@@ -99,6 +101,7 @@ public final class Game extends AbstractGame
         m_GameState = GameState.MainMenu;
         m_MainMenu = new MainMenu();
         m_ControlMenu = new ControlMenu();
+        m_EndScreen = new EndScreen();
         m_MusicPlayer = new MusicPlayer();
         
         super.start();
@@ -143,6 +146,10 @@ public final class Game extends AbstractGame
                 this.setGameState(GameState.MainMenu);
             }
         }
+        else if (m_GameState == GameState.EndScreen)
+        {
+            m_EndScreen.update();
+        }
         
         if (!m_MusicPlayer.isPlayingMusic())
         {
@@ -164,6 +171,10 @@ public final class Game extends AbstractGame
         else if (m_GameState == GameState.InGame)
         {
             super.render();
+        }
+        else if (m_GameState == GameState.EndScreen)
+        {
+            m_EndScreen.render();
         }
     }
     

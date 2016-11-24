@@ -31,6 +31,7 @@ import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.sprites.Sprite;
 import com.snowengine.objects.tiles.Tile;
 import game.Game;
+import game.GameState;
 
 public class Player extends AnimatedEntity
 {
@@ -276,7 +277,9 @@ public class Player extends AnimatedEntity
         
         if (m_Health < 0)
         {
-            Game.getGame().stop();
+            Game.getGame().setGameState(GameState.EndScreen);
+            m_Health = 100;
+            m_Score = 0;
         }
         
         m_ScoreText.setText("Score " + ((int) m_Score));
