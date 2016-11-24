@@ -37,6 +37,11 @@ public final class MusicPlayer
         m_PlaylistOffset = 0;
     }
     
+    public void setVolume(float volume)
+    {
+        m_TrackPlayer.setVolume(volume);
+    }
+    
     private void shufflePlaylist()
     {
     

@@ -17,6 +17,7 @@ package game.commands;
 
 import com.snowengine.audio.AudioListener;
 import game.Game;
+import game.MusicPlayer;
 import game.entities.Player;
 
 public final class VolumeCommand extends Command
@@ -35,11 +36,23 @@ public final class VolumeCommand extends Command
         }
         else
         {
-            AudioListener listener = AudioListener.getActiveListener();
-            int amount = Integer.parseInt(strArray[2]);
-            if (strArray[1].trim().equalsIgnoreCase("set"))
+            if (strArray[1].equalsIgnoreCase("music") && strArray.length >= 4)
             {
-                listener.setVolume(amount);
+                MusicPlayer player = Game.getGame().getMusicPlayer();
+                int amount = Integer.parseInt(strArray[3]);
+                if (strArray[2].trim().equalsIgnoreCase("set"))
+                {
+                    player.setVolume(amount);
+                }
+            }
+            else
+            {
+                AudioListener listener = AudioListener.getActiveListener();
+                int amount = Integer.parseInt(strArray[2]);
+                if (strArray[1].trim().equalsIgnoreCase("set"))
+                {
+                    listener.setVolume(amount);
+                }
             }
         }
     }

@@ -177,6 +177,11 @@ public final class Game extends AbstractGame
         return this.player;
     }
     
+    public MusicPlayer getMusicPlayer()
+    {
+        return m_MusicPlayer;
+    }
+    
     public static Game getGame()
     {
         return theGame;
