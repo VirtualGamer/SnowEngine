@@ -98,11 +98,16 @@ public class AnimatedSprite extends GameObject
         m_FrameIndex = index;
     }
     
-    
     @Override
     public void move(Vector2 vector)
     {
         super.move(vector);
+    }
+    
+    @Override
+    public void scale(Vector2 vector)
+    {
+        super.scale(vector);
     }
     
     @Override

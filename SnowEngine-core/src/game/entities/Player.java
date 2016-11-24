@@ -15,8 +15,6 @@
  */
 package game.entities;
 
-import com.snowengine.graphics.Texture;
-import com.snowengine.graphics.Window;
 import com.snowengine.input.KeyCode;
 import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
@@ -31,16 +29,15 @@ import com.snowengine.objects.gui.GUIContainerAnimated;
 import com.snowengine.objects.gui.GUIText;
 import com.snowengine.objects.lighting.Light;
 import com.snowengine.objects.tiles.Tile;
-import com.snowengine.objects.tiles.TileBase;
 import game.Game;
-import game.tiles.WallTile;
 
 public class Player extends AnimatedEntity
 {
     private Camera2D m_Camera;
     public float speed;
     private float m_Score, m_Health;
-    private int m_Timer, m_MaxTime, m_FrameIndex;
+    private int m_HealTimer, m_MaxHealTime, m_FrameIndex;
+    private boolean m_Walking, m_Blocking, m_Attacking, m_Forward;
     
     private GUIText m_ScoreText;
     private GUIContainer m_Portrait;
@@ -59,10 +56,12 @@ public class Player extends AnimatedEntity
         
         this.speed = 5;
         m_Score = 0;
-        m_Timer = 0;
-        m_MaxTime = 5;
+        m_HealTimer = 0;
+        m_MaxHealTime = 5;
         m_FrameIndex = 0;
         m_Health = 100;
+        m_Walking = false;
+        m_Forward = true;
     
         m_ScoreText = new GUIText("Score 0", new Vector2(0, 14));
         m_Portrait = new GUIContainer("gui/portrait.png", new Vector2(-284, -292));
@@ -81,18 +80,21 @@ public class Player extends AnimatedEntity
     public void onCollision(GameObject other)
     {
         super.onCollision(other);
-        boolean attack = Keyboard.getKeyPressed(KeyCode.Space);
+        boolean attack = Keyboard.getKeyPressed(KeyCode.F) && !m_Blocking;
         
-        if (other instanceof Slime)
+        if (other instanceof Spider)
         {
-            Slime slime = (Slime) other;
+            Spider slime = (Spider) other;
     
             if (attack)
             {
                 slime.hit(this);
             }
             
-            m_Health -= 0.25f;
+            if (!m_Blocking)
+            {
+                m_Health -= 0.25f;
+            }
         }
         else if (other instanceof Crate)
         {
@@ -186,25 +188,61 @@ public class Player extends AnimatedEntity
     @Override
     public void update()
     {
-        Vector2 horSpeed = new Vector2(this.speed, 0);
-        Vector2 verSpeed = new Vector2(0, this.speed);
+        float xa = 0, ya = 0;
+        m_Walking = false;
+        m_Blocking = false;
+        m_Attacking = false;
         
         if (Keyboard.getKey(KeyCode.W))
         {
-            this.move(verSpeed.negate());
+            ya = -1;
+            m_Forward = true;
         }
         if (Keyboard.getKey(KeyCode.S))
         {
-            this.move(verSpeed);
+            ya = 1;
+            m_Forward = false;
         }
     
         if (Keyboard.getKey(KeyCode.A))
         {
-            this.move(horSpeed.negate());
+            xa = -1;
+            if (this.getScale().x > 0)
+            {
+                this.transform.scale(-2, 0, 0);
+            }
         }
         if (Keyboard.getKey(KeyCode.D))
         {
-            this.move(horSpeed);
+            xa = 1;
+            if (this.getScale().x < 0)
+            {
+                this.transform.scale(2, 0, 0);
+            }
+        }
+        
+        if (Keyboard.getKey(KeyCode.G))
+        {
+            m_Blocking = true;
+        }
+        
+        if (Keyboard.getKeyPressed(KeyCode.F) && !m_Blocking)
+        {
+            m_Attacking = true;
+            if (m_Forward)
+            {
+                this.setFrame(2);
+            }
+            else
+            {
+                this.setFrame(3);
+            }
+        }
+        
+        if ((xa != 0 || ya != 0) && !m_Attacking)
+        {
+            this.transform.move(xa * this.speed, ya * this.speed, 0);
+            m_Walking = true;
         }
         
         if (m_Health < 0)
@@ -221,10 +259,9 @@ public class Player extends AnimatedEntity
     @Override
     public void render()
     {
-        if (m_Timer >= m_MaxTime)
+        if (m_HealTimer >= m_MaxHealTime)
         {
-            m_Timer = 0;
-            this.setFrame((m_FrameIndex < 6) ? m_FrameIndex++ : (m_FrameIndex = 0));
+            m_HealTimer = 0;
             
             if (m_Health < 100)
             {
@@ -232,9 +269,33 @@ public class Player extends AnimatedEntity
             }
         }
     
-        m_Timer++;
+        m_HealTimer++;
         
         super.render();
+    
+        if (m_Blocking)
+        {
+            if (m_Forward)
+            {
+                this.setFrame(0);
+            }
+            else
+            {
+                this.setFrame(1);
+            }
+        }
+        else
+        {
+            if (m_Forward)
+            {
+                this.setFrame(4);
+            }
+            else
+            {
+                this.setFrame(5);
+            }
+        }
+    
     
         Canvas canvas = m_Camera.getCanvas();
         if (canvas != null)

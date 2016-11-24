@@ -76,6 +76,13 @@ public class Entity extends Sprite implements EntityBase
     }
     
     @Override
+    public Vector2 getScale()
+    {
+        Vector3 scale = this.transform.getScale();
+        return new Vector2(scale.x, scale.y);
+    }
+    
+    @Override
     public boolean isSolid()
     {
         return false;

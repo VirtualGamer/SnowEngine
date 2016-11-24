@@ -23,5 +23,6 @@ public interface EntityBase
     void destroy();
     void setParent(GameObject parent);
     Vector2 getPosition();
+    Vector2 getScale();
     boolean isSolid();
 }

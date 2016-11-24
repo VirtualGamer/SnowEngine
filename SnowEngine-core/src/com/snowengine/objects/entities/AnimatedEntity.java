@@ -57,6 +57,18 @@ public class AnimatedEntity extends AnimatedSprite implements EntityBase
     }
     
     @Override
+    public void move(Vector2 vector)
+    {
+        super.move(vector);
+    }
+    
+    @Override
+    public void scale(Vector2 vector)
+    {
+        super.scale(vector);
+    }
+    
+    @Override
     public void update()
     {
         super.update();
@@ -73,6 +85,13 @@ public class AnimatedEntity extends AnimatedSprite implements EntityBase
     {
         Vector3 pos = this.transform.getPosition();
         return new Vector2(pos.x, pos.y);
+    }
+    
+    @Override
+    public Vector2 getScale()
+    {
+        Vector3 scale = this.transform.getScale();
+        return new Vector2(scale.x, scale.y);
     }
     
     @Override

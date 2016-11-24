@@ -25,7 +25,8 @@ import com.snowengine.utils.files.TMXFile;
 import game.entities.Coin;
 import game.entities.Crate;
 import game.entities.Player;
-import game.entities.Slime;
+import game.entities.Spider;
+import game.screens.ControlMenu;
 import game.screens.MainMenu;
 
 import java.util.Random;
@@ -34,13 +35,14 @@ public final class Game extends AbstractGame
 {
     private static Game theGame;
     private Player player;
-    private MainMenu m_MainMenu;
     private GameState m_GameState;
+    private MainMenu m_MainMenu;
+    private ControlMenu m_ControlMenu;
     private MusicPlayer m_MusicPlayer;
     
     public Game()
     {
-        super ("SnowEngine!", 1600, 1200, true);
+        super ("SnowEngine!", 1600, 1200, false);
         theGame = this;
     }
     
@@ -84,7 +86,7 @@ public final class Game extends AbstractGame
 
         for (int i = 0; i < 10; i++)
         {
-            Slime slime = new Slime();
+            Spider slime = new Spider();
             float x = 512 + (random.nextInt(32) * 8.5f) * i;
             float y = 574 + (random.nextInt(32) * 8.5f) * i;
             slime.move(new Vector2(x, y));
@@ -93,6 +95,7 @@ public final class Game extends AbstractGame
     
         m_GameState = GameState.MainMenu;
         m_MainMenu = new MainMenu();
+        m_ControlMenu = new ControlMenu();
     
         m_MusicPlayer = new MusicPlayer();
         
@@ -120,6 +123,10 @@ public final class Game extends AbstractGame
         {
             m_MainMenu.update();
         }
+        else if (m_GameState == GameState.Controls)
+        {
+            m_ControlMenu.update();
+        }
         else if (m_GameState == GameState.InGame)
         {
             super.update();
@@ -142,6 +149,10 @@ public final class Game extends AbstractGame
         if (m_GameState == GameState.MainMenu)
         {
             m_MainMenu.render();
+        }
+        else if (m_GameState == GameState.Controls)
+        {
+            m_ControlMenu.render();
         }
         else if (m_GameState == GameState.InGame)
         {
