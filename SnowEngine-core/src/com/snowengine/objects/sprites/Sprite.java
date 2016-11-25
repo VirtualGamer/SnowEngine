@@ -133,4 +133,22 @@ public class Sprite extends GameObject
     {
         return new Vector2(m_Texture.getWidth(), m_Texture.getHeight());
     }
+    
+    protected Texture getTexture()
+    {
+        return m_Texture;
+    }
+    
+    @Override
+    public Sprite copy()
+    {
+        Sprite result = new Sprite(m_Texture.copy());
+        result.move(this.transform.getPosition());
+        
+        result.transform.getScale().x = this.transform.getScale().x;
+        result.transform.getScale().y = this.transform.getScale().y;
+        result.transform.getScale().z = this.transform.getScale().z;
+        
+        return result;
+    }
 }

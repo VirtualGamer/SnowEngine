@@ -76,4 +76,13 @@ public class Light extends GameObject
     {
         return m_Radius;
     }
+    
+    public Light copy()
+    {
+        Vector2 pos = new Vector2();
+        pos.x = this.transform.getPosition().getX();
+        pos.y = this.transform.getPosition().getY();
+        
+        return new Light(pos, m_Color.copy(), m_Radius);
+    }
 }

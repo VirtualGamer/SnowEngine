@@ -33,12 +33,17 @@ import com.snowengine.objects.tiles.Tile;
 import game.Game;
 import game.GameState;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Player extends AnimatedEntity
 {
     private Camera2D m_Camera;
     public float speed;
     private float m_Score, m_Health;
-    private int m_HealTimer, m_MaxHealTime, m_FrameIndex;
+    private int m_HealTimer, m_MaxHealTime;
+    private int m_AnimationTimer, m_MaxAnimationTime, m_FrameIndex;
+    private Map<String, int[]> m_Animations;
     private boolean m_Walking, m_Blocking, m_Attacking, m_Forward;
     
     private Sprite m_Shadow;
@@ -65,9 +70,13 @@ public class Player extends AnimatedEntity
         this.speed = 5;
         m_Score = 0;
         m_HealTimer = 0;
-        m_MaxHealTime = 5;
+        m_MaxHealTime = 10;
+        m_AnimationTimer = 0;
+        m_MaxAnimationTime = 5;
         m_FrameIndex = 0;
         m_Health = 100;
+        m_Animations = new HashMap<>();
+        this.loadAnimations();
         m_Walking = false;
         m_Forward = true;
         
@@ -76,6 +85,24 @@ public class Player extends AnimatedEntity
         m_Portrait.scale(-0.9f);
         m_HealthBar = new GUIContainerAnimated("gui/healthbar.png", 1, 11, new Vector2(75, 46));
         m_HealthBar.setFrame(10);
+    }
+    
+    private void loadAnimations()
+    {
+        this.loadAnimation("idle_down", 221, 235);
+    }
+    
+    private void loadAnimation(String name, int startFrame, int endFrame)
+    {
+        int animation[] = new int[endFrame - startFrame];
+        
+        int offset = startFrame;
+        for (int i = 0; i < animation.length; i++)
+        {
+            animation[i] = offset++;
+        }
+        
+        m_Animations.put(name, animation);
     }
     
     @Override
@@ -92,16 +119,19 @@ public class Player extends AnimatedEntity
         
         if (other instanceof Spider)
         {
-            Spider slime = (Spider) other;
+            Spider spider = (Spider) other;
             
             if (attack)
             {
-                slime.hit(this);
+                spider.hit(this);
             }
             
-            if (!m_Blocking)
+            if (spider.isAttacking())
             {
-                m_Health -= 0.25f;
+                if (!m_Blocking)
+                {
+                    m_Health -= 0.25f;
+                }
             }
         }
         else if (other instanceof Crate)
@@ -221,7 +251,6 @@ public class Player extends AnimatedEntity
         float xa = 0, ya = 0;
         m_Walking = false;
         m_Blocking = false;
-        m_Attacking = false;
         
         if (Keyboard.getKey(KeyCode.W))
         {
@@ -309,6 +338,12 @@ public class Player extends AnimatedEntity
             }
         }
         
+        if (m_AnimationTimer >= m_MaxAnimationTime)
+        {
+            m_AnimationTimer = 0;
+        }
+    
+        m_AnimationTimer++;
         m_HealTimer++;
         
         super.render();
@@ -328,11 +363,11 @@ public class Player extends AnimatedEntity
         {
             if (m_Forward)
             {
-                this.setFrame(4);
+                this.setFrame(67);
             }
             else
             {
-                this.setFrame(5);
+                this.setFrame(45);
             }
         }
         

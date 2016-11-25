@@ -28,20 +28,17 @@ import java.util.List;
 
 public class Tile extends Sprite implements TileBase
 {
-    private Texture m_Texture;
     protected boolean m_Solid;
     
     public Tile(String filepath)
     {
         super (filepath);
-        m_Texture = new Texture(filepath);
         m_Solid = false;
     }
     
     public Tile(Texture texture)
     {
         super (texture);
-        m_Texture = texture;
     }
     
     public void setSolid(boolean b)
@@ -92,8 +89,16 @@ public class Tile extends Sprite implements TileBase
         return m_Solid;
     }
     
+    @Override
     public Tile copy()
     {
-        return new Tile(m_Texture.copy());
+        Tile result = new Tile(this.getTexture());
+        result.move(this.transform.getPosition());
+        
+        result.transform.getScale().x = this.transform.getScale().x;
+        result.transform.getScale().y = this.transform.getScale().y;
+        result.transform.getScale().z = this.transform.getScale().z;
+        
+        return result;
     }
 }

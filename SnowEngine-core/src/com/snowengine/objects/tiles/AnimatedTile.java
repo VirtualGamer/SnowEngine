@@ -20,6 +20,7 @@ import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.GameObject;
 import com.snowengine.objects.Level;
+import com.snowengine.objects.entities.AnimatedEntity;
 import com.snowengine.objects.entities.EntityBase;
 import com.snowengine.objects.sprites.AnimatedSprite;
 
@@ -79,5 +80,25 @@ public class AnimatedTile extends AnimatedSprite implements TileBase
     public boolean isSolid()
     {
         return false;
+    }
+    
+    @Override
+    public AnimatedTile copy()
+    {
+        Texture textures[] = new Texture[this.getTextures().length];
+    
+        for (int i = 0; i < textures.length; i++)
+        {
+            textures[i] = this.getTextures()[i].copy();
+        }
+    
+        AnimatedTile result = new AnimatedTile(textures);
+        result.move(this.transform.getPosition());
+    
+        result.transform.getScale().x = this.transform.getScale().x;
+        result.transform.getScale().y = this.transform.getScale().y;
+        result.transform.getScale().z = this.transform.getScale().z;
+    
+        return result;
     }
 }

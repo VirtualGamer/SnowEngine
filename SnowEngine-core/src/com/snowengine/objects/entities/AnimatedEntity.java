@@ -99,4 +99,24 @@ public class AnimatedEntity extends AnimatedSprite implements EntityBase
     {
         return false;
     }
+    
+    @Override
+    public AnimatedEntity copy()
+    {
+        Texture textures[] = new Texture[this.getTextures().length];
+    
+        for (int i = 0; i < textures.length; i++)
+        {
+            textures[i] = this.getTextures()[i].copy();
+        }
+        
+        AnimatedEntity result = new AnimatedEntity(textures);
+        result.move(this.transform.getPosition());
+        
+        result.transform.getScale().x = this.transform.getScale().x;
+        result.transform.getScale().y = this.transform.getScale().y;
+        result.transform.getScale().z = this.transform.getScale().z;
+        
+        return result;
+    }
 }

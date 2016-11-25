@@ -48,7 +48,8 @@ public final class TMXData extends XMLData
         m_Level = new Level();
         
         Map<Integer, TileBase> tileMap = this.createTileMap();
-        int[] tiles = this.loadMap();
+        int[] tiles = this.loadMap("Tiles");
+        int[] walls = this.loadMap("Walls");
         
         int mapWidth = this.getMapWidth();
         int mapHeight = this.getMapHeight();
@@ -70,6 +71,22 @@ public final class TMXData extends XMLData
                 }
             }
         }
+    
+        //for (int y = 0; y < mapHeight; y++)
+        //{
+        //    for (int x = 0; x < mapWidth; x++)
+        //    {
+        //        int tileId = walls[x + y * mapWidth];
+        //        Tile tile = (Tile) tileMap.get(tileId);
+        //        Vector3 newPosition = new Vector3(x * tileWidth, y * tileHeight, 0);
+        //        if (tile != null)
+        //        {
+        //            Tile newTile = tile.copy();
+        //            newTile.move(newPosition);
+        //            m_Level.addTile(newTile);
+        //        }
+        //    }
+        //}
         
         this.getObjectProperties("Lights");
     }
@@ -234,19 +251,7 @@ public final class TMXData extends XMLData
         {
             for (int x = 0; x < width; x++)
             {
-                if (id == 0)
-                {
-                    tileMap.put(id, new GroundTile(tileTextures[x + y * width]));
-                }
-                else if (id == 1)
-                {
-                    tileMap.put(id, new WallTile(tileTextures[x + y * width]));
-                }
-                else
-                {
-                    tileMap.put(id, new Tile(tileTextures[x + y * width]));
-                }
-                id++;
+                tileMap.put(id++, new Tile(tileTextures[x + y * width]));
             }
         }
         
@@ -288,7 +293,7 @@ public final class TMXData extends XMLData
         return Texture.splitTextures(filepath, columns, rows);
     }
     
-    private int[] loadMap()
+    private int[] loadMap(String name)
     {
         List<Integer> tileMap = new ArrayList<>();
         NodeList nodeList = this.getElementsByTagName("layer");

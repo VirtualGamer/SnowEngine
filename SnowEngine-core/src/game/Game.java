@@ -20,10 +20,8 @@ import com.snowengine.input.Keyboard;
 import com.snowengine.maths.Vector2;
 import com.snowengine.maths.Vector3;
 import com.snowengine.objects.AbstractGame;
-import com.snowengine.utils.ColorUtils;
 import com.snowengine.utils.FileUtils;
 import com.snowengine.utils.files.TMXFile;
-import game.commands.Command;
 import game.commands.CommandDialog;
 import game.entities.Coin;
 import game.entities.Crate;
@@ -55,7 +53,7 @@ public final class Game extends AbstractGame
     public void start()
     {
         TMXFile file = FileUtils.openTMXFile("maps/demo_map.tmx");
-        this.setLevel(file.getLevel());
+        this.setLevel(file.getLevel().copy());
 
         this.setAmbientColor(new Vector3(0.3f, 0.2f, 0.2f));
 

@@ -28,6 +28,8 @@ import java.util.List;
 
 public class Entity extends Sprite implements EntityBase
 {
+    private Texture m_Texture;
+    
     public Entity(String filepath)
     {
         super (filepath);
@@ -86,5 +88,18 @@ public class Entity extends Sprite implements EntityBase
     public boolean isSolid()
     {
         return false;
+    }
+    
+    @Override
+    public Entity copy()
+    {
+        Entity result = new Entity(this.getTexture().copy());
+        result.move(this.transform.getPosition());
+    
+        result.transform.getScale().x = this.transform.getScale().x;
+        result.transform.getScale().y = this.transform.getScale().y;
+        result.transform.getScale().z = this.transform.getScale().z;
+        
+        return result;
     }
 }

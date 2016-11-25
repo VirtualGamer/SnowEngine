@@ -151,4 +151,29 @@ public class AnimatedSprite extends GameObject
     {
         return new Vector2(m_Texture[0].getWidth(), m_Texture[0].getHeight());
     }
+    
+    protected Texture[] getTextures()
+    {
+        return m_Texture;
+    }
+    
+    @Override
+    public AnimatedSprite copy()
+    {
+        Texture textures[] = new Texture[m_Texture.length];
+        
+        for (int i = 0; i < textures.length; i++)
+        {
+            textures[i] = m_Texture[i].copy();
+        }
+        
+        AnimatedSprite result = new AnimatedSprite(textures);
+        result.move(this.transform.getPosition());
+        
+        result.transform.getScale().x = this.transform.getScale().x;
+        result.transform.getScale().y = this.transform.getScale().y;
+        result.transform.getScale().z = this.transform.getScale().z;
+        
+        return result;
+    }
 }

@@ -1,45 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="64" nextobjectid="19">
- <tileset firstgid="1" name="tilesheet" tilewidth="64" tileheight="64" tilecount="4" columns="2" rows="2">
-  <image source="../textures/tilesheet.png" width="128" height="128"/>
-  <tile id="0">
-   <properties>
-    <property name="solid" type="bool" value="false"/>
-   </properties>
-  </tile>
-  <tile id="1">
-   <properties>
-    <property name="solid" type="bool" value="true"/>
-   </properties>
-  </tile>
-  <tile id="2">
-   <properties>
-    <property name="solid" type="bool" value="true"/>
-   </properties>
-  </tile>
+ <tileset firstgid="1" name="Tilesheet" tilewidth="64" tileheight="64" tilecount="200" columns="10" rows="20">
+  <image source="tilesheet.png" trans="ffffff" width="640" height="1280"/>
  </tileset>
  <layer name="Tiles" width="20" height="20">
   <data encoding="csv">
-3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,
-3,3,3,3,3,3,3,3,3,2,3,3,3,3,3,3,3,3,3,3,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+14,14,14,137,138,139,140,14,14,14,14,14,14,137,138,139,140,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,137,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,
+0,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,0
+</data>
+ </layer>
+ <layer name="Walls" width="20" height="20">
+  <data encoding="csv">
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,
+13,44,48,97,98,99,100,47,93,94,95,96,48,97,98,99,100,45,49,13,
+13,54,58,142,108,109,110,57,142,104,105,145,58,107,108,109,145,55,59,13,
+13,64,68,152,118,119,120,67,152,114,115,155,68,117,118,119,155,65,69,13,
+13,74,78,127,128,129,130,77,123,124,125,126,78,127,128,129,130,75,79,13,
+13,84,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,13,
+13,22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,23,13,
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13
 </data>
  </layer>
  <objectgroup color="#00aa00" name="Lights">
@@ -52,13 +61,13 @@
     <property name="radius" type="float" value="128"/>
    </properties>
   </object>
-  <object id="10" name="Light" x="576" y="192" width="64" height="64">
+  <object id="10" name="Light" x="608" y="256" width="64" height="64">
    <properties>
     <property name="color" type="color" value="#ffffffff"/>
     <property name="radius" type="float" value="128"/>
    </properties>
   </object>
-  <object id="18" name="Light" x="1280" y="768" width="64" height="64">
+  <object id="18" name="Light" x="1216" y="768" width="64" height="64">
    <properties>
     <property name="color" type="color" value="#ffffffff"/>
     <property name="radius" type="float" value="128"/>
@@ -69,74 +78,74 @@
   <object id="9" name="Crate" x="256" y="960" width="64" height="64">
    <properties>
     <property name="animation speed" type="int" value="5"/>
-    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="audio" type="file" value="../../../AppData/Local/audio/crate_destroy.wav"/>
     <property name="columns" type="int" value="1"/>
     <property name="lootChance" type="int" value="5"/>
     <property name="playAudioEvent" value="onDestroy"/>
     <property name="rows" type="int" value="3"/>
-    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+    <property name="sprite" type="file" value="../../../AppData/Local/textures/crate_sheet.png"/>
    </properties>
   </object>
   <object id="12" name="Crate" x="320" y="960" width="64" height="64">
    <properties>
     <property name="animation speed" type="int" value="5"/>
-    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="audio" type="file" value="../../../AppData/Local/audio/crate_destroy.wav"/>
     <property name="columns" type="int" value="1"/>
     <property name="lootChance" type="int" value="5"/>
     <property name="playAudioEvent" value="onDestroy"/>
     <property name="rows" type="int" value="3"/>
-    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+    <property name="sprite" type="file" value="../../../AppData/Local/textures/crate_sheet.png"/>
    </properties>
   </object>
-  <object id="13" name="Crate" x="0" y="256" width="64" height="64">
+  <object id="13" name="Crate" x="128" y="320" width="64" height="64">
    <properties>
     <property name="animation speed" type="int" value="5"/>
-    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="audio" type="file" value="../../../AppData/Local/audio/crate_destroy.wav"/>
     <property name="columns" type="int" value="1"/>
     <property name="lootChance" type="int" value="5"/>
     <property name="playAudioEvent" value="onDestroy"/>
     <property name="rows" type="int" value="3"/>
-    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+    <property name="sprite" type="file" value="../../../AppData/Local/textures/crate_sheet.png"/>
    </properties>
   </object>
-  <object id="14" name="Crate" x="64" y="256" width="64" height="64">
+  <object id="14" name="Crate" x="128" y="384" width="64" height="64">
    <properties>
     <property name="animation speed" type="int" value="5"/>
-    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="audio" type="file" value="../../../AppData/Local/audio/crate_destroy.wav"/>
     <property name="columns" type="int" value="1"/>
     <property name="lootChance" type="int" value="5"/>
     <property name="playAudioEvent" value="onDestroy"/>
     <property name="rows" type="int" value="3"/>
-    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+    <property name="sprite" type="file" value="../../../AppData/Local/textures/crate_sheet.png"/>
    </properties>
   </object>
-  <object id="15" name="Crate" x="0" y="320" width="64" height="64">
+  <object id="15" name="Crate" x="64" y="384" width="64" height="64">
    <properties>
     <property name="animation speed" type="int" value="5"/>
-    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="audio" type="file" value="../../../AppData/Local/audio/crate_destroy.wav"/>
     <property name="columns" type="int" value="1"/>
     <property name="lootChance" type="int" value="5"/>
     <property name="playAudioEvent" value="onDestroy"/>
     <property name="rows" type="int" value="3"/>
-    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+    <property name="sprite" type="file" value="../../../AppData/Local/textures/crate_sheet.png"/>
    </properties>
   </object>
   <object id="16" name="Crate" x="896" y="1152" width="64" height="64">
    <properties>
     <property name="animation speed" type="int" value="5"/>
-    <property name="audio" type="file" value="../audio/crate_destroy.wav"/>
+    <property name="audio" type="file" value="../../../AppData/Local/audio/crate_destroy.wav"/>
     <property name="columns" type="int" value="1"/>
     <property name="lootChance" type="int" value="5"/>
     <property name="playAudioEvent" value="onDestroy"/>
     <property name="rows" type="int" value="3"/>
-    <property name="sprite" type="file" value="../textures/crate_sheet.png"/>
+    <property name="sprite" type="file" value="../../../AppData/Local/textures/crate_sheet.png"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup color="#5500ff" name="Doors">
-  <object id="8" name="Door" x="576" y="128" width="64" height="128">
+  <object id="8" name="Door" x="576" y="128" width="128" height="192">
    <properties>
-    <property name="audio" type="file" value="../audio/door_enter.wav"/>
+    <property name="audio" type="file" value="../../../AppData/Local/audio/door_enter.wav"/>
     <property name="playAudioEvent" value="onCollision"/>
    </properties>
   </object>
@@ -148,7 +157,7 @@
     <property name="columns" type="int" value="1"/>
     <property name="rows" type="int" value="7"/>
     <property name="speed" type="float" value="5"/>
-    <property name="sprite" type="file" value="../textures/player.png"/>
+    <property name="sprite" type="file" value="../../../AppData/Local/textures/player.png"/>
    </properties>
   </object>
  </objectgroup>

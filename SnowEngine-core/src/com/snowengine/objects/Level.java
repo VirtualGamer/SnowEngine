@@ -36,7 +36,6 @@ import java.util.List;
 
 public final class Level extends GameObject
 {
-    public static final int DEFAULT_TILE_SIZE = 64;
     private List<TileBase> m_Tiles;
     private List<Light> m_Lights;
     private List<EntityBase> m_Entities;
@@ -277,6 +276,40 @@ public final class Level extends GameObject
     public Canvas getCanvas()
     {
         return m_Canvas;
+    }
+    
+    @Override
+    public Level copy()
+    {
+        Level level = new Level();
+        
+        m_Tiles.forEach(tile -> {
+            if (tile instanceof Tile)
+            {
+                level.addTile(((Tile) tile).copy());
+            }
+            else if (tile instanceof AnimatedTile)
+            {
+                level.addTile(((AnimatedTile) tile).copy());
+            }
+        });
+    
+        m_Lights.forEach(light -> {
+            level.addLight(light.copy());
+        });
+        
+        m_Entities.forEach(entity -> {
+            if (entity instanceof Entity)
+            {
+                level.addEntity(((Entity) entity).copy());
+            }
+            else if (entity instanceof AnimatedEntity)
+            {
+                level.addEntity(((AnimatedEntity) entity).copy());
+            }
+        });
+        
+        return level;
     }
     
     private int compare(EntityBase e1, EntityBase e2)

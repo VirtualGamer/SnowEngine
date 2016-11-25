@@ -156,4 +156,16 @@ public class GameObject extends Object
             return false;
         }
     }
+    
+    public GameObject copy()
+    {
+        GameObject result = new GameObject(this.name, this.getInstanceID());
+        result.move(this.transform.getPosition());
+    
+        result.transform.getScale().x = this.transform.getScale().x;
+        result.transform.getScale().y = this.transform.getScale().y;
+        result.transform.getScale().z = this.transform.getScale().z;
+        
+        return result;
+    }
 }
